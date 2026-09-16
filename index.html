@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iarlqsensi</title>
+<style>
+:root{--bg:#07070a;--panel:#111117;--panel2:#17131e;--line:#292332;--p:#a35cff;--p2:#c49aff;--txt:#faf8ff;--muted:#a7a1b2}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#29153d,transparent 38%),var(--bg);color:var(--txt);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.app{width:min(100%,560px);margin:auto;padding:15px 15px 35px}
+header{height:55px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:25px;font-weight:900;letter-spacing:-1px}.logo i{color:var(--p);font-style:normal}.hamb{background:var(--panel);border:1px solid var(--line);color:#fff;border-radius:13px;padding:10px 13px;font-size:18px}
+.view{display:none}.view.active{display:block}.hero{padding:28px 3px 17px}.kicker{font-size:11px;letter-spacing:1.7px;font-weight:900;color:var(--p2)}h1{font-size:34px;line-height:1.02;margin:8px 0}.desc{color:var(--muted);font-size:14px;line-height:1.5}.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{min-height:137px;padding:17px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,var(--panel2),var(--panel));cursor:pointer}.ico{font-size:25px;margin-bottom:15px}.card strong{font-size:15px}.card p{font-size:12px;color:var(--muted);margin:7px 0;line-height:1.35}
+.back{background:none;border:0;color:var(--muted);padding:10px 0 18px;font-size:14px}.title{font-size:25px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin-bottom:18px}.list{display:grid;gap:10px}.opt{display:flex;align-items:center;gap:12px;padding:14px;background:var(--panel);border:1px solid var(--line);border-radius:16px;cursor:pointer}.avatar{width:44px;height:44px;border-radius:13px;background:#251536;display:grid;place-items:center;font-weight:900;color:var(--p2);position:relative}.crown{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:18px}.arrow{margin-left:auto;color:var(--muted)}.label{font-weight:800}.hint{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:5px 0 15px}.pill{border:1px solid var(--line);background:#0e0e13;color:var(--muted);border-radius:999px;padding:8px 11px;font-size:11px}
+.result{border:1px solid #39264f;background:linear-gradient(150deg,#19121f,#0d0d12);border-radius:22px;padding:17px}.rhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.tag{font-size:10px;color:var(--p2);font-weight:900;letter-spacing:1px}.rtitle{font-weight:900;margin-top:3px}.vals{display:grid;grid-template-columns:1fr 1fr;gap:9px}.val{background:#09090d;border:1px solid var(--line);border-radius:14px;padding:11px}.val small{display:block;color:var(--muted);font-size:10px}.val b{font-size:25px}.buttons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.btn{border:0;border-radius:14px;padding:14px;font-weight:900;background:var(--p);color:#fff}.btn.alt{background:#15131b;border:1px solid var(--line)}.wide{grid-column:1/-1}.note{font-size:11px;color:var(--muted);margin-top:13px;line-height:1.45}
+@media(max-width:380px){.cards{grid-template-columns:1fr}h1{font-size:30px}}
+</style></head>
+<body><main class="app">
+<header><div class="logo">iar<i>lqsensi</i></div><button class="hamb">☰</button></header>
+
+<section id="home" class="view active"><div class="hero"><div class="kicker">GERADOR DE SENSIBILIDADE</div><h1>Sua sensi.<br>Seu estilo.</h1><div class="desc">Crie configurações para Free Fire e gere uma nova combinação quando quiser.</div></div>
+<div class="cards">
+<div class="card" onclick="go('famous')"><div class="ico">👑</div><strong>Sensi dos Famosos</strong><p>Escolha o jogador, categoria e aparelho.</p></div>
+<div class="card" onclick="go('random')"><div class="ico">🎲</div><strong>Sensi Aleatória</strong><p>Gere uma combinação independente.</p></div>
+<div class="card"><div class="ico">🔫</div><strong>Sensi por Arma</strong><p>Organize sua sensi por arma.</p></div>
+<div class="card"><div class="ico">✨</div><strong>Sensi Especial</strong><p>Configurações especiais do site.</p></div>
+<div class="card"><div class="ico">📱</div><strong>DPI</strong><p>Área para sugestões de DPI.</p></div>
+<div class="card" onclick="showFav()"><div class="ico">♡</div><strong>Favoritos</strong><p>Veja a última configuração salva.</p></div>
+</div></section>
+
+<section id="famous" class="view"><button class="back" onclick="go('home')">← Voltar</button><h2 class="title">Sensi dos Famosos</h2><div class="sub">Escolha um jogador</div><div class="list">
+<div class="opt" onclick="player('Nobru')"><div class="avatar">N</div><div><div class="label">Nobru</div><span class="hint">Configuração de famoso</span></div><span class="arrow">›</span></div>
+<div class="opt" onclick="player('VTRLQ')"><div class="avatar"><span class="crown">👑</span>V</div><div><div class="label">VTRLQ</div><span class="hint">Configuração de famoso</span></div><span class="arrow">›</span></div>
+<div class="opt" onclick="player('Fantasma')"><div class="avatar">F</div><div><div class="label">Fantasma</div><span class="hint">Configuração de famoso</span></div><span class="arrow">›</span></div>
+</div></section>
+
+<section id="level" class="view"><button class="back" onclick="go('famous')">← Voltar</button><h2 class="title">Sensibilidade</h2><div class="sub">Escolha a categoria</div><div class="list">
+<div class="opt" onclick="level('Baixa')"><div class="avatar">78</div><div><div class="label">Baixa</div><span class="hint">78 – 118</span></div><span class="arrow">›</span></div>
+<div class="opt" onclick="level('Média')"><div class="avatar">120</div><div><div class="label">Média</div><span class="hint">120 – 150</span></div><span class="arrow">›</span></div>
+<div class="opt" onclick="level('Alta')"><div class="avatar">151</div><div><div class="label">Alta</div><span class="hint">151 – 200</span></div><span class="arrow">›</span></div>
+</div></section>
+
+<section id="phone" class="view"><button class="back" onclick="go('level')">← Voltar</button><h2 class="title">Seu aparelho</h2><div class="sub">Escolha o tipo</div><div class="list">
+<div class="opt" onclick="phones('iPhone')"><div class="avatar"></div><div class="label">iPhone</div><span class="arrow">›</span></div>
+<div class="opt" onclick="brands()"><div class="avatar">A</div><div class="label">Android</div><span class="arrow">›</span></div>
+</div><div id="subphones"></div></section>
+
+<section id="result" class="view"><button class="back" onclick="go('phone')">← Voltar</button><h2 class="title">Sensi gerada</h2><div class="pills"><span class="pill" id="p1"></span><span class="pill" id="p2"></span><span class="pill" id="p3"></span></div><div class="result"><div class="rhead"><div><div class="tag">iarlqsensi</div><div class="rtitle" id="rt"></div></div><span>✓</span></div><div class="vals" id="vals"></div><div class="buttons"><button class="btn alt" onclick="save()">♡ Salvar</button><button class="btn" onclick="generate()">↻ Gerar outra</button><button class="btn alt wide" onclick="copy()">Copiar valores</button></div><div class="note">Você pode tocar em “Gerar outra” quantas vezes quiser. Jogador, categoria e aparelho continuam os mesmos.</div></div></section>
+
+<section id="random" class="view"><button class="back" onclick="go('home')">← Voltar</button><h2 class="title">Sensi Aleatória</h2><div class="sub">Escolha uma faixa para gerar.</div><div class="list"><div class="opt" onclick="randomStart('Baixa')"><div class="avatar">78</div><b>Baixa</b></div><div class="opt" onclick="randomStart('Média')"><div class="avatar">120</div><b>Média</b></div><div class="opt" onclick="randomStart('Alta')"><div class="avatar">151</div><b>Alta</b></div></div></section>
+
+<section id="fav" class="view"><button class="back" onclick="go('home')">← Voltar</button><h2 class="title">Favoritos</h2><div class="sub" id="favtext">Nenhum favorito salvo.</div></section>
+</main>
+<script>
+const state={player:'',level:'',phone:''};
+const ranges={Baixa:[78,118],Média:[120,150],Alta:[151,200]};
+const fields=['Geral','Ponto Vermelho','Mira 2x','Mira 4x','AWM','Olhadinha'];
+const iph=['iPhone 11','iPhone 11 Pro','iPhone 12','iPhone 12 Pro','iPhone 13','iPhone 13 Pro','iPhone 14','iPhone 14 Pro','iPhone 15','iPhone 15 Pro','iPhone 16','iPhone 16 Pro','iPhone 17','iPhone 17 Pro'];
+const and={Samsung:['Galaxy A14','Galaxy A24','Galaxy A34','Galaxy A54','Galaxy S21 FE','Galaxy S22','Galaxy S23','Galaxy S24','Galaxy S25','Galaxy Note 20'],POCO:['POCO X3 Pro','POCO X4 Pro','POCO X5 Pro','POCO X6','POCO X6 Pro','POCO F4','POCO F5','POCO F6'],Realme:['Realme C55','Realme C67','Realme 9','Realme 10','Realme 11','Realme 12','GT Neo 3','GT 6'],Xiaomi:['Redmi Note 10','Redmi Note 11','Redmi Note 12','Redmi Note 13','Redmi Note 14','Xiaomi 12','Xiaomi 13','Xiaomi 14'],Motorola:['Moto G52','Moto G53','Moto G54','Moto G84','Moto G85','Edge 30','Edge 40','Edge 50'],ASUS:['ROG Phone 5','ROG Phone 6','ROG Phone 7','ROG Phone 8','Zenfone 9','Zenfone 10','Zenfone 11']};
+function go(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}
+function player(x){state.player=x;go('level')}
+function level(x){state.level=x;go('phone')}
+function mk(items,fn){document.getElementById('subphones').innerHTML='<div class="sub" style="margin-top:18px">Escolha o modelo</div><div class="list">'+items.map(x=>`<div class="opt" onclick="${fn}('${x.replace(/'/g,"\\'")}')"><div class="avatar">•</div><div class="label">${x}</div><span class="arrow">›</span></div>`).join('')+'</div>'}
+function phones(){mk(iph,'pick')}
+function brands(){mk(Object.keys(and),'brand')}
+function brand(x){mk(and[x],'pick')}
+function pick(x){state.phone=x;generate()}
+function randomStart(x){state.player='Aleatória';state.level=x;state.phone='Aleatório';generate()}
+function generate(){go('result');const [a,b]=ranges[state.level];document.getElementById('p1').textContent=state.player;document.getElementById('p2').textContent=state.level;document.getElementById('p3').textContent=state.phone;document.getElementById('rt').textContent=state.player==='Aleatória'?'Nova configuração':state.player;document.getElementById('vals').innerHTML=fields.map(f=>{const v=Math.floor(Math.random()*(b-a+1))+a;return `<div class="val"><small>${f}</small><b>${v}</b></div>`}).join('')}
+function save(){localStorage.setItem('iarlqsensi:last',document.getElementById('p1').textContent+' • '+document.getElementById('p2').textContent+' • '+document.getElementById('p3').textContent+'\n'+[...document.querySelectorAll('.val')].map(x=>x.innerText).join('\n'));alert('Configuração salva!')}
+function showFav(){go('fav');const x=localStorage.getItem('iarlqsensi:last');document.getElementById('favtext').innerText=x||'Nenhum favorito salvo.'}
+function copy(){const t=[...document.querySelectorAll('.val')].map(x=>x.innerText.replace('\n',' — ')).join('\n');navigator.clipboard?.writeText(t);alert('Valores copiados!')}
+document.addEventListener('click',e=>{const o=e.target.closest('.opt');if(!o)return;});
+</script>
+<script>
+/* Corrige seleção de marca Android sem alterar a tela */
+document.addEventListener('click',function(e){
+ const o=e.target.closest('.opt'); if(!o)return;
+ const txt=o.innerText.trim();
+ if(Object.keys(and).includes(txt)) brand(txt);
+});
+</script>
+</body></html>
