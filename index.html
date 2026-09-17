@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#080808">
+<meta name="theme-color" content="#050505">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>rlqsensi.ia 2.0</title>
 
 <style>
@@ -17,8 +16,8 @@
 }
 
 html{
-  scroll-behavior:smooth;
   background:#050505;
+  scroll-behavior:smooth;
 }
 
 body{
@@ -29,8 +28,7 @@ body{
   overflow-x:hidden;
 }
 
-button,
-a{
+button,a{
   font-family:inherit;
 }
 
@@ -51,14 +49,14 @@ button{
   position:fixed;
   inset:0;
   z-index:99999;
-  background:
-    radial-gradient(circle at 50% 35%,rgba(126,45,255,.18),transparent 32%),
-    #050505;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   padding:25px;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(126,45,255,.18),transparent 32%),
+    #050505;
 }
 
 .entry-box{
@@ -118,11 +116,6 @@ button{
   font-weight:1000;
   background:linear-gradient(135deg,#8b2cff,#5b00d8);
   box-shadow:0 0 30px rgba(126,35,255,.25);
-  transition:.2s;
-}
-
-.start-btn:active{
-  transform:scale(.96);
 }
 
 /* =========================
@@ -137,8 +130,8 @@ button{
   position:sticky;
   top:0;
   z-index:1000;
-  padding:15px 15px 12px;
-  background:rgba(5,5,5,.92);
+  padding:15px;
+  background:rgba(5,5,5,.94);
   backdrop-filter:blur(15px);
   border-bottom:1px solid rgba(140,60,255,.12);
 }
@@ -154,8 +147,6 @@ button{
 .logo{
   font-size:21px;
   font-weight:1000;
-  letter-spacing:-.8px;
-  color:#fff;
 }
 
 .logo span{
@@ -205,6 +196,10 @@ main{
   }
 }
 
+/* =========================
+   GERAL
+========================= */
+
 .page-head{
   margin-bottom:20px;
 }
@@ -212,7 +207,6 @@ main{
 .page-head h1{
   font-size:26px;
   font-weight:1000;
-  letter-spacing:-.8px;
 }
 
 .page-head p{
@@ -223,9 +217,6 @@ main{
 }
 
 .back-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
   background:#101010;
   color:#aaa;
   border:1px solid #252525;
@@ -236,92 +227,6 @@ main{
   font-weight:800;
 }
 
-/* =========================
-   HOME
-========================= */
-
-.home-title{
-  margin:5px 0 18px;
-}
-
-.home-title h1{
-  font-size:29px;
-  font-weight:1000;
-}
-
-.home-title p{
-  color:#777;
-  margin-top:5px;
-  font-size:13px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-
-.card{
-  position:relative;
-  min-height:130px;
-  padding:16px 13px;
-  border-radius:18px;
-  background:
-    linear-gradient(145deg,rgba(26,26,26,.96),rgba(10,10,10,.98));
-  border:1px solid #242424;
-  overflow:hidden;
-  transition:.18s;
-}
-
-.card:before{
-  content:"";
-  position:absolute;
-  width:90px;
-  height:90px;
-  background:rgba(126,35,255,.09);
-  filter:blur(30px);
-  right:-25px;
-  top:-25px;
-}
-
-.card:active{
-  transform:scale(.97);
-  border-color:#7b27ff;
-}
-
-.card-icon{
-  width:39px;
-  height:39px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:12px;
-  background:rgba(119,32,255,.12);
-  border:1px solid rgba(136,48,255,.18);
-  font-size:19px;
-  margin-bottom:13px;
-}
-
-.card h3{
-  position:relative;
-  z-index:2;
-  font-size:14px;
-  font-weight:1000;
-}
-
-.card p{
-  position:relative;
-  z-index:2;
-  color:#707070;
-  font-size:10px;
-  margin-top:5px;
-  line-height:1.35;
-}
-
-/* =========================
-   BOTOES
-========================= */
-
 .primary-btn{
   width:100%;
   padding:15px;
@@ -330,7 +235,6 @@ main{
   color:#fff;
   font-weight:1000;
   font-size:14px;
-  box-shadow:0 8px 25px rgba(100,20,255,.14);
 }
 
 .secondary-btn{
@@ -366,23 +270,13 @@ main{
   font-size:12px;
   font-weight:900;
   min-height:56px;
-  transition:.18s;
-}
-
-.option:active{
-  transform:scale(.97);
 }
 
 .option.selected{
   border-color:#8732ff;
   background:rgba(111,0,255,.12);
   color:#fff;
-  box-shadow:0 0 18px rgba(111,0,255,.08);
 }
-
-/* =========================
-   SELEÇÃO
-========================= */
 
 .section-label{
   color:#777;
@@ -407,6 +301,83 @@ main{
 }
 
 /* =========================
+   HOME
+========================= */
+
+.home-title{
+  margin:5px 0 18px;
+}
+
+.home-title h1{
+  font-size:29px;
+  font-weight:1000;
+}
+
+.home-title p{
+  color:#777;
+  margin-top:5px;
+  font-size:13px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.card{
+  position:relative;
+  min-height:130px;
+  padding:16px 13px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#1a1a1a,#0a0a0a);
+  border:1px solid #242424;
+  overflow:hidden;
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  width:90px;
+  height:90px;
+  background:rgba(126,35,255,.09);
+  filter:blur(30px);
+  right:-25px;
+  top:-25px;
+}
+
+.card-icon{
+  width:39px;
+  height:39px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:rgba(119,32,255,.12);
+  border:1px solid rgba(136,48,255,.18);
+  font-size:19px;
+  margin-bottom:13px;
+}
+
+.card h3,
+.card p{
+  position:relative;
+  z-index:2;
+}
+
+.card h3{
+  font-size:14px;
+  font-weight:1000;
+}
+
+.card p{
+  color:#707070;
+  font-size:10px;
+  margin-top:5px;
+  line-height:1.35;
+}
+
+/* =========================
    FAMOSOS
 ========================= */
 
@@ -424,12 +395,6 @@ main{
   background:#101010;
   border:1px solid #242424;
   text-align:center;
-  overflow:hidden;
-  transition:.18s;
-}
-
-.player-card:active{
-  transform:scale(.97);
 }
 
 .player-card.selected{
@@ -441,12 +406,11 @@ main{
   width:58px;
   height:58px;
   border-radius:50%;
-  margin:10px auto 10px;
+  margin:10px auto;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:
-    radial-gradient(circle,#9c4cff 0%,#4b00ae 55%,#1b0737 100%);
+  background:radial-gradient(circle,#9c4cff,#4b00ae 55%,#1b0737);
   border:2px solid rgba(151,74,255,.5);
   font-size:20px;
   font-weight:1000;
@@ -470,7 +434,6 @@ main{
   height:27px;
   line-height:27px;
   margin-bottom:-3px;
-  filter:drop-shadow(0 0 7px rgba(255,206,60,.2));
 }
 
 .player-crown-space{
@@ -567,7 +530,6 @@ main{
 
 .empty h3{
   font-size:15px;
-  font-weight:1000;
 }
 
 .empty p{
@@ -614,7 +576,7 @@ main{
 }
 
 /* =========================
-   RECONISE / ESPECIAL
+   ESPECIAL
 ========================= */
 
 .unlock-card{
@@ -645,7 +607,6 @@ main{
 
 .unlock-head h2{
   font-size:20px;
-  font-weight:1000;
 }
 
 .unlock-head p{
@@ -662,7 +623,6 @@ main{
 }
 
 .unlock-action{
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -672,7 +632,6 @@ main{
   background:#111;
   border:1px solid #272727;
   text-align:left;
-  transition:.25s;
 }
 
 .unlock-action.done{
@@ -729,17 +688,9 @@ main{
 }
 
 @keyframes checkPop{
-  0%{
-    transform:scale(0);
-    opacity:0;
-  }
-  55%{
-    transform:scale(1.22);
-    opacity:1;
-  }
-  100%{
-    transform:scale(1);
-  }
+  0%{transform:scale(0);opacity:0}
+  55%{transform:scale(1.22);opacity:1}
+  100%{transform:scale(1);opacity:1}
 }
 
 .check-mark{
@@ -763,22 +714,11 @@ main{
 .acquire{
   margin-top:17px;
   display:none;
-  animation:acquireIn .45s ease;
 }
 
 .acquire.show{
   display:block;
-}
-
-@keyframes acquireIn{
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  animation:screenIn .45s ease;
 }
 
 .lock-message{
@@ -786,10 +726,6 @@ main{
   margin-top:14px;
   color:#666;
   font-size:10px;
-}
-
-.lock-message.unlocked{
-  color:#a25cff;
 }
 
 /* =========================
@@ -850,7 +786,6 @@ main{
     #080808;
   border-radius:14px;
   margin-bottom:13px;
-  overflow:hidden;
 }
 
 .fake-cursor{
@@ -885,10 +820,6 @@ main{
   margin-bottom:15px;
 }
 
-.warning b{
-  color:#aaa;
-}
-
 /* =========================
    OTIMIZAÇÃO
 ========================= */
@@ -911,19 +842,12 @@ main{
   justify-content:center;
   background:
     radial-gradient(circle,#0c0c0c 57%,transparent 58%),
-    conic-gradient(#8b32ff 0deg,#8b32ff 0deg,#222 0deg);
-  box-shadow:0 0 30px rgba(126,40,255,.12);
-  transition:.08s linear;
+    conic-gradient(#8b32ff 0deg,#222 0deg);
 }
 
 .progress-number{
   font-size:31px;
   font-weight:1000;
-}
-
-.progress-number small{
-  font-size:12px;
-  color:#777;
 }
 
 .loading-lines{
@@ -940,7 +864,6 @@ main{
   color:#555;
   border:1px solid #1d1d1d;
   font-size:10px;
-  transition:.3s;
 }
 
 .loading-line.active{
@@ -956,7 +879,6 @@ main{
 .optimization-complete{
   display:none;
   margin-top:17px;
-  animation:screenIn .4s ease;
 }
 
 .optimization-complete.show{
@@ -988,7 +910,6 @@ main{
 
 .support-box h2{
   font-size:20px;
-  font-weight:1000;
 }
 
 .support-box p{
@@ -1007,61 +928,25 @@ main{
 .social-button{
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
+  gap:8px;
+  width:100%;
   padding:14px;
   border-radius:13px;
   background:#111;
-  border:1px solid #272727;
+  border:1px solid #292929;
   color:#fff;
   text-decoration:none;
-}
-
-.social-button span{
-  display:flex;
-  align-items:center;
-  gap:10px;
   font-size:12px;
   font-weight:900;
 }
 
-.social-button small{
-  color:#666;
-}
-
-/* =========================
-   RODAPÉ
-========================= */
-
-.footer{
-  text-align:center;
-  color:#3f3f3f;
-  font-size:9px;
-  padding:35px 0 10px;
-}
-
-/* =========================
-   DESKTOP
-========================= */
-
 @media(min-width:700px){
-  main{
-    padding-left:22px;
-    padding-right:22px;
-  }
-
   .cards{
     grid-template-columns:repeat(3,1fr);
   }
 
   .players-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .option-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .weapon-grid{
     grid-template-columns:repeat(3,1fr);
   }
 }
@@ -1071,22 +956,27 @@ main{
 <body>
 
 <!-- =========================
-     TELA DE ENTRADA
+     ENTRADA
 ========================= -->
 
-<div id="entry">
+<section id="entry">
   <div class="entry-box">
     <div class="entry-brand">rlqsensi.ia</div>
     <div class="entry-version">2.0</div>
 
-    <div class="entry-title">A MELHOR SENSI DO CENÁRIO</div>
-    <div class="entry-sub">Sua sensibilidade começa aqui.</div>
+    <div class="entry-title">
+      A MELHOR SENSI DO CENÁRIO
+    </div>
+
+    <div class="entry-sub">
+      Sensibilidade, DPI, cursor e otimização.
+    </div>
 
     <button class="start-btn" onclick="startSite()">
       ▶ INICIAR
     </button>
   </div>
-</div>
+</section>
 
 <!-- =========================
      APP
@@ -1094,1122 +984,418 @@ main{
 
 <div id="app" class="hidden">
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="logo">
-        rlq<span>sensi</span><small class="logo-version">.ia</small>
-      </div>
-
-      <button class="home-btn" onclick="goHome()">⌂</button>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">
+      rlqsensi<span>.ia</span>
+      <span class="logo-version">2.0</span>
     </div>
-  </header>
-
-  <main>
-
-    <!-- =====================
-         HOME
-    ====================== -->
-
-    <section id="home" class="screen active">
-
-      <div class="home-title">
-        <h1>Olá, jogador.</h1>
-        <p>Escolha uma ferramenta e gere sua configuração.</p>
-      </div>
-
-      <div class="cards">
-
-        <button class="card" onclick="openScreen('famous')">
-          <div class="card-icon">👑</div>
-          <h3>Sensi dos Famosos</h3>
-          <p>Sensibilidades inspiradas nos grandes jogadores.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('custom')">
-          <div class="card-icon">🎯</div>
-          <h3>Sensi Personalizada</h3>
-          <p>Gere uma sensibilidade para seu aparelho.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('weapon')">
-          <div class="card-icon">🔫</div>
-          <h3>Sensibilidade por Arma</h3>
-          <p>Escolha sua arma e seu estilo.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('special')">
-          <div class="card-icon">🔓</div>
-          <h3>Sensi Especial</h3>
-          <p>Libere a sensibilidade especial.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('cursor')">
-          <div class="card-icon">🖱️</div>
-          <h3>Cursor Móvel</h3>
-          <p>Geração automática para seu aparelho.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('dpi')">
-          <div class="card-icon">⚙️</div>
-          <h3>DPI</h3>
-          <p>Ajuste recomendado para Android.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('optimization')">
-          <div class="card-icon">⚡</div>
-          <h3>Otimização Fluida</h3>
-          <p>Simule uma otimização completa.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('favorites')">
-          <div class="card-icon">⭐</div>
-          <h3>Favoritos</h3>
-          <p>Veja tudo que você salvou.</p>
-        </button>
-
-        <button class="card" onclick="openScreen('support')">
-          <div class="card-icon">💜</div>
-          <h3>Apoie o VTRLQ</h3>
-          <p>Entre nas redes oficiais.</p>
-        </button>
-
-      </div>
-
-      <div class="footer">
-        rlqsensi.ia 2.0 • VTRLQ
-      </div>
-    </section>
-
-
-    <!-- =====================
-         FAMOSOS
-    ====================== -->
-
-    <section id="famous" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Sensi dos Famosos</h1>
-        <p>Escolha um jogador para começar.</p>
-      </div>
-
-      <div class="players-grid">
-
-        <button class="player-card" onclick="selectFamous('Nobru')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">N</div>
-          <h3>Nobru</h3>
-          <p>Jogador</p>
-        </button>
-
-        <button class="player-card" onclick="selectFamous('VTRLQ')">
-          <div class="crown">👑</div>
-          <div class="player-avatar">V</div>
-          <h3>VTRLQ</h3>
-          <p>Jogador</p>
-        </button>
-
-        <button class="player-card" onclick="selectFamous('Fantasma')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">F</div>
-          <h3>Fantasma</h3>
-          <p>Jogador</p>
-        </button>
-
-        <button class="player-card" onclick="selectFamous('Bak')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">B</div>
-          <h3>Bak</h3>
-          <p>Jogador</p>
-        </button>
-
-        <button class="player-card" onclick="selectFamous('Thurzin')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">T</div>
-          <h3>Thurzin</h3>
-          <p>Jogador</p>
-        </button>
-
-        <button class="player-card" onclick="selectFamous('Cerol')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">C</div>
-          <h3>Cerol</h3>
-          <p>Jogador</p>
-        </button>
-
-        <button class="player-card" onclick="selectFamous('Two9')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">2</div>
-          <h3>Two9</h3>
-          <p>Jogador</p>
-        </button>
 
-        <button class="player-card" onclick="selectFamous('Freitas')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">F</div>
-          <h3>Freitas</h3>
-          <p>Jogador</p>
-        </button>
+    <button class="home-btn" onclick="goHome()">⌂</button>
+  </div>
+</header>
 
-        <button class="player-card" onclick="selectFamous('Bruno PlayHard')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">P</div>
-          <h3>PlayHard</h3>
-          <p>Jogador</p>
-        </button>
+<main>
 
-        <button class="player-card" onclick="selectFamous('Mito')">
-          <div class="player-crown-space"></div>
-          <div class="player-avatar">M</div>
-          <h3>Mito</h3>
-          <p>Jogador</p>
-        </button>
+<!-- HOME -->
 
-      </div>
-    </section>
+<section id="home" class="screen active">
 
+  <div class="home-title">
+    <h1>Central rlqsensi</h1>
+    <p>Escolha uma função para começar.</p>
+  </div>
 
-    <!-- =====================
-         CATEGORIA FAMOSOS
-    ====================== -->
+  <div class="cards">
 
-    <section id="famousCategory" class="screen">
+    <button class="card" onclick="openScreen('famous')">
+      <div class="card-icon">👑</div>
+      <h3>Sensi dos Famosos</h3>
+      <p>Use configurações inspiradas em jogadores famosos.</p>
+    </button>
 
-      <button class="back-btn" onclick="openScreen('famous')">← Voltar</button>
+    <button class="card" onclick="openScreen('custom')">
+      <div class="card-icon">🎯</div>
+      <h3>Sensi Personalizada</h3>
+      <p>Gere uma sensibilidade para seu aparelho.</p>
+    </button>
 
-      <div class="page-head">
-        <h1 id="famousPlayerTitle">Escolha a sensi</h1>
-        <p>Selecione uma categoria.</p>
-      </div>
+    <button class="card" onclick="openScreen('weapon')">
+      <div class="card-icon">🔫</div>
+      <h3>Sensibilidade por Arma</h3>
+      <p>Escolha arma e estilo de jogo.</p>
+    </button>
 
-      <div class="option-grid">
+    <button class="card" onclick="openScreen('special')">
+      <div class="card-icon">🔓</div>
+      <h3>Sensi Especial</h3>
+      <p>Libere a configuração especial.</p>
+    </button>
 
-        <button class="option" onclick="selectFamousCategory('Baixa')">
-          BAIXA
-        </button>
+    <button class="card" onclick="openScreen('cursor')">
+      <div class="card-icon">🖱️</div>
+      <h3>Cursor Móvel</h3>
+      <p>Geração automática para seu modelo.</p>
+    </button>
 
-        <button class="option" onclick="selectFamousCategory('Média')">
-          MÉDIA
-        </button>
+    <button class="card" onclick="openScreen('dpi')">
+      <div class="card-icon">⚙️</div>
+      <h3>DPI Android</h3>
+      <p>Gere uma configuração de DPI.</p>
+    </button>
 
-        <button class="option" onclick="selectFamousCategory('Alta')">
-          ALTA
-        </button>
+    <button class="card" onclick="openScreen('optimization')">
+      <div class="card-icon">⚡</div>
+      <h3>Otimização Fluida</h3>
+      <p>Simulação de otimização do aparelho.</p>
+    </button>
 
-      </div>
-    </section>
+    <button class="card" onclick="openScreen('favorites')">
+      <div class="card-icon">⭐</div>
+      <h3>Favoritos</h3>
+      <p>Veja tudo que você salvou.</p>
+    </button>
 
+    <button class="card" onclick="openScreen('support')">
+      <div class="card-icon">💜</div>
+      <h3>Apoie o VTRLQ</h3>
+      <p>Discord e TikTok oficiais.</p>
+    </button>
 
-    <!-- =====================
-         TELEFONE FAMOSOS
-    ====================== -->
+  </div>
+</section>
 
-    <section id="famousPhone" class="screen">
+<!-- FAMOSOS -->
 
-      <button class="back-btn" onclick="openScreen('famousCategory')">← Voltar</button>
+<section id="famous" class="screen">
 
-      <div class="page-head">
-        <h1>Qual seu celular?</h1>
-        <p>Escolha primeiro o sistema.</p>
-      </div>
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
 
-      <div class="option-grid">
-        <button class="option" onclick="choosePhoneType('famous','Android')">ANDROID</button>
-        <button class="option" onclick="choosePhoneType('famous','iPhone')">IPHONE</button>
-      </div>
+  <div class="page-head">
+    <h1>Sensi dos Famosos</h1>
+    <p>Escolha o jogador que você quer usar.</p>
+  </div>
 
-      <div id="famousBrandArea"></div>
-    </section>
+  <div id="players" class="players-grid"></div>
 
+  <div id="famousCategories" class="hidden">
+    <div class="section-label">ESCOLHA A CATEGORIA</div>
 
-    <!-- =====================
-         MARCAS FAMOSOS
-    ====================== -->
+    <div class="option-grid">
+      <button class="option" onclick="selectFamousCategory('Baixa',this)">Baixa</button>
+      <button class="option" onclick="selectFamousCategory('Média',this)">Média</button>
+      <button class="option" onclick="selectFamousCategory('Alta',this)">Alta</button>
+    </div>
+  </div>
 
-    <section id="famousBrand" class="screen">
+  <div id="famousPhone" class="hidden"></div>
 
-      <button class="back-btn" onclick="openScreen('famousPhone')">← Voltar</button>
+</section>
 
-      <div class="page-head">
-        <h1 id="famousBrandTitle">Escolha a marca</h1>
-        <p>Agora selecione a marca do aparelho.</p>
-      </div>
+<!-- PERSONALIZADA -->
 
-      <div id="famousBrands" class="option-grid"></div>
-    </section>
+<section id="custom" class="screen">
 
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
 
-    <!-- =====================
-         MODELOS FAMOSOS
-    ====================== -->
+  <div class="page-head">
+    <h1>Sensi Personalizada</h1>
+    <p>Escolha seu sistema, marca e modelo.</p>
+  </div>
 
-    <section id="famousModels" class="screen">
+  <div class="section-label">SISTEMA</div>
 
-      <button class="back-btn" onclick="openScreen('famousBrand')">← Voltar</button>
+  <div class="option-grid">
+    <button class="option" onclick="customSystem('Android')">Android</button>
+    <button class="option" onclick="customSystem('iPhone')">iPhone</button>
+  </div>
 
-      <div class="page-head">
-        <h1 id="famousModelTitle">Escolha o modelo</h1>
-        <p>Selecione seu aparelho.</p>
-      </div>
+  <div id="customPhone"></div>
 
-      <div id="famousModelGrid" class="option-grid"></div>
-    </section>
+</section>
 
+<!-- ARMAS -->
 
-    <!-- =====================
-         RESULTADO FAMOSOS
-    ====================== -->
+<section id="weapon" class="screen">
 
-    <section id="sensiResult" class="screen">
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
 
-      <button class="back-btn" onclick="openScreen('famousModels')">← Voltar</button>
+  <div class="page-head">
+    <h1>Sensibilidade por Arma</h1>
+    <p>QUAL ARMA VOCÊ QUER?</p>
+  </div>
 
-      <div class="result-box">
+  <div id="weaponList" class="weapon-grid"></div>
 
-        <div class="result-title" id="resultFamousName">
-          Sensibilidade
-        </div>
+  <div id="weaponStyle" class="hidden">
 
-        <div class="result-sub" id="resultFamousInfo">
-          Configuração gerada
-        </div>
+    <div class="section-label">ESCOLHA O ESTILO</div>
 
-        <div id="famousSensiList" class="sensi-list"></div>
+    <div class="option-grid">
+      <button class="option" onclick="generateWeapon('4X4')">4X4</button>
+      <button class="option" onclick="generateWeapon('X1')">X1</button>
+      <button class="option" onclick="generateWeapon('RANK')">RANK</button>
+    </div>
 
-        <button id="famousFavBtn" class="favorite-btn" onclick="saveCurrentFamousFavorite()">
-          ☆ Salvar nos favoritos
-        </button>
+  </div>
 
-        <div class="btn-row">
-          <button class="secondary-btn" onclick="generateSensi()">
-            🔄 Gerar outra
-          </button>
+  <div id="weaponResult"></div>
 
-          <button class="primary-btn" onclick="goHome()">
-            ✓ Concluir
-          </button>
-        </div>
+</section>
 
-      </div>
-    </section>
+<!-- ESPECIAL -->
 
+<section id="special" class="screen">
 
-    <!-- =====================
-         PERSONALIZADA
-    ====================== -->
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
 
-    <section id="custom" class="screen">
+  <div class="page-head">
+    <h1>Sensi Especial</h1>
+    <p>Reconise</p>
+  </div>
 
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
+  <div class="unlock-card">
 
-      <div class="page-head">
-        <h1>Sensi Personalizada</h1>
-        <p>Escolha seu aparelho para gerar uma sensibilidade.</p>
-      </div>
+    <div class="unlock-head">
 
-      <div class="option-grid">
-        <button class="option" onclick="customPhoneType('Android')">ANDROID</button>
-        <button class="option" onclick="customPhoneType('iPhone')">IPHONE</button>
-      </div>
+      <div class="unlock-icon">🔐</div>
 
-      <div id="customBrands" class="selection-box" style="display:none;margin-top:15px"></div>
-    </section>
+      <h2>Reconise</h2>
 
+      <p>
+        Para adquirir a sensibilidade especial,
+        complete as duas etapas abaixo.
+      </p>
 
-    <section id="customBrandScreen" class="screen">
+    </div>
 
-      <button class="back-btn" onclick="openScreen('custom')">← Voltar</button>
+    <div class="unlock-actions">
 
-      <div class="page-head">
-        <h1 id="customBrandTitle">Marca</h1>
-        <p>Escolha a marca.</p>
-      </div>
+      <button id="discordUnlock"
+              class="unlock-action"
+              onclick="completeUnlock('discord')">
 
-      <div id="customBrandGrid" class="option-grid"></div>
-    </section>
+        <div class="unlock-left">
 
+          <div class="social-icon">💬</div>
 
-    <section id="customModels" class="screen">
-
-      <button class="back-btn" onclick="openScreen('customBrandScreen')">← Voltar</button>
-
-      <div class="page-head">
-        <h1 id="customModelsTitle">Modelo</h1>
-        <p>Escolha o modelo do aparelho.</p>
-      </div>
-
-      <div id="customModelGrid" class="option-grid"></div>
-    </section>
-
-
-    <section id="customResult" class="screen">
-
-      <button class="back-btn" onclick="openScreen('customModels')">← Voltar</button>
-
-      <div class="result-box">
-
-        <div class="result-title">Sensi Personalizada</div>
-        <div class="result-sub" id="customResultInfo">Configuração gerada</div>
-
-        <div id="customSensiList" class="sensi-list"></div>
-
-        <button id="customFavBtn" class="favorite-btn" onclick="saveCurrentCustomFavorite()">
-          ☆ Salvar nos favoritos
-        </button>
-
-        <div class="btn-row">
-          <button class="secondary-btn" onclick="generateCustom()">
-            🔄 Gerar outra
-          </button>
-
-          <button class="primary-btn" onclick="goHome()">
-            ✓ Concluir
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- =====================
-         ARMAS
-    ====================== -->
-
-    <section id="weapon" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Sensibilidade por Arma</h1>
-        <p>QUAL ARMA VOCÊ QUER?</p>
-      </div>
-
-      <div class="weapon-grid">
-
-        <button class="weapon" onclick="selectWeapon('XM8')">
-          <strong>XM8</strong>
-          <small>Rifle</small>
-        </button>
-
-        <button class="weapon" onclick="selectWeapon('UMP')">
-          <strong>UMP</strong>
-          <small>SMG</small>
-        </button>
-
-        <button class="weapon" onclick="selectWeapon('Desert')">
-          <strong>Desert</strong>
-          <small>Pistola</small>
-        </button>
-
-        <button class="weapon" onclick="selectWeapon('MP40')">
-          <strong>MP40</strong>
-          <small>SMG</small>
-        </button>
-
-        <button class="weapon" onclick="selectWeapon('Carapina')">
-          <strong>Carapina</strong>
-          <small>Rifle</small>
-        </button>
-
-        <button class="weapon" onclick="selectWeapon('12 Nova')">
-          <strong>12 Nova</strong>
-          <small>Shotgun</small>
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <section id="weaponStyle" class="screen">
-
-      <button class="back-btn" onclick="openScreen('weapon')">← Voltar</button>
-
-      <div class="page-head">
-        <h1 id="weaponTitle">Arma</h1>
-        <p>Escolha o estilo.</p>
-      </div>
-
-      <div class="option-grid">
-
-        <button class="option" onclick="generateWeapon('4X4')">
-          4X4
-        </button>
-
-        <button class="option" onclick="generateWeapon('X1')">
-          X1
-        </button>
-
-        <button class="option" onclick="generateWeapon('RANK')">
-          RANK
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <section id="weaponResult" class="screen">
-
-      <button class="back-btn" onclick="openScreen('weaponStyle')">← Voltar</button>
-
-      <div class="result-box">
-
-        <div class="result-title" id="weaponResultTitle">
-          Sensibilidade
-        </div>
-
-        <div class="result-sub" id="weaponResultInfo"></div>
-
-        <div id="weaponSensiList" class="sensi-list"></div>
-
-        <button id="weaponFavBtn" class="favorite-btn" onclick="saveCurrentWeaponFavorite()">
-          ☆ Salvar nos favoritos
-        </button>
-
-        <div class="btn-row">
-          <button class="secondary-btn" onclick="generateWeapon(currentWeaponStyle)">
-            🔄 Gerar outra
-          </button>
-
-          <button class="primary-btn" onclick="goHome()">
-            ✓ Concluir
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- =====================
-         SENSi ESPECIAL
-    ====================== -->
-
-    <section id="special" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Sensi Especial</h1>
-        <p>Complete os dois passos para liberar sua sensibilidade.</p>
-      </div>
-
-      <div class="unlock-card">
-
-        <div class="unlock-head">
-
-          <div class="unlock-icon">
-            🔓
-          </div>
-
-          <h2>Reconise</h2>
-
-          <p>
-            Para adquirir a sensibilidade especial,
-            complete os dois passos abaixo.
-          </p>
-
-        </div>
-
-
-        <div class="unlock-actions">
-
-          <!-- DISCORD -->
-
-          <button
-            id="discordUnlock"
-            class="unlock-action"
-            onclick="completeUnlock('discord')"
-          >
-
-            <div class="unlock-left">
-
-              <div class="social-icon">
-                💬
-              </div>
-
-              <div class="unlock-text">
-                <strong>Entrar no Discord</strong>
-                <span>Toque para acessar o Discord</span>
-              </div>
-
-            </div>
-
-            <div class="check-wrap">
-              <span class="check-mark">✓</span>
-            </div>
-
-          </button>
-
-
-          <!-- TIKTOK -->
-
-          <button
-            id="tiktokUnlock"
-            class="unlock-action"
-            onclick="completeUnlock('tiktok')"
-          >
-
-            <div class="unlock-left">
-
-              <div class="social-icon">
-                ♪
-              </div>
-
-              <div class="unlock-text">
-                <strong>Seguir no TikTok</strong>
-                <span>Toque para acessar o TikTok</span>
-              </div>
-
-            </div>
-
-            <div class="check-wrap">
-              <span class="check-mark">✓</span>
-            </div>
-
-          </button>
-
-        </div>
-
-
-        <div id="lockMessage" class="lock-message">
-          Complete os dois passos para liberar.
-        </div>
-
-
-        <div id="acquireArea" class="acquire">
-
-          <button class="primary-btn" onclick="acquireSpecial()">
-            🔓 ADQUIRIR SENSIBILIDADE
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================
-         RESULTADO ESPECIAL
-    ====================== -->
-
-    <section id="specialResult" class="screen">
-
-      <button class="back-btn" onclick="openScreen('special')">← Voltar</button>
-
-      <div class="result-box">
-
-        <div class="result-title">
-          Sensi Especial
-        </div>
-
-        <div class="result-sub">
-          Sensibilidade adquirida com sucesso.
-        </div>
-
-        <div id="specialSensiList" class="sensi-list"></div>
-
-        <button id="specialFavBtn" class="favorite-btn" onclick="saveCurrentSpecialFavorite()">
-          ☆ Salvar nos favoritos
-        </button>
-
-        <div class="btn-row">
-
-          <button class="secondary-btn" onclick="generateSpecial()">
-            🔄 Gerar outra
-          </button>
-
-          <button class="primary-btn" onclick="goHome()">
-            ✓ Concluir
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================
-         CURSOR
-    ====================== -->
-
-    <section id="cursor" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Cursor Móvel</h1>
-        <p>Geração automática de cursor móvel.</p>
-      </div>
-
-      <div class="cursor-box">
-
-        <div class="cursor-preview">
-          <div class="fake-cursor">➤</div>
-        </div>
-
-        <p class="info-text">
-          Cursor móvel é gerado para cada modelo próprio por um especialista 24h.
-        </p>
-
-        <div class="section-label">ESCOLHA O SISTEMA</div>
-
-        <div class="option-grid">
-          <button class="option" onclick="cursorPhoneType('Android')">ANDROID</button>
-          <button class="option" onclick="cursorPhoneType('iPhone')">IPHONE</button>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <section id="cursorBrand" class="screen">
-
-      <button class="back-btn" onclick="openScreen('cursor')">← Voltar</button>
-
-      <div class="page-head">
-        <h1 id="cursorBrandTitle">Marca</h1>
-        <p>Escolha a marca do aparelho.</p>
-      </div>
-
-      <div id="cursorBrandGrid" class="option-grid"></div>
-
-    </section>
-
-
-    <section id="cursorModels" class="screen">
-
-      <button class="back-btn" onclick="openScreen('cursorBrand')">← Voltar</button>
-
-      <div class="page-head">
-        <h1 id="cursorModelsTitle">Modelo</h1>
-        <p>Escolha seu aparelho.</p>
-      </div>
-
-      <div id="cursorModelGrid" class="option-grid"></div>
-
-    </section>
-
-
-    <section id="cursorStyle" class="screen">
-
-      <button class="back-btn" onclick="openScreen('cursorModels')">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Tipo de Cursor</h1>
-        <p>Escolha o estilo que deseja gerar.</p>
-      </div>
-
-      <div class="option-grid">
-
-        <button class="option" onclick="generateCursor('Refinado')">
-          REFINADO
-        </button>
-
-        <button class="option" onclick="generateCursor('Individual')">
-          INDIVIDUAL
-        </button>
-
-        <button class="option" onclick="generateCursor('Preciso')">
-          PRECISO
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <section id="cursorResult" class="screen">
-
-      <button class="back-btn" onclick="openScreen('cursorStyle')">← Voltar</button>
-
-      <div class="result-box">
-
-        <div class="result-title">
-          Cursor Móvel
-        </div>
-
-        <div class="result-sub" id="cursorResultInfo"></div>
-
-        <div id="cursorList" class="sensi-list"></div>
-
-        <button id="cursorFavBtn" class="favorite-btn" onclick="saveCurrentCursorFavorite()">
-          ☆ Salvar nos favoritos
-        </button>
-
-        <div class="btn-row">
-
-          <button class="secondary-btn" onclick="generateCursor(currentCursorStyle)">
-            🔄 Gerar outra
-          </button>
-
-          <button class="primary-btn" onclick="goHome()">
-            ✓ Concluir
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================
-         DPI
-    ====================== -->
-
-    <section id="dpi" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="page-head">
-        <h1>DPI</h1>
-        <p>Ajuste recomendado para Android.</p>
-      </div>
-
-      <div class="warning">
-        <b>⚠ Atenção:</b>
-        DPI é ajuste do sistema e costuma existir apenas no Android.
-        Use com cuidado e pesquise como alterar no seu aparelho.
-      </div>
-
-      <div class="option-grid">
-
-        <button class="option" onclick="dpiPhoneType('Android')">
-          ANDROID
-        </button>
-
-        <button class="option" disabled style="opacity:.35;cursor:not-allowed">
-          IPHONE
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <section id="dpiBrand" class="screen">
-
-      <button class="back-btn" onclick="openScreen('dpi')">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Marca</h1>
-        <p>Escolha a marca do Android.</p>
-      </div>
-
-      <div id="dpiBrandGrid" class="option-grid"></div>
-
-    </section>
-
-
-    <section id="dpiModels" class="screen">
-
-      <button class="back-btn" onclick="openScreen('dpiBrand')">← Voltar</button>
-
-      <div class="page-head">
-        <h1 id="dpiModelsTitle">Modelo</h1>
-        <p>Escolha seu aparelho.</p>
-      </div>
-
-      <div id="dpiModelGrid" class="option-grid"></div>
-
-    </section>
-
-
-    <section id="dpiProfile" class="screen">
-
-      <button class="back-btn" onclick="openScreen('dpiModels')">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Perfil de DPI</h1>
-        <p>Escolha a intensidade.</p>
-      </div>
-
-      <div class="option-grid">
-
-        <button class="option" onclick="generateDpi('Fraco')">
-          FRACO
-        </button>
-
-        <button class="option" onclick="generateDpi('Médio')">
-          MÉDIO
-        </button>
-
-        <button class="option" onclick="generateDpi('Forte')">
-          FORTE
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <section id="dpiResult" class="screen">
-
-      <button class="back-btn" onclick="openScreen('dpiProfile')">← Voltar</button>
-
-      <div class="result-box">
-
-        <div class="result-title">
-          DPI Gerada
-        </div>
-
-        <div class="result-sub" id="dpiResultInfo"></div>
-
-        <div id="dpiList" class="sensi-list"></div>
-
-        <button id="dpiFavBtn" class="favorite-btn" onclick="saveCurrentDpiFavorite()">
-          ☆ Salvar nos favoritos
-        </button>
-
-        <div class="btn-row">
-
-          <button class="secondary-btn" onclick="generateDpi(currentDpiProfile)">
-            🔄 Gerar outra
-          </button>
-
-          <button class="primary-btn" onclick="goHome()">
-            ✓ Concluir
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================
-         OTIMIZAÇÃO
-    ====================== -->
-
-    <section id="optimization" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Otimização Fluida</h1>
-        <p>Escolha seu aparelho.</p>
-      </div>
-
-      <div class="option-grid">
-        <button class="option" onclick="optimizationPhoneType('Android')">
-          ANDROID
-        </button>
-
-        <button class="option" onclick="optimizationPhoneType('iPhone')">
-          IPHONE
-        </button>
-      </div>
-
-    </section>
-
-
-    <section id="optimizationBrand" class="screen">
-
-      <button class="back-btn" onclick="openScreen('optimization')">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Marca</h1>
-        <p>Escolha a marca.</p>
-      </div>
-
-      <div id="optimizationBrandGrid" class="option-grid"></div>
-
-    </section>
-
-
-    <section id="optimizationModels" class="screen">
-
-      <button class="back-btn" onclick="openScreen('optimizationBrand')">← Voltar</button>
-
-      <div class="page-head">
-        <h1 id="optimizationModelsTitle">Modelo</h1>
-        <p>Escolha seu aparelho.</p>
-      </div>
-
-      <div id="optimizationModelGrid" class="option-grid"></div>
-
-    </section>
-
-
-    <section id="optimizationGame" class="screen">
-
-      <button class="back-btn" onclick="openScreen('optimizationModels')">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Escolha o jogo</h1>
-        <p>Qual versão você usa?</p>
-      </div>
-
-      <div class="option-grid">
-
-        <button class="option" onclick="startOptimization('Free Fire')">
-          FREE FIRE
-        </button>
-
-        <button class="option" onclick="startOptimization('Free Fire MAX')">
-          FREE FIRE MAX
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <section id="optimizationProgress" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="optimization-box">
-
-        <div id="progressRing" class="progress-ring">
-          <div class="progress-number">
-            <span id="progressNumber">1</span><small>%</small>
-          </div>
-        </div>
-
-        <div id="progressStatus" class="complete-title">
-          Otimizando...
-        </div>
-
-        <div class="loading-lines">
-
-          <div class="loading-line" id="load1">
-            Limpando memória RAM
-          </div>
-
-          <div class="loading-line" id="load2">
-            Injetando boneco lento
-          </div>
-
-          <div class="loading-line" id="load3">
-            Injetando precision
-          </div>
-
-          <div class="loading-line" id="load4">
-            Otimizando o celular
-          </div>
-
-          <div class="loading-line" id="load5">
-            Ajustando desempenho
-          </div>
-
-          <div class="loading-line" id="load6">
-            Finalizando otimização
+          <div class="unlock-text">
+            <strong>Entrar no Discord</strong>
+            <span>Toque para continuar</span>
           </div>
 
         </div>
 
-        <div id="optimizationComplete" class="optimization-complete">
+        <div class="check-wrap">
+          <span class="check-mark">✓</span>
+        </div>
 
-          <div class="complete-title">
-            OTIMIZAÇÃO CONCLUÍDA
+      </button>
+
+      <button id="tiktokUnlock"
+              class="unlock-action"
+              onclick="completeUnlock('tiktok')">
+
+        <div class="unlock-left">
+
+          <div class="social-icon">♪</div>
+
+          <div class="unlock-text">
+            <strong>Seguir no TikTok</strong>
+            <span>Toque para continuar</span>
           </div>
-
-          <div class="complete-text">
-            Seu perfil está pronto.
-          </div>
-
-          <button
-            class="primary-btn"
-            style="margin-top:14px"
-            onclick="activateGame()"
-          >
-            ⚡ ATIVAR
-          </button>
-
-          <button
-            id="optimizationFavBtn"
-            class="favorite-btn"
-            onclick="saveCurrentOptimizationFavorite()"
-          >
-            ☆ Salvar nos favoritos
-          </button>
 
         </div>
 
-      </div>
-
-    </section>
-
-
-    <!-- =====================
-         FAVORITOS
-    ====================== -->
-
-    <section id="favorites" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="page-head">
-        <h1>Favoritos</h1>
-        <p>Suas configurações salvas.</p>
-      </div>
-
-      <div id="favoriteContent"></div>
-
-    </section>
-
-
-    <!-- =====================
-         APOIO
-    ====================== -->
-
-    <section id="support" class="screen">
-
-      <button class="back-btn" onclick="goHome()">← Voltar</button>
-
-      <div class="support-box">
-
-        <h2>Apoie o VTRLQ 💜</h2>
-
-        <p>
-          Acompanhe o projeto e fique por dentro das novidades
-          da rlqsensi.ia.
-        </p>
-
-        <div class="social-buttons">
-
-          <a
-            class="social-button"
-            href="https://discord.gg/rlq"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>💬 Discord</span>
-            <small>↗</small>
-          </a>
-
-          <a
-            class="social-button"
-            href="https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>♪ TikTok</span>
-            <small>↗</small>
-          </a>
-
+        <div class="check-wrap">
+          <span class="check-mark">✓</span>
         </div>
 
-      </div>
+      </button>
 
-    </section>
+    </div>
 
-  </main>
+    <div id="acquireArea" class="acquire">
 
+      <button class="primary-btn" onclick="acquireSpecial()">
+        ADQUIRIR SENSIBILIDADE
+      </button>
+
+    </div>
+
+    <div id="lockMessage" class="lock-message">
+      Complete Discord e TikTok para desbloquear.
+    </div>
+
+  </div>
+
+  <div id="specialResult"></div>
+
+</section>
+
+<!-- CURSOR -->
+
+<section id="cursor" class="screen">
+
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
+
+  <div class="page-head">
+    <h1>Cursor Móvel</h1>
+    <p>Geração automática de cursor móvel.</p>
+  </div>
+
+  <div class="cursor-box">
+
+    <div class="cursor-preview">
+      <div class="fake-cursor">➤</div>
+    </div>
+
+    <p class="info-text">
+      Cursor móvel é gerado para cada modelo próprio por um especialista 24h.
+    </p>
+
+    <div class="section-label">SISTEMA</div>
+
+    <div class="option-grid">
+      <button class="option" onclick="cursorSystem('Android')">Android</button>
+      <button class="option" onclick="cursorSystem('iPhone')">iPhone</button>
+    </div>
+
+    <div id="cursorPhone"></div>
+
+  </div>
+
+</section>
+
+<!-- DPI -->
+
+<section id="dpi" class="screen">
+
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
+
+  <div class="page-head">
+    <h1>DPI</h1>
+    <p>Configuração de DPI para Android.</p>
+  </div>
+
+  <div class="warning">
+    <b>Atenção:</b>
+    DPI é ajuste do sistema e costuma existir apenas no Android.
+    Use com cuidado e pesquise como alterar no seu aparelho.
+  </div>
+
+  <div class="section-label">MARCA</div>
+
+  <div id="dpiBrands" class="option-grid"></div>
+
+  <div id="dpiPhone"></div>
+
+</section>
+
+<!-- OTIMIZAÇÃO -->
+
+<section id="optimization" class="screen">
+
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
+
+  <div class="page-head">
+    <h1>Otimização Fluida</h1>
+    <p>Escolha seu aparelho e o jogo.</p>
+  </div>
+
+  <div class="section-label">SISTEMA</div>
+
+  <div class="option-grid">
+    <button class="option" onclick="optimizationSystem('Android')">Android</button>
+    <button class="option" onclick="optimizationSystem('iPhone')">iPhone</button>
+  </div>
+
+  <div id="optimizationPhone"></div>
+
+  <div id="optimizationGame" class="hidden">
+
+    <div class="section-label">ESCOLHA O JOGO</div>
+
+    <div class="option-grid">
+      <button class="option" onclick="startOptimization('Free Fire')">
+        Free Fire
+      </button>
+
+      <button class="option" onclick="startOptimization('Free Fire MAX')">
+        Free Fire MAX
+      </button>
+    </div>
+
+  </div>
+
+  <div id="optimizationResult"></div>
+
+</section>
+
+<!-- FAVORITOS -->
+
+<section id="favorites" class="screen">
+
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
+
+  <div class="page-head">
+    <h1>Favoritos</h1>
+    <p>Suas configurações salvas.</p>
+  </div>
+
+  <div id="favoriteContent"></div>
+
+</section>
+
+<!-- APOIO -->
+
+<section id="support" class="screen">
+
+  <button class="back-btn" onclick="goHome()">← Voltar</button>
+
+  <div class="page-head">
+    <h1>Apoie o VTRLQ</h1>
+    <p>Encontre as redes oficiais.</p>
+  </div>
+
+  <div class="support-box">
+
+    <h2>💜 Apoie o VTRLQ</h2>
+
+    <p>
+      Acompanhe o VTRLQ nas redes oficiais e fique por dentro das novidades.
+    </p>
+
+    <div class="social-buttons">
+
+      <a
+        class="social-button"
+        href="https://discord.gg/rlq"
+        target="_blank"
+        rel="noopener">
+        💬 Entrar no Discord
+      </a>
+
+      <a
+        class="social-button"
+        href="https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC"
+        target="_blank"
+        rel="noopener">
+        ♪ TikTok do VTRLQ
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
 </div>
 
-
 <script>
-
 /* =========================================================
-   CONTROLE DA ENTRADA
+   ENTRADA
 ========================================================= */
 
 const entry = document.getElementById("entry");
@@ -2221,24 +1407,22 @@ if(sessionStorage.getItem("rlq_started") === "1"){
 }
 
 function startSite(){
-
   sessionStorage.setItem("rlq_started","1");
 
-  entry.style.opacity="0";
-  entry.style.pointerEvents="none";
-  entry.style.transition="opacity .2s ease";
+  if(entry){
+    entry.style.opacity="0";
+    entry.style.pointerEvents="none";
+    entry.style.transition="opacity .2s ease";
 
-  setTimeout(function(){
-
-    if(entry) entry.remove();
-
+    setTimeout(function(){
+      if(entry) entry.remove();
+      app.classList.remove("hidden");
+      window.scrollTo(0,0);
+    },200);
+  }else{
     app.classList.remove("hidden");
-
-    window.scrollTo(0,0);
-
-  },200);
+  }
 }
-
 
 /* =========================================================
    NAVEGAÇÃO
@@ -2258,6 +1442,10 @@ function openScreen(id){
     target.classList.add("active");
   }
 
+  if(id === "favorites"){
+    renderFavorites();
+  }
+
   window.scrollTo(0,0);
 }
 
@@ -2265,711 +1453,676 @@ function goHome(){
   openScreen("home");
 }
 
-
 /* =========================================================
-   DADOS DOS APARELHOS
+   DADOS DOS CELULARES
 ========================================================= */
 
 const androidModels = {
 
   Samsung:[
-    "Galaxy A05",
-    "Galaxy A05s",
-    "Galaxy A14",
-    "Galaxy A15",
-    "Galaxy A24",
-    "Galaxy A25",
-    "Galaxy A34",
-    "Galaxy A35",
-    "Galaxy A54",
-    "Galaxy A55",
-    "Galaxy S20",
-    "Galaxy S20 FE",
-    "Galaxy S21",
-    "Galaxy S21 FE",
-    "Galaxy S22",
-    "Galaxy S22 Ultra",
-    "Galaxy S23",
-    "Galaxy S23 FE",
-    "Galaxy S24",
-    "Galaxy S24 Ultra"
+    "Galaxy A14 64GB",
+    "Galaxy A15 128GB",
+    "Galaxy A24 128GB",
+    "Galaxy A25 128GB",
+    "Galaxy A34 128GB",
+    "Galaxy A35 128GB",
+    "Galaxy A54 128GB",
+    "Galaxy A55 128GB",
+    "Galaxy S20 128GB",
+    "Galaxy S21 128GB",
+    "Galaxy S21 FE 128GB",
+    "Galaxy S22 128GB",
+    "Galaxy S22 Ultra 256GB",
+    "Galaxy S23 128GB",
+    "Galaxy S23 FE 128GB",
+    "Galaxy S23 Ultra 256GB",
+    "Galaxy S24 128GB",
+    "Galaxy S24+ 256GB",
+    "Galaxy S24 Ultra 256GB",
+    "Galaxy S25 256GB"
   ],
 
   POCO:[
-    "POCO C40",
-    "POCO C55",
-    "POCO C65",
-    "POCO M4 Pro",
-    "POCO M5",
-    "POCO M6",
-    "POCO X3 Pro",
-    "POCO X4 Pro",
-    "POCO X5",
-    "POCO X5 Pro",
-    "POCO X6",
-    "POCO X6 Pro",
-    "POCO F3",
-    "POCO F4",
-    "POCO F5",
-    "POCO F5 Pro",
-    "POCO F6",
-    "POCO F6 Pro",
-    "POCO F7",
-    "POCO F7 Pro"
+    "POCO X3 Pro 128GB",
+    "POCO X4 Pro 128GB",
+    "POCO X5 128GB",
+    "POCO X5 Pro 256GB",
+    "POCO X6 256GB",
+    "POCO X6 Pro 512GB",
+    "POCO X7 256GB",
+    "POCO X7 Pro 256GB",
+    "POCO F3 128GB",
+    "POCO F4 128GB",
+    "POCO F5 256GB",
+    "POCO F5 Pro 256GB",
+    "POCO F6 256GB",
+    "POCO F6 Pro 512GB",
+    "POCO M5 128GB",
+    "POCO M6 128GB",
+    "POCO M6 Pro 256GB",
+    "POCO M7 256GB",
+    "POCO M7 Pro 256GB",
+    "POCO C65 128GB"
   ],
 
   Realme:[
-    "Realme C25",
-    "Realme C30",
-    "Realme C33",
-    "Realme C35",
-    "Realme C53",
-    "Realme C55",
-    "Realme C67",
-    "Realme 8",
-    "Realme 8 Pro",
-    "Realme 9",
-    "Realme 9 Pro",
-    "Realme 10",
-    "Realme 10 Pro",
-    "Realme 11",
-    "Realme 11 Pro",
-    "Realme 12",
-    "Realme 12 Pro",
-    "Realme GT",
-    "Realme GT Neo",
-    "Realme GT 6"
+    "Realme C35 128GB",
+    "Realme C55 128GB",
+    "Realme C67 128GB",
+    "Realme C75 256GB",
+    "Realme 8 128GB",
+    "Realme 9 128GB",
+    "Realme 10 128GB",
+    "Realme 11 256GB",
+    "Realme 12 256GB",
+    "Realme 12 Pro 256GB",
+    "Realme 13 256GB",
+    "Realme 13 Pro 256GB",
+    "Realme GT 128GB",
+    "Realme GT 2 128GB",
+    "Realme GT 3 256GB",
+    "Realme GT 5 256GB",
+    "Realme GT 6 256GB",
+    "Realme GT 7 256GB",
+    "Realme Narzo 50 128GB",
+    "Realme Narzo 60 128GB"
   ],
 
   Xiaomi:[
-    "Redmi 9",
-    "Redmi 10",
-    "Redmi 10C",
-    "Redmi 12",
-    "Redmi 12C",
-    "Redmi 13",
-    "Redmi Note 10",
-    "Redmi Note 10 Pro",
-    "Redmi Note 11",
-    "Redmi Note 11 Pro",
-    "Redmi Note 12",
-    "Redmi Note 12 Pro",
-    "Redmi Note 13",
-    "Redmi Note 13 Pro",
-    "Redmi Note 13 Pro+",
-    "Xiaomi 11",
-    "Xiaomi 11T",
-    "Xiaomi 12",
-    "Xiaomi 13",
-    "Xiaomi 14"
+    "Redmi Note 10 128GB",
+    "Redmi Note 11 128GB",
+    "Redmi Note 12 128GB",
+    "Redmi Note 13 128GB",
+    "Redmi Note 14 256GB",
+    "Redmi Note 12 Pro 256GB",
+    "Redmi Note 13 Pro 256GB",
+    "Redmi Note 13 Pro+ 512GB",
+    "Redmi Note 14 Pro 256GB",
+    "Redmi Note 14 Pro+ 512GB",
+    "Xiaomi 11T 128GB",
+    "Xiaomi 12 128GB",
+    "Xiaomi 12T 256GB",
+    "Xiaomi 13 256GB",
+    "Xiaomi 13T 256GB",
+    "Xiaomi 13T Pro 512GB",
+    "Xiaomi 14 256GB",
+    "Xiaomi 14T 256GB",
+    "Xiaomi 14T Pro 512GB",
+    "Xiaomi 15 256GB"
   ],
 
   Motorola:[
-    "Moto G20",
-    "Moto G22",
-    "Moto G23",
-    "Moto G24",
-    "Moto G30",
-    "Moto G31",
-    "Moto G32",
-    "Moto G34",
-    "Moto G40",
-    "Moto G52",
-    "Moto G53",
-    "Moto G54",
-    "Moto G60",
-    "Moto G62",
-    "Moto G72",
-    "Moto G73",
-    "Moto G84",
-    "Edge 20",
-    "Edge 30",
-    "Edge 40"
+    "Moto G32 128GB",
+    "Moto G34 128GB",
+    "Moto G42 128GB",
+    "Moto G52 128GB",
+    "Moto G53 128GB",
+    "Moto G54 128GB",
+    "Moto G55 256GB",
+    "Moto G62 128GB",
+    "Moto G72 128GB",
+    "Moto G73 128GB",
+    "Moto G84 256GB",
+    "Moto G85 256GB",
+    "Moto Edge 20 128GB",
+    "Moto Edge 30 128GB",
+    "Moto Edge 30 Neo 128GB",
+    "Moto Edge 40 256GB",
+    "Moto Edge 40 Neo 256GB",
+    "Moto Edge 50 256GB",
+    "Moto Edge 50 Pro 256GB",
+    "Moto Edge 60 Pro 512GB"
   ],
 
   ASUS:[
-    "ROG Phone 3",
-    "ROG Phone 5",
-    "ROG Phone 5s",
-    "ROG Phone 6",
-    "ROG Phone 6D",
-    "ROG Phone 7",
-    "ROG Phone 8",
-    "ROG Phone 8 Pro",
-    "Zenfone 7",
-    "Zenfone 8",
-    "Zenfone 9",
-    "Zenfone 10",
-    "Zenfone 11",
-    "Zenfone 11 Ultra",
-    "ROG Phone II",
-    "ROG Phone 4",
-    "ROG Phone 5 Pro",
-    "ROG Phone 6 Pro",
-    "ROG Phone 7 Ultimate",
-    "ROG Phone 8 Pro Edition"
+    "ROG Phone 3 128GB",
+    "ROG Phone 5 256GB",
+    "ROG Phone 5s 256GB",
+    "ROG Phone 6 256GB",
+    "ROG Phone 6D 256GB",
+    "ROG Phone 7 256GB",
+    "ROG Phone 8 256GB",
+    "ROG Phone 9 256GB",
+    "Zenfone 8 128GB",
+    "Zenfone 9 128GB",
+    "Zenfone 10 256GB",
+    "Zenfone 11 256GB",
+    "Zenfone 11 Ultra 512GB"
   ]
-
 };
 
-
-const iphoneFamilies = {
-
-  "iPhone XR":[
-    "iPhone XR"
-  ],
-
-  "iPhone XS":[
-    "iPhone XS",
-    "iPhone XS Max"
-  ],
-
-  "iPhone 11":[
-    "iPhone 11",
-    "iPhone 11 Pro",
-    "iPhone 11 Pro Max"
-  ],
-
-  "iPhone 12":[
-    "iPhone 12",
-    "iPhone 12 mini",
-    "iPhone 12 Pro",
-    "iPhone 12 Pro Max"
-  ],
-
-  "iPhone 13":[
-    "iPhone 13",
-    "iPhone 13 mini",
-    "iPhone 13 Pro",
-    "iPhone 13 Pro Max"
-  ],
-
-  "iPhone 14":[
-    "iPhone 14",
-    "iPhone 14 Plus",
-    "iPhone 14 Pro",
-    "iPhone 14 Pro Max"
-  ],
-
-  "iPhone 15":[
-    "iPhone 15",
-    "iPhone 15 Plus",
-    "iPhone 15 Pro",
-    "iPhone 15 Pro Max"
-  ],
-
-  "iPhone 16":[
-    "iPhone 16",
-    "iPhone 16 Plus",
-    "iPhone 16 Pro",
-    "iPhone 16 Pro Max"
-  ],
-
-  "iPhone 17":[
-    "iPhone 17",
-    "iPhone 17 Air",
-    "iPhone 17 Pro",
-    "iPhone 17 Pro Max"
-  ]
-
+const iphoneModels = {
+  "iPhone XR":["XR"],
+  "iPhone XS":["XS","XS Max"],
+  "iPhone 11":["11","11 Pro","11 Pro Max"],
+  "iPhone 12":["12","12 mini","12 Pro","12 Pro Max"],
+  "iPhone 13":["13","13 mini","13 Pro","13 Pro Max"],
+  "iPhone 14":["14","14 Plus","14 Pro","14 Pro Max"],
+  "iPhone 15":["15","15 Plus","15 Pro","15 Pro Max"],
+  "iPhone 16":["16","16 Plus","16 Pro","16 Pro Max"],
+  "iPhone 17":["17","17 Air","17 Pro","17 Pro Max"]
 };
 
-
 /* =========================================================
-   ESTADO
+   FUNÇÕES AUXILIARES
 ========================================================= */
 
-let currentFamous = "";
-let currentFamousCategory = "";
-let currentFamousPhoneType = "";
-let currentFamousBrand = "";
-let currentFamousModel = "";
-let currentFamousValues = null;
-
-let currentCustomPhoneType = "";
-let currentCustomBrand = "";
-let currentCustomModel = "";
-let currentCustomValues = null;
-
-let currentWeapon = "";
-let currentWeaponStyle = "";
-let currentWeaponValues = null;
-
-let currentSpecialValues = null;
-
-let currentCursorPhoneType = "";
-let currentCursorBrand = "";
-let currentCursorModel = "";
-let currentCursorStyle = "";
-let currentCursorValues = null;
-
-let currentDpiBrand = "";
-let currentDpiModel = "";
-let currentDpiProfile = "";
-let currentDpiValue = 0;
-
-let currentOptimizationPhoneType = "";
-let currentOptimizationBrand = "";
-let currentOptimizationModel = "";
-let currentOptimizationGame = "";
-
-let favorites = JSON.parse(localStorage.getItem("rlq_favorites") || "[]");
-
-
-/* =========================================================
-   UTILITÁRIOS
-========================================================= */
-
-function randomInt(min,max){
-  return Math.floor(Math.random() * (max-min+1)) + min;
+function random(min,max){
+  return Math.floor(Math.random()*(max-min+1))+min;
 }
 
 function randomSensi(category){
 
-  let min = 78;
-  let max = 118;
+  const ranges = {
+    "Baixa":[78,118],
+    "Média":[120,150],
+    "Alta":[151,200]
+  };
 
-  if(category === "Média"){
-    min = 120;
-    max = 150;
-  }
-
-  if(category === "Alta"){
-    min = 151;
-    max = 200;
-  }
+  const range = ranges[category];
 
   return {
-    "Geral":randomInt(min,max),
-    "Ponto Vermelho":randomInt(min,max),
-    "Mira 2x":randomInt(min,max),
-    "Mira 4x":randomInt(min,max),
-    "AWM":randomInt(min,max),
-    "Olhadinha":randomInt(min,max)
+    "Geral":random(range[0],range[1]),
+    "Ponto Vermelho":random(range[0],range[1]),
+    "Mira 2x":random(range[0],range[1]),
+    "Mira 4x":random(range[0],range[1]),
+    "AWM":random(range[0],range[1]),
+    "Olhadinha":random(range[0],range[1])
   };
 }
 
-function renderSensiValues(containerId,values){
+function resultHTML(title,sub,values,favId){
 
-  const container = document.getElementById(containerId);
+  let html = `
+    <div class="result-box">
+      <div class="result-title">${title}</div>
+      <div class="result-sub">${sub}</div>
+      <div class="sensi-list">
+  `;
 
-  if(!container) return;
+  Object.keys(values).forEach(function(key){
 
-  container.innerHTML = "";
-
-  Object.keys(values).forEach(function(name){
-
-    const item = document.createElement("div");
-
-    item.className = "sensi-item";
-
-    item.innerHTML = `
-      <span>${name}</span>
-      <strong class="sensi-value">${values[name]}</strong>
+    html += `
+      <div class="sensi-item">
+        <span>${key}</span>
+        <span class="sensi-value">${values[key]}</span>
+      </div>
     `;
 
-    container.appendChild(item);
-
   });
-}
 
+  html += `
+      </div>
+
+      <button
+        id="fav-${favId}"
+        class="favorite-btn"
+        onclick="toggleFavorite('${favId}')">
+        ☆ ADICIONAR AOS FAVORITOS
+      </button>
+    </div>
+  `;
+
+  return html;
+}
 
 /* =========================================================
    FAMOSOS
 ========================================================= */
 
-function selectFamous(name){
+const famousPlayers = [
+  {name:"Nobru",initial:"N"},
+  {name:"VTRLQ",initial:"V",crown:true},
+  {name:"Fantasma",initial:"F"},
+  {name:"Bak",initial:"B"},
+  {name:"Thurzin",initial:"T"},
+  {name:"Cerol",initial:"C"},
+  {name:"Two9",initial:"2"},
+  {name:"Freitas",initial:"F"},
+  {name:"PlayHard",initial:"P"},
+  {name:"Mito",initial:"M"}
+];
 
-  currentFamous = name;
+let famousPlayer = "";
+let famousCategory = "";
 
-  document.getElementById("famousPlayerTitle").textContent =
-    name + " • Escolha a sensi";
+function renderPlayers(){
 
-  openScreen("famousCategory");
-}
+  const container = document.getElementById("players");
 
+  container.innerHTML = "";
 
-function selectFamousCategory(category){
+  famousPlayers.forEach(function(player){
 
-  currentFamousCategory = category;
+    const card = document.createElement("button");
+    card.className = "player-card";
 
-  openScreen("famousPhone");
-}
+    card.innerHTML = `
+      ${
+        player.crown
+        ? `<span class="crown">👑</span>`
+        : `<span class="player-crown-space"></span>`
+      }
 
+      <div class="player-avatar">${player.initial}</div>
 
-function choosePhoneType(flow,type){
+      <h3>${player.name}</h3>
+      <p>Selecionar jogador</p>
+    `;
 
-  if(flow === "famous"){
+    card.onclick = function(){
+      famousPlayer = player.name;
 
-    currentFamousPhoneType = type;
+      document
+        .querySelectorAll(".player-card")
+        .forEach(function(x){
+          x.classList.remove("selected");
+        });
 
-    if(type === "Android"){
+      card.classList.add("selected");
 
-      document.getElementById("famousBrandTitle").textContent =
-        "Escolha a marca";
+      document
+        .getElementById("famousCategories")
+        .classList.remove("hidden");
 
-      const grid = document.getElementById("famousBrands");
+      document
+        .getElementById("famousPhone")
+        .classList.add("hidden");
 
-      grid.innerHTML = "";
-
-      Object.keys(androidModels).forEach(function(brand){
-
-        const button = document.createElement("button");
-
-        button.className = "option";
-        button.textContent = brand;
-
-        button.onclick = function(){
-          currentFamousBrand = brand;
-          renderFamousModels(brand);
-        };
-
-        grid.appendChild(button);
-
-      });
-
-      openScreen("famousBrand");
-
-    }else{
-
-      const grid = document.getElementById("famousBrands");
-
-      grid.innerHTML = "";
-
-      Object.keys(iphoneFamilies).forEach(function(family){
-
-        const button = document.createElement("button");
-
-        button.className = "option";
-        button.textContent = family;
-
-        button.onclick = function(){
-          currentFamousBrand = family;
-          renderFamousModels(family);
-        };
-
-        grid.appendChild(button);
-
-      });
-
-      document.getElementById("famousBrandTitle").textContent =
-        "Escolha a família";
-
-      openScreen("famousBrand");
-
-    }
-
-  }
-
-}
-
-
-function renderFamousModels(brand){
-
-  const grid = document.getElementById("famousModelGrid");
-
-  grid.innerHTML = "";
-
-  document.getElementById("famousModelTitle").textContent =
-    brand;
-
-  let models = [];
-
-  if(currentFamousPhoneType === "Android"){
-    models = androidModels[brand] || [];
-  }else{
-    models = iphoneFamilies[brand] || [];
-  }
-
-  models.forEach(function(model){
-
-    const button = document.createElement("button");
-
-    button.className = "option";
-    button.textContent = model;
-
-    button.onclick = function(){
-
-      currentFamousModel = model;
-
-      generateSensi();
-
+      document
+        .getElementById("famousPhone").innerHTML = "";
     };
 
-    grid.appendChild(button);
+    container.appendChild(card);
+  });
+}
 
+renderPlayers();
+
+function selectFamousCategory(category,button){
+
+  famousCategory = category;
+
+  document
+    .querySelectorAll("#famousCategories .option")
+    .forEach(function(x){
+      x.classList.remove("selected");
+    });
+
+  button.classList.add("selected");
+
+  renderPhoneSelector(
+    document.getElementById("famousPhone"),
+    "famous"
+  );
+}
+
+/* =========================================================
+   SELETOR DE CELULAR
+========================================================= */
+
+function renderPhoneSelector(container,mode){
+
+  container.classList.remove("hidden");
+
+  container.innerHTML = `
+    <div class="section-label">ESCOLHA O SISTEMA</div>
+
+    <div class="option-grid">
+      <button class="option" onclick="choosePhoneSystem('${mode}','Android')">
+        Android
+      </button>
+
+      <button class="option" onclick="choosePhoneSystem('${mode}','iPhone')">
+        iPhone
+      </button>
+    </div>
+
+    <div id="${mode}PhoneModels"></div>
+  `;
+}
+
+function choosePhoneSystem(mode,system){
+
+  const target = document.getElementById(mode+"PhoneModels");
+
+  target.innerHTML = "";
+
+  if(system === "Android"){
+
+    const brands = Object.keys(androidModels);
+
+    target.innerHTML = `
+      <div class="section-label">ESCOLHA A MARCA</div>
+      <div class="option-grid" id="${mode}Brands"></div>
+    `;
+
+    const brandBox = document.getElementById(mode+"Brands");
+
+    brands.forEach(function(brand){
+
+      const btn = document.createElement("button");
+
+      btn.className = "option";
+      btn.textContent = brand;
+
+      btn.onclick = function(){
+
+        document
+          .querySelectorAll("#"+mode+"Brands .option")
+          .forEach(function(x){
+            x.classList.remove("selected");
+          });
+
+        btn.classList.add("selected");
+
+        showAndroidModels(mode,brand);
+      };
+
+      brandBox.appendChild(btn);
+    });
+
+  }else{
+
+    target.innerHTML = `
+      <div class="section-label">ESCOLHA A LINHA</div>
+      <div class="option-grid" id="${mode}IphoneFamilies"></div>
+    `;
+
+    const box = document.getElementById(mode+"IphoneFamilies");
+
+    Object.keys(iphoneModels).forEach(function(family){
+
+      const btn = document.createElement("button");
+
+      btn.className = "option";
+      btn.textContent = family;
+
+      btn.onclick = function(){
+
+        box.querySelectorAll(".option").forEach(function(x){
+          x.classList.remove("selected");
+        });
+
+        btn.classList.add("selected");
+
+        showIphoneModels(mode,family);
+      };
+
+      box.appendChild(btn);
+    });
+  }
+}
+
+function showAndroidModels(mode,brand){
+
+  const old = document.getElementById(mode+"ModelsList");
+
+  if(old) old.remove();
+
+  const parent = document.getElementById(mode+"PhoneModels");
+
+  const box = document.createElement("div");
+
+  box.id = mode+"ModelsList";
+
+  box.innerHTML = `
+    <div class="section-label">ESCOLHA O MODELO</div>
+    <div class="option-grid"></div>
+  `;
+
+  const grid = box.querySelector(".option-grid");
+
+  androidModels[brand].forEach(function(model){
+
+    const btn = document.createElement("button");
+
+    btn.className = "option";
+    btn.textContent = model;
+
+    btn.onclick = function(){
+
+      grid.querySelectorAll(".option").forEach(function(x){
+        x.classList.remove("selected");
+      });
+
+      btn.classList.add("selected");
+
+      phoneSelected(mode,brand,model);
+    };
+
+    grid.appendChild(btn);
   });
 
-  openScreen("famousModels");
+  parent.appendChild(box);
 }
 
+function showIphoneModels(mode,family){
 
-function generateSensi(){
+  const parent = document.getElementById(mode+"PhoneModels");
 
-  currentFamousValues = randomSensi(currentFamousCategory);
+  let old = document.getElementById(mode+"ModelsList");
 
-  document.getElementById("resultFamousName").textContent =
-    currentFamous + " • " + currentFamousCategory;
+  if(old) old.remove();
 
-  document.getElementById("resultFamousInfo").textContent =
-    currentFamousModel;
+  const box = document.createElement("div");
 
-  renderSensiValues("famousSensiList",currentFamousValues);
+  box.id = mode+"ModelsList";
 
-  document.getElementById("famousFavBtn").classList.remove("saved");
-  document.getElementById("famousFavBtn").textContent =
-    "☆ Salvar nos favoritos";
+  box.innerHTML = `
+    <div class="section-label">ESCOLHA O MODELO</div>
+    <div class="option-grid"></div>
+  `;
 
-  openScreen("sensiResult");
+  const grid = box.querySelector(".option-grid");
+
+  iphoneModels[family].forEach(function(model){
+
+    const btn = document.createElement("button");
+
+    btn.className = "option";
+    btn.textContent = model;
+
+    btn.onclick = function(){
+
+      grid.querySelectorAll(".option").forEach(function(x){
+        x.classList.remove("selected");
+      });
+
+      btn.classList.add("selected");
+
+      phoneSelected(mode,"Apple",model);
+    };
+
+    grid.appendChild(btn);
+  });
+
+  parent.appendChild(box);
 }
 
+function phoneSelected(mode,brand,model){
 
-function saveCurrentFamousFavorite(){
+  if(mode === "famous"){
 
-  if(!currentFamousValues) return;
+    generateFamousResult(brand,model);
 
-  saveFavorite(
-    "Sensi dos Famosos",
-    currentFamous + " • " + currentFamousModel,
-    currentFamousValues
-  );
+  }else if(mode === "custom"){
 
-  const btn = document.getElementById("famousFavBtn");
+    generateCustomResult(brand,model);
 
-  btn.classList.add("saved");
-  btn.textContent = "★ Salvo nos favoritos";
+  }else if(mode === "cursor"){
 
+    showCursorModes(brand,model);
+
+  }else if(mode === "optimization"){
+
+    document
+      .getElementById("optimizationGame")
+      .classList.remove("hidden");
+
+    window.optimizationPhone = model;
+
+  }
 }
 
+/* =========================================================
+   RESULTADO FAMOSOS
+========================================================= */
+
+function generateFamousResult(brand,model){
+
+  const values = randomSensi(famousCategory);
+
+  const favId =
+    "famous-"+famousPlayer+"-"+Date.now();
+
+  document.getElementById("famousPhone").innerHTML += `
+    ${resultHTML(
+      famousPlayer,
+      famousCategory+" • "+model,
+      values,
+      favId
+    )}
+
+    <div class="btn-row">
+      <button
+        class="secondary-btn"
+        onclick="generateFamousResult('${brand}','${model}')">
+        🔄 Gerar outra
+      </button>
+    </div>
+  `;
+}
 
 /* =========================================================
    PERSONALIZADA
 ========================================================= */
 
-function customPhoneType(type){
+function customSystem(system){
 
-  currentCustomPhoneType = type;
+  const box = document.getElementById("customPhone");
 
-  const grid = document.getElementById("customBrandGrid");
+  box.innerHTML = "";
 
-  grid.innerHTML = "";
-
-  if(type === "Android"){
-
-    Object.keys(androidModels).forEach(function(brand){
-
-      const button = document.createElement("button");
-
-      button.className = "option";
-      button.textContent = brand;
-
-      button.onclick = function(){
-
-        currentCustomBrand = brand;
-        renderCustomModels(brand);
-
-      };
-
-      grid.appendChild(button);
-
-    });
-
-    document.getElementById("customBrandTitle").textContent =
-      "Escolha a marca";
-
-  }else{
-
-    Object.keys(iphoneFamilies).forEach(function(family){
-
-      const button = document.createElement("button");
-
-      button.className = "option";
-      button.textContent = family;
-
-      button.onclick = function(){
-
-        currentCustomBrand = family;
-        renderCustomModels(family);
-
-      };
-
-      grid.appendChild(button);
-
-    });
-
-    document.getElementById("customBrandTitle").textContent =
-      "Escolha a família";
-
-  }
-
-  openScreen("customBrandScreen");
+  renderPhoneSelector(box,"custom");
 }
 
-
-function renderCustomModels(brand){
-
-  const grid = document.getElementById("customModelGrid");
-
-  grid.innerHTML = "";
-
-  document.getElementById("customModelsTitle").textContent =
-    brand;
-
-  let models = [];
-
-  if(currentCustomPhoneType === "Android"){
-    models = androidModels[brand] || [];
-  }else{
-    models = iphoneFamilies[brand] || [];
-  }
-
-  models.forEach(function(model){
-
-    const button = document.createElement("button");
-
-    button.className = "option";
-    button.textContent = model;
-
-    button.onclick = function(){
-
-      currentCustomModel = model;
-
-      generateCustom();
-
-    };
-
-    grid.appendChild(button);
-
-  });
-
-  openScreen("customModels");
-}
-
-
-function generateCustom(){
+function generateCustomResult(brand,model){
 
   const categories = ["Baixa","Média","Alta"];
 
   const category =
-    categories[randomInt(0,categories.length-1)];
+    categories[random(0,categories.length-1)];
 
-  currentCustomValues = randomSensi(category);
+  const values = randomSensi(category);
 
-  document.getElementById("customResultInfo").textContent =
-    currentCustomModel + " • " + category;
+  const favId =
+    "custom-"+Date.now();
 
-  renderSensiValues(
-    "customSensiList",
-    currentCustomValues
-  );
+  document.getElementById("customPhone").innerHTML += `
+    ${resultHTML(
+      "Sensi Personalizada",
+      category+" • "+model,
+      values,
+      favId
+    )}
 
-  const btn = document.getElementById("customFavBtn");
-
-  btn.classList.remove("saved");
-  btn.textContent = "☆ Salvar nos favoritos";
-
-  openScreen("customResult");
+    <div class="btn-row">
+      <button
+        class="secondary-btn"
+        onclick="generateCustomResult('${brand}','${model}')">
+        🔄 Gerar outra
+      </button>
+    </div>
+  `;
 }
-
-
-function saveCurrentCustomFavorite(){
-
-  if(!currentCustomValues) return;
-
-  saveFavorite(
-    "Sensi Personalizada",
-    currentCustomModel,
-    currentCustomValues
-  );
-
-  const btn = document.getElementById("customFavBtn");
-
-  btn.classList.add("saved");
-  btn.textContent = "★ Salvo nos favoritos";
-
-}
-
 
 /* =========================================================
    ARMAS
 ========================================================= */
 
-function selectWeapon(weapon){
+const weapons = [
+  "XM8",
+  "UMP",
+  "Desert",
+  "MP40",
+  "Carapina",
+  "12 Nova"
+];
 
-  currentWeapon = weapon;
+let selectedWeapon = "";
 
-  document.getElementById("weaponTitle").textContent =
-    weapon;
+function renderWeapons(){
 
-  openScreen("weaponStyle");
+  const box = document.getElementById("weaponList");
+
+  box.innerHTML = "";
+
+  weapons.forEach(function(weapon){
+
+    const btn = document.createElement("button");
+
+    btn.className = "weapon";
+
+    btn.innerHTML = `
+      <strong>${weapon}</strong>
+      <small>Selecionar arma</small>
+    `;
+
+    btn.onclick = function(){
+
+      selectedWeapon = weapon;
+
+      document
+        .querySelectorAll(".weapon")
+        .forEach(function(x){
+          x.classList.remove("selected");
+        });
+
+      btn.classList.add("selected");
+
+      document
+        .getElementById("weaponStyle")
+        .classList.remove("hidden");
+    };
+
+    box.appendChild(btn);
+  });
 }
 
+renderWeapons();
 
 function generateWeapon(style){
 
-  currentWeaponStyle = style;
-
-  currentWeaponValues = {
-    "Geral":randomInt(80,200),
-    "Ponto Vermelho":randomInt(80,200),
-    "Mira 2x":randomInt(80,200),
-    "Mira 4x":randomInt(80,200),
-    "AWM":randomInt(80,200),
-    "Olhadinha":randomInt(80,200)
+  const values = {
+    "Geral":random(80,200),
+    "Ponto Vermelho":random(80,200),
+    "Mira 2x":random(80,200),
+    "Mira 4x":random(80,200),
+    "AWM":random(80,200),
+    "Olhadinha":random(80,200)
   };
 
-  document.getElementById("weaponResultTitle").textContent =
-    currentWeapon;
+  const favId =
+    "weapon-"+Date.now();
 
-  document.getElementById("weaponResultInfo").textContent =
-    style;
-
-  renderSensiValues(
-    "weaponSensiList",
-    currentWeaponValues
-  );
-
-  const btn = document.getElementById("weaponFavBtn");
-
-  btn.classList.remove("saved");
-  btn.textContent = "☆ Salvar nos favoritos";
-
-  openScreen("weaponResult");
+  document.getElementById("weaponResult").innerHTML =
+    resultHTML(
+      selectedWeapon,
+      style,
+      values,
+      favId
+    );
 }
-
-
-function saveCurrentWeaponFavorite(){
-
-  if(!currentWeaponValues) return;
-
-  saveFavorite(
-    "Sensi por Arma",
-    currentWeapon + " • " + currentWeaponStyle,
-    currentWeaponValues
-  );
-
-  const btn = document.getElementById("weaponFavBtn");
-
-  btn.classList.add("saved");
-  btn.textContent = "★ Salvo nos favoritos";
-
-}
-
 
 /* =========================================================
-   SENSi ESPECIAL / RECONISE
+   ESPECIAL / RECONISE
 ========================================================= */
 
 let unlockState = {
   discord:false,
   tiktok:false
 };
-
-
-/*
-   IMPORTANTE:
-   O botão só libera quando OS DOIS foram clicados.
-*/
 
 function completeUnlock(type){
 
@@ -2982,12 +2135,10 @@ function completeUnlock(type){
       "_blank"
     );
 
-    const button = document.getElementById("discordUnlock");
-
-    button.classList.add("done");
-
+    document
+      .getElementById("discordUnlock")
+      .classList.add("done");
   }
-
 
   if(type === "tiktok"){
 
@@ -2998,814 +2149,641 @@ function completeUnlock(type){
       "_blank"
     );
 
-    const button = document.getElementById("tiktokUnlock");
-
-    button.classList.add("done");
-
+    document
+      .getElementById("tiktokUnlock")
+      .classList.add("done");
   }
-
 
   checkSpecialUnlock();
 }
 
-
 function checkSpecialUnlock(){
 
-  const message = document.getElementById("lockMessage");
-  const acquire = document.getElementById("acquireArea");
+  if(unlockState.discord && unlockState.tiktok){
 
-  if(
-    unlockState.discord === true &&
-    unlockState.tiktok === true
-  ){
+    document
+      .getElementById("acquireArea")
+      .classList.add("show");
 
-    acquire.classList.add("show");
+    document
+      .getElementById("lockMessage")
+      .textContent =
+      "✓ Sensibilidade desbloqueada.";
 
-    message.classList.add("unlocked");
-
-    message.textContent =
-      "✓ Tudo certo! Sua sensibilidade está liberada.";
-
-  }else{
-
-    acquire.classList.remove("show");
-
-    message.classList.remove("unlocked");
-
-    if(unlockState.discord && !unlockState.tiktok){
-
-      message.textContent =
-        "Falta completar o TikTok.";
-
-    }else if(!unlockState.discord && unlockState.tiktok){
-
-      message.textContent =
-        "Falta completar o Discord.";
-
-    }else{
-
-      message.textContent =
-        "Complete os dois passos para liberar.";
-
-    }
-
+    document
+      .getElementById("lockMessage")
+      .classList.add("unlocked");
   }
-
 }
-
 
 function acquireSpecial(){
 
-  if(
-    !unlockState.discord ||
-    !unlockState.tiktok
-  ){
-
+  if(!unlockState.discord || !unlockState.tiktok){
     return;
-
   }
 
-  generateSpecial();
+  const values = randomSensi("Alta");
 
+  const favId =
+    "special-"+Date.now();
+
+  document.getElementById("specialResult").innerHTML =
+    resultHTML(
+      "Sensi Especial",
+      "Reconise • configuração especial",
+      values,
+      favId
+    );
 }
-
-
-function generateSpecial(){
-
-  currentSpecialValues = randomSensi("Alta");
-
-  renderSensiValues(
-    "specialSensiList",
-    currentSpecialValues
-  );
-
-  const btn = document.getElementById("specialFavBtn");
-
-  btn.classList.remove("saved");
-  btn.textContent = "☆ Salvar nos favoritos";
-
-  openScreen("specialResult");
-
-}
-
-
-function saveCurrentSpecialFavorite(){
-
-  if(!currentSpecialValues) return;
-
-  saveFavorite(
-    "Sensi Especial",
-    "Reconise • Alta",
-    currentSpecialValues
-  );
-
-  const btn = document.getElementById("specialFavBtn");
-
-  btn.classList.add("saved");
-  btn.textContent = "★ Salvo nos favoritos";
-
-}
-
 
 /* =========================================================
    CURSOR
 ========================================================= */
 
-function cursorPhoneType(type){
+function cursorSystem(system){
 
-  currentCursorPhoneType = type;
+  const box = document.getElementById("cursorPhone");
 
-  const grid = document.getElementById("cursorBrandGrid");
+  box.innerHTML = "";
 
-  grid.innerHTML = "";
-
-  if(type === "Android"){
-
-    Object.keys(androidModels).forEach(function(brand){
-
-      const button = document.createElement("button");
-
-      button.className = "option";
-      button.textContent = brand;
-
-      button.onclick = function(){
-
-        currentCursorBrand = brand;
-        renderCursorModels(brand);
-
-      };
-
-      grid.appendChild(button);
-
-    });
-
-    document.getElementById("cursorBrandTitle").textContent =
-      "Escolha a marca";
-
-  }else{
-
-    Object.keys(iphoneFamilies).forEach(function(family){
-
-      const button = document.createElement("button");
-
-      button.className = "option";
-      button.textContent = family;
-
-      button.onclick = function(){
-
-        currentCursorBrand = family;
-        renderCursorModels(family);
-
-      };
-
-      grid.appendChild(button);
-
-    });
-
-    document.getElementById("cursorBrandTitle").textContent =
-      "Escolha a família";
-
-  }
-
-  openScreen("cursorBrand");
+  renderPhoneSelector(box,"cursor");
 }
 
+function showCursorModes(brand,model){
 
-function renderCursorModels(brand){
+  const box = document.getElementById("cursorPhone");
 
-  const grid = document.getElementById("cursorModelGrid");
+  let old = document.getElementById("cursorModes");
 
-  grid.innerHTML = "";
+  if(old) old.remove();
 
-  document.getElementById("cursorModelsTitle").textContent =
-    brand;
+  const area = document.createElement("div");
 
-  let models = [];
+  area.id = "cursorModes";
 
-  if(currentCursorPhoneType === "Android"){
-    models = androidModels[brand] || [];
-  }else{
-    models = iphoneFamilies[brand] || [];
-  }
+  area.innerHTML = `
+    <div class="section-label">ESCOLHA O MODO</div>
 
-  models.forEach(function(model){
+    <div class="option-grid">
 
-    const button = document.createElement("button");
+      <button class="option"
+        onclick="generateCursor('Refinado','${model}')">
+        Refinado
+      </button>
 
-    button.className = "option";
-    button.textContent = model;
+      <button class="option"
+        onclick="generateCursor('Individual','${model}')">
+        Individual
+      </button>
 
-    button.onclick = function(){
+      <button class="option"
+        onclick="generateCursor('Preciso','${model}')">
+        Preciso
+      </button>
 
-      currentCursorModel = model;
+    </div>
 
-      openScreen("cursorStyle");
+    <div id="cursorResult"></div>
+  `;
 
-    };
-
-    grid.appendChild(button);
-
-  });
-
-  openScreen("cursorModels");
+  box.appendChild(area);
 }
 
+function generateCursor(mode,model){
 
-function generateCursor(style){
+  const value = random(31,120);
 
-  currentCursorStyle = style;
+  const favId =
+    "cursor-"+Date.now();
 
-  currentCursorValues = {
+  document.getElementById("cursorResult").innerHTML = `
+    <div class="result-box" style="margin-top:15px">
 
-    "Velocidade":randomInt(31,120),
+      <div class="result-title">
+        Cursor Móvel
+      </div>
 
-    "Precisão":randomInt(31,120),
+      <div class="result-sub">
+        ${mode} • ${model}
+      </div>
 
-    "Resposta":randomInt(31,120),
+      <div class="sensi-item">
+        <span>Cursor</span>
+        <span class="sensi-value">${value}</span>
+      </div>
 
-    "Movimento":randomInt(31,120),
+      <button
+        id="fav-${favId}"
+        class="favorite-btn"
+        onclick="toggleFavorite('${favId}')">
+        ☆ ADICIONAR AOS FAVORITOS
+      </button>
 
-    "Controle":randomInt(31,120),
-
-    "Ajuste":randomInt(31,120)
-
-  };
-
-  document.getElementById("cursorResultInfo").textContent =
-    currentCursorModel + " • " + style;
-
-  renderSensiValues(
-    "cursorList",
-    currentCursorValues
-  );
-
-  const btn = document.getElementById("cursorFavBtn");
-
-  btn.classList.remove("saved");
-  btn.textContent = "☆ Salvar nos favoritos";
-
-  openScreen("cursorResult");
+    </div>
+  `;
 }
-
-
-function saveCurrentCursorFavorite(){
-
-  if(!currentCursorValues) return;
-
-  saveFavorite(
-    "Cursor Móvel",
-    currentCursorModel + " • " + currentCursorStyle,
-    currentCursorValues
-  );
-
-  const btn = document.getElementById("cursorFavBtn");
-
-  btn.classList.add("saved");
-  btn.textContent = "★ Salvo nos favoritos";
-
-}
-
 
 /* =========================================================
    DPI
 ========================================================= */
 
-function dpiPhoneType(type){
+const dpiBrands = [
+  "Samsung",
+  "Xiaomi",
+  "POCO",
+  "Motorola",
+  "Realme",
+  "ASUS"
+];
 
-  const grid = document.getElementById("dpiBrandGrid");
+let dpiBrand = "";
+let dpiModel = "";
 
-  grid.innerHTML = "";
+function renderDpiBrands(){
 
-  Object.keys(androidModels).forEach(function(brand){
+  const box = document.getElementById("dpiBrands");
 
-    const button = document.createElement("button");
+  box.innerHTML = "";
 
-    button.className = "option";
-    button.textContent = brand;
+  dpiBrands.forEach(function(brand){
 
-    button.onclick = function(){
+    const btn = document.createElement("button");
 
-      currentDpiBrand = brand;
+    btn.className = "option";
+    btn.textContent = brand;
 
-      renderDpiModels(brand);
+    btn.onclick = function(){
 
+      dpiBrand = brand;
+
+      box.querySelectorAll(".option").forEach(function(x){
+        x.classList.remove("selected");
+      });
+
+      btn.classList.add("selected");
+
+      showDpiModels(brand);
     };
 
-    grid.appendChild(button);
-
+    box.appendChild(btn);
   });
-
-  openScreen("dpiBrand");
 }
 
+renderDpiBrands();
 
-function renderDpiModels(brand){
+function showDpiModels(brand){
 
-  const grid = document.getElementById("dpiModelGrid");
+  const box = document.getElementById("dpiPhone");
 
-  grid.innerHTML = "";
+  box.innerHTML = `
+    <div class="section-label">ESCOLHA O MODELO</div>
+    <div class="option-grid" id="dpiModels"></div>
+  `;
 
-  document.getElementById("dpiModelsTitle").textContent =
-    brand;
+  const models = androidModels[brand] || [];
 
-  (androidModels[brand] || []).forEach(function(model){
+  const grid = document.getElementById("dpiModels");
 
-    const button = document.createElement("button");
+  models.forEach(function(model){
 
-    button.className = "option";
-    button.textContent = model;
+    const btn = document.createElement("button");
 
-    button.onclick = function(){
+    btn.className = "option";
+    btn.textContent = model;
 
-      currentDpiModel = model;
+    btn.onclick = function(){
 
-      openScreen("dpiProfile");
+      grid.querySelectorAll(".option").forEach(function(x){
+        x.classList.remove("selected");
+      });
 
+      btn.classList.add("selected");
+
+      dpiModel = model;
+
+      showDpiProfiles();
     };
 
-    grid.appendChild(button);
-
+    grid.appendChild(btn);
   });
-
-  openScreen("dpiModels");
 }
 
+function showDpiProfiles(){
+
+  let old = document.getElementById("dpiProfiles");
+
+  if(old) old.remove();
+
+  const box = document.getElementById("dpiPhone");
+
+  const area = document.createElement("div");
+
+  area.id = "dpiProfiles";
+
+  area.innerHTML = `
+    <div class="section-label">ESCOLHA O PERFIL</div>
+
+    <div class="option-grid">
+
+      <button class="option"
+        onclick="generateDpi('Baixa')">
+        Fraco
+      </button>
+
+      <button class="option"
+        onclick="generateDpi('Média')">
+        Médio
+      </button>
+
+      <button class="option"
+        onclick="generateDpi('Alta')">
+        Forte
+      </button>
+
+    </div>
+
+    <div id="dpiResult"></div>
+  `;
+
+  box.appendChild(area);
+}
 
 function generateDpi(profile){
 
-  currentDpiProfile = profile;
+  let currentDpiValue;
 
-  let min = 440;
-  let max = 680;
-
-  if(profile === "Médio"){
-    min = 700;
-    max = 850;
+  if(profile === "Baixa"){
+    currentDpiValue = random(440,680);
   }
 
-  if(profile === "Forte"){
-    min = 920;
-    max = 1400;
+  if(profile === "Média"){
+    currentDpiValue = random(700,850);
   }
 
-  currentDpiValue = randomInt(min,max);
+  if(profile === "Alta"){
+    currentDpiValue = random(920,1400);
+  }
+
+  /* CORREÇÃO IMPORTANTE:
+     a chave dinâmica precisa estar entre colchetes.
+  */
 
   const values = {
-    "DPI " + profile:currentDpiValue
+    ["DPI " + profile]: currentDpiValue
   };
 
-  document.getElementById("dpiResultInfo").textContent =
-    currentDpiModel + " • " + profile;
+  const favId =
+    "dpi-"+Date.now();
 
-  renderSensiValues(
-    "dpiList",
-    values
-  );
-
-  const btn = document.getElementById("dpiFavBtn");
-
-  btn.classList.remove("saved");
-  btn.textContent = "☆ Salvar nos favoritos";
-
-  openScreen("dpiResult");
+  document.getElementById("dpiResult").innerHTML = `
+    <div style="margin-top:15px">
+      ${resultHTML(
+        "DPI Android",
+        dpiModel,
+        values,
+        favId
+      )}
+    </div>
+  `;
 }
-
-
-function saveCurrentDpiFavorite(){
-
-  saveFavorite(
-    "DPI",
-    currentDpiModel + " • " + currentDpiProfile,
-    {
-      "DPI":currentDpiValue
-    }
-  );
-
-  const btn = document.getElementById("dpiFavBtn");
-
-  btn.classList.add("saved");
-  btn.textContent = "★ Salvo nos favoritos";
-
-}
-
 
 /* =========================================================
    OTIMIZAÇÃO
 ========================================================= */
 
-function optimizationPhoneType(type){
+function optimizationSystem(system){
 
-  currentOptimizationPhoneType = type;
+  const box =
+    document.getElementById("optimizationPhone");
 
-  const grid = document.getElementById("optimizationBrandGrid");
+  box.innerHTML = "";
 
-  grid.innerHTML = "";
-
-  if(type === "Android"){
-
-    Object.keys(androidModels).forEach(function(brand){
-
-      const button = document.createElement("button");
-
-      button.className = "option";
-      button.textContent = brand;
-
-      button.onclick = function(){
-
-        currentOptimizationBrand = brand;
-        renderOptimizationModels(brand);
-
-      };
-
-      grid.appendChild(button);
-
-    });
-
-  }else{
-
-    Object.keys(iphoneFamilies).forEach(function(family){
-
-      const button = document.createElement("button");
-
-      button.className = "option";
-      button.textContent = family;
-
-      button.onclick = function(){
-
-        currentOptimizationBrand = family;
-        renderOptimizationModels(family);
-
-      };
-
-      grid.appendChild(button);
-
-    });
-
-  }
-
-  openScreen("optimizationBrand");
+  renderPhoneSelector(box,"optimization");
 }
-
-
-function renderOptimizationModels(brand){
-
-  const grid = document.getElementById("optimizationModelGrid");
-
-  grid.innerHTML = "";
-
-  document.getElementById("optimizationModelsTitle").textContent =
-    brand;
-
-  let models = [];
-
-  if(currentOptimizationPhoneType === "Android"){
-    models = androidModels[brand] || [];
-  }else{
-    models = iphoneFamilies[brand] || [];
-  }
-
-  models.forEach(function(model){
-
-    const button = document.createElement("button");
-
-    button.className = "option";
-    button.textContent = model;
-
-    button.onclick = function(){
-
-      currentOptimizationModel = model;
-
-      openScreen("optimizationGame");
-
-    };
-
-    grid.appendChild(button);
-
-  });
-
-  openScreen("optimizationModels");
-}
-
 
 function startOptimization(game){
 
-  currentOptimizationGame = game;
+  const result =
+    document.getElementById("optimizationResult");
 
-  openScreen("optimizationProgress");
+  document
+    .getElementById("optimizationGame")
+    .classList.add("hidden");
 
-  const progressNumber =
+  result.innerHTML = `
+    <div class="optimization-box">
+
+      <div class="progress-ring" id="progressRing">
+
+        <div class="progress-number">
+          <span id="progressNumber">1</span>%
+        </div>
+
+      </div>
+
+      <div class="loading-lines">
+
+        <div class="loading-line">
+          Limpando memória RAM
+        </div>
+
+        <div class="loading-line">
+          Injetando boneco lento
+        </div>
+
+        <div class="loading-line">
+          Injetando precision
+        </div>
+
+        <div class="loading-line">
+          Otimizando o celular
+        </div>
+
+        <div class="loading-line">
+          Ajustando desempenho
+        </div>
+
+        <div class="loading-line">
+          Finalizando otimização
+        </div>
+
+      </div>
+
+      <div class="optimization-complete" id="optimizationComplete">
+
+        <div class="complete-title">
+          OTIMIZAÇÃO CONCLUÍDA
+        </div>
+
+        <div class="complete-text">
+          Configuração preparada para ${game}.
+        </div>
+
+        <button
+          class="primary-btn"
+          style="margin-top:15px"
+          onclick="activateGame('${game}')">
+          ATIVAR
+        </button>
+
+      </div>
+
+    </div>
+  `;
+
+  runOptimization();
+}
+
+function runOptimization(){
+
+  const number =
     document.getElementById("progressNumber");
 
-  const progressRing =
+  const ring =
     document.getElementById("progressRing");
+
+  const lines =
+    document.querySelectorAll(".loading-line");
 
   const complete =
     document.getElementById("optimizationComplete");
 
-  const status =
-    document.getElementById("progressStatus");
-
-  complete.classList.remove("show");
-
-  for(let i=1;i<=6;i++){
-
-    document.getElementById("load"+i)
-      .classList.remove("active","done");
-
-  }
-
   let progress = 1;
 
-  let interval = setInterval(function(){
+  const interval = setInterval(function(){
 
     progress++;
 
-    if(progress > 100){
-
-      clearInterval(interval);
-
-      progress = 100;
-
-      status.textContent =
-        "OTIMIZAÇÃO CONCLUÍDA";
-
-      complete.classList.add("show");
-
-      for(let i=1;i<=6;i++){
-
-        document.getElementById("load"+i)
-          .classList.remove("active");
-
-        document.getElementById("load"+i)
-          .classList.add("done");
-
-      }
-
+    if(number){
+      number.textContent = progress;
     }
 
-    progressNumber.textContent = progress;
+    if(ring){
+      ring.style.background =
+        `radial-gradient(circle,#0c0c0c 57%,transparent 58%),
+         conic-gradient(#8b32ff ${progress*3.6}deg,#222 ${progress*3.6}deg)`;
+    }
 
-    progressRing.style.background =
-      `
-      radial-gradient(circle,#0c0c0c 57%,transparent 58%),
-      conic-gradient(#8b32ff ${progress * 3.6}deg,#222 ${progress * 3.6}deg)
-      `;
+    const lineIndex =
+      Math.min(
+        lines.length-1,
+        Math.floor(progress/17)
+      );
 
-    const stage =
-      Math.min(6,Math.ceil(progress / 17));
+    lines.forEach(function(line,index){
 
-    for(let i=1;i<=6;i++){
-
-      const line =
-        document.getElementById("load"+i);
-
-      if(i < stage){
+      if(index < lineIndex){
         line.classList.remove("active");
         line.classList.add("done");
       }
 
-      if(i === stage){
+      if(index === lineIndex){
         line.classList.add("active");
       }
+    });
 
+    if(progress >= 100){
+
+      clearInterval(interval);
+
+      lines.forEach(function(line){
+        line.classList.remove("active");
+        line.classList.add("done");
+      });
+
+      complete.classList.add("show");
     }
 
   },35);
-
 }
 
+function activateGame(game){
 
-function activateGame(){
+  let url =
+    game === "Free Fire"
+    ? "freefire://"
+    : "freefiremax://";
 
-  let deepLink = "freefire://";
-
-  let store =
-    "https://play.google.com/store/apps/details?id=com.dts.freefireth";
-
-  if(currentOptimizationGame === "Free Fire MAX"){
-
-    deepLink = "freefiremax://";
-
-    store =
-      "https://play.google.com/store/apps/details?id=com.dts.freefiremax";
-
-  }
-
-  window.location.href = deepLink;
+  window.location.href = url;
 
   setTimeout(function(){
 
-    window.location.href = store;
+    if(game === "Free Fire"){
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.dts.freefireth";
+    }else{
+      window.location.href =
+        "https://play.google.com/store/apps/details?id=com.dts.freefiremax";
+    }
 
   },1200);
-
 }
-
-
-function saveCurrentOptimizationFavorite(){
-
-  saveFavorite(
-    "Otimização Fluida",
-    currentOptimizationModel + " • " + currentOptimizationGame,
-    {
-      "Status":"Otimização concluída"
-    }
-  );
-
-  const btn =
-    document.getElementById("optimizationFavBtn");
-
-  btn.classList.add("saved");
-  btn.textContent =
-    "★ Salvo nos favoritos";
-
-}
-
 
 /* =========================================================
    FAVORITOS
 ========================================================= */
 
-function saveFavorite(type,title,data){
+function getFavorites(){
 
-  const favorite = {
+  try{
+    return JSON.parse(
+      localStorage.getItem("rlq_favorites") || "[]"
+    );
+  }catch(e){
+    return [];
+  }
+}
 
-    id:Date.now(),
-
-    type:type,
-
-    title:title,
-
-    data:data,
-
-    date:new Date().toLocaleDateString("pt-BR")
-
-  };
-
-  favorites.unshift(favorite);
+function saveFavorites(list){
 
   localStorage.setItem(
     "rlq_favorites",
-    JSON.stringify(favorites)
+    JSON.stringify(list)
   );
-
 }
 
+function toggleFavorite(id){
 
-function removeFavorite(id){
+  const button =
+    document.getElementById("fav-"+id);
 
-  favorites =
-    favorites.filter(function(item){
-      return item.id !== id;
+  let favorites = getFavorites();
+
+  const existing =
+    favorites.find(function(item){
+      return item.id === id;
     });
 
-  localStorage.setItem(
-    "rlq_favorites",
-    JSON.stringify(favorites)
-  );
+  if(existing){
 
-  renderFavorites();
+    favorites =
+      favorites.filter(function(item){
+        return item.id !== id;
+      });
 
+    saveFavorites(favorites);
+
+    if(button){
+      button.classList.remove("saved");
+      button.textContent =
+        "☆ ADICIONAR AOS FAVORITOS";
+    }
+
+    return;
+  }
+
+  let title = "Configuração rlqsensi";
+
+  if(id.startsWith("famous-")){
+    title = "Sensi dos Famosos";
+  }
+
+  if(id.startsWith("custom-")){
+    title = "Sensi Personalizada";
+  }
+
+  if(id.startsWith("weapon-")){
+    title = "Sensibilidade por Arma";
+  }
+
+  if(id.startsWith("special-")){
+    title = "Sensi Especial";
+  }
+
+  if(id.startsWith("cursor-")){
+    title = "Cursor Móvel";
+  }
+
+  if(id.startsWith("dpi-")){
+    title = "DPI Android";
+  }
+
+  favorites.push({
+    id:id,
+    title:title,
+    date:new Date().toLocaleString("pt-BR")
+  });
+
+  saveFavorites(favorites);
+
+  if(button){
+    button.classList.add("saved");
+    button.textContent =
+      "★ SALVO NOS FAVORITOS";
+  }
 }
-
 
 function renderFavorites(){
 
-  const container =
+  const box =
     document.getElementById("favoriteContent");
+
+  const favorites =
+    getFavorites();
 
   if(!favorites.length){
 
-    container.innerHTML = `
-
+    box.innerHTML = `
       <div class="empty">
 
-        <div class="empty-icon">☆</div>
+        <div class="empty-icon">⭐</div>
 
         <h3>Nenhum favorito ainda</h3>
 
         <p>
-          Salve suas sensibilidades e configurações
-          usando o botão de favoritos.
+          Salve suas configurações usando o botão
+          de favoritos para elas aparecerem aqui.
         </p>
 
       </div>
-
     `;
 
     return;
-
   }
 
+  box.innerHTML = `
+    <div class="favorite-list">
+      ${favorites.map(function(item){
 
-  const list =
-    document.createElement("div");
+        return `
+          <div class="favorite-item">
 
-  list.className = "favorite-list";
+            <div>
+              <strong>${item.title}</strong>
+              <small>${item.date}</small>
+            </div>
 
+            <button
+              class="remove-fav"
+              onclick="removeFavorite('${item.id}')">
+              🗑
+            </button>
 
-  favorites.forEach(function(item){
+          </div>
+        `;
 
-    const card =
-      document.createElement("div");
-
-    card.className = "favorite-item";
-
-    card.innerHTML = `
-
-      <div>
-        <strong>${escapeHtml(item.title)}</strong>
-        <small>
-          ${escapeHtml(item.type)} • ${escapeHtml(item.date)}
-        </small>
-      </div>
-
-      <button
-        class="remove-fav"
-        onclick="removeFavorite(${item.id})"
-      >
-        ×
-      </button>
-
-    `;
-
-    list.appendChild(card);
-
-  });
-
-
-  container.innerHTML = "";
-  container.appendChild(list);
-
+      }).join("")}
+    </div>
+  `;
 }
 
+function removeFavorite(id){
 
-function escapeHtml(text){
+  const favorites =
+    getFavorites().filter(function(item){
+      return item.id !== id;
+    });
 
-  return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  saveFavorites(favorites);
 
+  renderFavorites();
 }
-
-
-/* =========================================================
-   ABRIR FAVORITOS SEMPRE ATUALIZADO
-========================================================= */
-
-const originalOpenScreen = openScreen;
-
-openScreen = function(id){
-
-  originalOpenScreen(id);
-
-  if(id === "favorites"){
-    renderFavorites();
-  }
-
-};
-
-
-/* =========================================================
-   RESTAURAÇÃO DO ESTADO DA SENSi ESPECIAL
-========================================================= */
-
-function resetSpecialVisual(){
-
-  document
-    .getElementById("discordUnlock")
-    .classList.toggle(
-      "done",
-      unlockState.discord
-    );
-
-  document
-    .getElementById("tiktokUnlock")
-    .classList.toggle(
-      "done",
-      unlockState.tiktok
-    );
-
-  checkSpecialUnlock();
-
-}
-
 
 /* =========================================================
    INICIALIZAÇÃO
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded",function(){
-
-  renderFavorites();
-
-  resetSpecialVisual();
-
-});
-
+renderFavorites();
 
 </script>
 
