@@ -1,1455 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta name="theme-color" content="#09070d">
-<title>iarlqsensi</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  -webkit-tap-highlight-color:transparent;
-}
-
-:root{
-  --bg:#08070c;
-  --card:#111018;
-  --card2:#17131f;
-  --border:#292332;
-  --purple:#a855f7;
-  --purple2:#c084fc;
-  --white:#fff;
-  --muted:#aaa3b5;
-  --danger:#ff4d6d;
-  --green:#63e6be;
-}
-
-body{
-  background:
-    radial-gradient(circle at 50% -10%,rgba(168,85,247,.18),transparent 35%),
-    var(--bg);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
-  min-height:100vh;
-}
-
-button{
-  font:inherit;
-  color:inherit;
-  border:0;
-  cursor:pointer;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-.app{
-  max-width:1100px;
-  margin:auto;
-  min-height:100vh;
-}
-
-/* HEADER */
-.header{
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(8,7,12,.88);
-  backdrop-filter:blur(18px);
-}
-
-.logo{
-  font-size:24px;
-  font-weight:900;
-  letter-spacing:-1px;
-}
-
-.logo span{
-  color:var(--purple2);
-}
-
-.menuBtn{
-  width:44px;
-  height:44px;
-  border-radius:13px;
-  background:var(--card2);
-  border:1px solid var(--border);
-  font-size:23px;
-}
-
-/* DRAWER */
-.drawer{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  pointer-events:none;
-}
-
-.drawerBg{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  opacity:0;
-  transition:.2s;
-}
-
-.drawerPanel{
-  position:absolute;
-  right:0;
-  top:0;
-  height:100%;
-  width:min(330px,88vw);
-  background:#0e0c13;
-  border-left:1px solid var(--border);
-  padding:20px;
-  transform:translateX(100%);
-  transition:.25s;
-  overflow-y:auto;
-}
-
-.drawer.open{
-  pointer-events:auto;
-}
-
-.drawer.open .drawerBg{
-  opacity:1;
-}
-
-.drawer.open .drawerPanel{
-  transform:translateX(0);
-}
-
-.drawerTitle{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:25px;
-}
-
-.close{
-  width:38px;
-  height:38px;
-  border-radius:10px;
-  background:var(--card2);
-}
-
-.menuItem{
-  width:100%;
-  text-align:left;
-  padding:15px;
-  margin-bottom:8px;
-  border-radius:12px;
-  background:transparent;
-  border:1px solid transparent;
-  color:#ddd7e6;
-}
-
-.menuItem:hover,
-.menuItem.active{
-  background:var(--card2);
-  border-color:var(--border);
-  color:white;
-}
-
-/* CONTENT */
-main{
-  padding:28px 18px 60px;
-}
-
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
-}
-
-.hero{
-  padding:20px 0 28px;
-}
-
-.hero h1{
-  font-size:clamp(30px,7vw,50px);
-  line-height:1.05;
-  letter-spacing:-1.5px;
-  margin-bottom:12px;
-}
-
-.hero h1 span{
-  color:var(--purple2);
-}
-
-.hero p{
-  color:var(--muted);
-  line-height:1.6;
-  max-width:680px;
-}
-
-.sectionTitle{
-  font-size:21px;
-  margin:28px 0 14px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-
-@media(min-width:700px){
-  .grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-.card{
-  background:linear-gradient(145deg,var(--card),#0d0b12);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:19px;
-  min-height:130px;
-  transition:.18s;
-}
-
-.card:active{
-  transform:scale(.98);
-}
-
-.card:hover{
-  border-color:#513a68;
-  transform:translateY(-2px);
-}
-
-.cardIcon{
-  width:42px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  border-radius:12px;
-  background:rgba(168,85,247,.12);
-  color:var(--purple2);
-  font-size:20px;
-  margin-bottom:15px;
-}
-
-.card h3{
-  font-size:16px;
-  margin-bottom:6px;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.45;
-}
-
-/* FORMS */
-.panel{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:20px;
-  margin-bottom:15px;
-}
-
-.panel h2{
-  font-size:19px;
-  margin-bottom:5px;
-}
-
-.panelDesc{
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:17px;
-}
-
-.options{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:9px;
-}
-
-.option{
-  padding:14px 10px;
-  background:#0c0a10;
-  border:1px solid var(--border);
-  border-radius:12px;
-  text-align:center;
-  color:#c8c1d0;
-}
-
-.option.selected{
-  background:rgba(168,85,247,.15);
-  border-color:var(--purple);
-  color:white;
-}
-
-.full{
-  width:100%;
-  margin-top:15px;
-}
-
-.primary{
-  padding:15px;
-  border-radius:13px;
-  background:linear-gradient(135deg,#9333ea,#c026d3);
-  font-weight:800;
-}
-
-.secondary{
-  padding:14px;
-  border-radius:13px;
-  background:var(--card2);
-  border:1px solid var(--border);
-}
-
-/* RESULT */
-.result{
-  display:none;
-}
-
-.result.show{
-  display:block;
-}
-
-.resultTop{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:15px;
-}
-
-.resultTitle{
-  font-size:23px;
-  font-weight:800;
-}
-
-.resultGrid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-
-.stat{
-  padding:17px;
-  background:#0b0910;
-  border:1px solid var(--border);
-  border-radius:14px;
-}
-
-.stat small{
-  color:var(--muted);
-  display:block;
-  margin-bottom:6px;
-}
-
-.stat strong{
-  font-size:26px;
-  color:var(--purple2);
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:12px;
-}
-
-/* TABLE / LIST */
-.list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.listItem{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:15px;
-  border-radius:15px;
-}
-
-.listInfo strong{
-  display:block;
-  margin-bottom:5px;
-}
-
-.listInfo small{
-  color:var(--muted);
-}
-
-.smallBtn{
-  padding:10px 12px;
-  border-radius:10px;
-  background:var(--card2);
-  border:1px solid var(--border);
-}
-
-.delete{
-  color:#ff7189;
-}
-
-/* TOAST */
-.toast{
-  position:fixed;
-  left:50%;
-  bottom:22px;
-  transform:translate(-50%,20px);
-  background:#17131f;
-  border:1px solid #453653;
-  padding:13px 17px;
-  border-radius:12px;
-  opacity:0;
-  pointer-events:none;
-  transition:.25s;
-  z-index:200;
-  white-space:nowrap;
-}
-
-.toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-/* EMPTY */
-.empty{
-  text-align:center;
-  padding:40px 15px;
-  color:var(--muted);
-}
-
-.emptyIcon{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-/* CYCLE */
-.cycle{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.cycleNum{
-  min-width:45px;
-  height:45px;
-  display:grid;
-  place-items:center;
-  border-radius:13px;
-  background:rgba(168,85,247,.13);
-  color:var(--purple2);
-  font-weight:900;
-}
-
-/* SUPPORT */
-.support{
-  text-align:center;
-  padding:40px 20px;
-}
-
-.supportIcon{
-  width:70px;
-  height:70px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 20px;
-  border-radius:22px;
-  background:rgba(168,85,247,.13);
-  font-size:32px;
-}
-
-.support h1{
-  margin-bottom:12px;
-}
-
-.support p{
-  color:var(--muted);
-  line-height:1.7;
-  margin-bottom:20px;
-}
-
-/* RESPONSIVE */
-@media(max-width:390px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .options{
-    grid-template-columns:1fr 1fr;
-  }
-
-  main{
-    padding-left:13px;
-    padding-right:13px;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTRLQ - Sensi & Configurações</title>
+    <style>
+        /* CSS Integrado */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        header span {
+            color: #00e5ff; /* Mude para a cor do seu tema */
+        }
+
+        header p {
+            color: #8a8f9d;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Card de Seleção */
+        .card {
+            background: #151a23;
+            border: 1px solid #222938;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #00e5ff; /* Mude para a cor do seu tema */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #a0a5b5;
+            margin-bottom: 8px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            background: #0b0e14;
+            border: 1px solid #2a3245;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        select:focus, input:focus {
+            border-color: #00e5ff;
+        }
+
+        /* Botão de Ação */
+        .btn-gerar {
+            width: 100%;
+            padding: 14px;
+            background: #00e5ff; /* Mude para a cor do seu tema */
+            color: #000;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn-gerar:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Resultado */
+        .resultado-box {
+            display: none;
+            background: #151a23;
+            border: 1px dashed #00e5ff;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .grid-sensi {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .sensi-item {
+            background: #0b0e14;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .sensi-item span {
+            display: block;
+            font-weight: bold;
+            color: #00e5ff;
+            font-size: 1.1rem;
+            margin-top: 4px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px 0 10px 0;
+            color: #555e70;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="app">
-
-<header class="header">
-  <div class="logo">iarlq<span>sensi</span></div>
-  <button class="menuBtn" onclick="openMenu()">☰</button>
-</header>
-
-<div class="drawer" id="drawer">
-  <div class="drawerBg" onclick="closeMenu()"></div>
-
-  <aside class="drawerPanel">
-    <div class="drawerTitle">
-      <strong>iarlqsensi</strong>
-      <button class="close" onclick="closeMenu()">✕</button>
-    </div>
-
-    <button class="menuItem" onclick="go('home')">⌂ Home</button>
-    <button class="menuItem" onclick="go('famosos')">★ Sensi dos Famosos</button>
-    <button class="menuItem" onclick="go('aleatoria')">⚡ Sensi Aleatória</button>
-    <button class="menuItem" onclick="go('arma')">▣ Sensi por Arma</button>
-    <button class="menuItem" onclick="go('especial')">✦ Sensi Especial</button>
-    <button class="menuItem" onclick="go('dpi')">◉ DPI</button>
-    <button class="menuItem" onclick="go('favoritos')">♡ Favoritos</button>
-    <button class="menuItem" onclick="go('ciclos')">◌ Ciclos</button>
-    <button class="menuItem" onclick="go('apoie')">♥ Apoie o iarlqsensi</button>
-  </aside>
-</div>
-
-<main>
-
-<!-- HOME -->
-<section id="home" class="page active">
-
-  <div class="hero">
-    <h1>Bem-vindo ao <span>iarlqsensi</span></h1>
-    <p>
-      Gere sensibilidades para Free Fire, encontre configurações por arma,
-      veja sensibilidades de famosos e descubra o DPI ideal para seu aparelho.
-    </p>
-  </div>
-
-  <h2 class="sectionTitle">Gerador de Sensi</h2>
-
-  <div class="grid">
-
-    <button class="card" onclick="go('famosos')">
-      <div class="cardIcon">★</div>
-      <h3>Sensi dos Famosos</h3>
-      <p>Confira configurações de jogadores e mantenha o VTRLQ.</p>
-    </button>
-
-    <button class="card" onclick="go('aleatoria')">
-      <div class="cardIcon">⚡</div>
-      <h3>Sensi Aleatória</h3>
-      <p>Gere uma sensibilidade automaticamente para seu aparelho.</p>
-    </button>
-
-    <button class="card" onclick="go('arma')">
-      <div class="cardIcon">▣</div>
-      <h3>Sensi por Arma</h3>
-      <p>Escolha a arma e monte uma configuração específica.</p>
-    </button>
-
-    <button class="card" onclick="go('especial')">
-      <div class="cardIcon">✦</div>
-      <h3>Sensi Especial</h3>
-      <p>Configurações focadas em capa, precisão, rush e controle.</p>
-    </button>
-
-    <button class="card" onclick="go('dpi')">
-      <div class="cardIcon">◉</div>
-      <h3>DPI</h3>
-      <p>Consulte recomendações de DPI para seu aparelho.</p>
-    </button>
-
-    <button class="card" onclick="go('favoritos')">
-      <div class="cardIcon">♡</div>
-      <h3>Favoritos</h3>
-      <p>Salve suas sensibilidades favoritas no próprio aparelho.</p>
-    </button>
-
-    <button class="card" onclick="go('ciclos')">
-      <div class="cardIcon">◌</div>
-      <h3>Ciclos</h3>
-      <p>Explore os ciclos de configuração do iarlqsensi.</p>
-    </button>
-
-    <button class="card" onclick="go('apoie')">
-      <div class="cardIcon">♥</div>
-      <h3>Apoie o iarlqsensi</h3>
-      <p>Conheça formas de apoiar o projeto.</p>
-    </button>
-
-  </div>
-</section>
-
-
-<!-- FAMOSOS -->
-<section id="famosos" class="page">
-
-  <div class="hero">
-    <h1>Sensi dos <span>Famosos</span></h1>
-    <p>Escolha um perfil para visualizar uma configuração.</p>
-  </div>
-
-  <div class="grid">
-
-    <button class="card" onclick="famous('Nobru')">
-      <div class="cardIcon">★</div>
-      <h3>Nobru</h3>
-      <p>Configuração de sensibilidade.</p>
-    </button>
-
-    <button class="card" onclick="famous('VTRLQ')">
-      <div class="cardIcon">★</div>
-      <h3>VTRLQ</h3>
-      <p>Configuração VTRLQ.</p>
-    </button>
-
-    <button class="card" onclick="famous('Fantasma')">
-      <div class="cardIcon">★</div>
-      <h3>Fantasma</h3>
-      <p>Configuração de sensibilidade.</p>
-    </button>
-
-    <button class="card" onclick="famous('Personalizada')">
-      <div class="cardIcon">✦</div>
-      <h3>Personalizada</h3>
-      <p>Gerar configuração personalizada.</p>
-    </button>
-
-  </div>
-
-  <div id="result-famosos" class="result"></div>
-
-</section>
-
-
-<!-- ALEATORIA -->
-<section id="aleatoria" class="page">
-
-  <div class="hero">
-    <h1>Sensi <span>Aleatória</span></h1>
-    <p>Escolha seu aparelho e o estilo que deseja gerar.</p>
-  </div>
-
-  <div class="panel">
-    <h2>Seu celular</h2>
-    <div class="panelDesc">Escolha o sistema do aparelho.</div>
-
-    <div class="options">
-      <button class="option device selected" onclick="selectOpt(this,'device')">iPhone</button>
-      <button class="option device" onclick="selectOpt(this,'device')">Android</button>
-    </div>
-  </div>
-
-  <div class="panel">
-    <h2>Categoria</h2>
-    <div class="panelDesc">Escolha a faixa da sensibilidade.</div>
-
-    <div class="options">
-      <button class="option category" onclick="selectOpt(this,'category')">Baixa</button>
-      <button class="option category selected" onclick="selectOpt(this,'category')">Média</button>
-      <button class="option category" onclick="selectOpt(this,'category')">Alta</button>
-      <button class="option category" onclick="selectOpt(this,'category')">Equilibrada</button>
-    </div>
-  </div>
-
-  <div class="panel">
-    <h2>Estilo</h2>
-
-    <div class="options">
-      <button class="option style selected" onclick="selectOpt(this,'style')">Balanceada</button>
-      <button class="option style" onclick="selectOpt(this,'style')">Capa</button>
-      <button class="option style" onclick="selectOpt(this,'style')">Precisão</button>
-      <button class="option style" onclick="selectOpt(this,'style')">Controle</button>
-    </div>
-
-    <button class="primary full" onclick="generateRandom()">
-      ⚡ Gerar minha Sensi
-    </button>
-  </div>
-
-  <div id="result-random" class="result"></div>
-
-</section>
-
-
-<!-- ARMA -->
-<section id="arma" class="page">
-
-  <div class="hero">
-    <h1>Sensi por <span>Arma</span></h1>
-    <p>Escolha sua arma e gere uma configuração focada nela.</p>
-  </div>
-
-  <div class="panel">
-    <h2>Escolha a arma</h2>
-
-    <div class="options" id="weapons"></div>
-  </div>
-
-  <div class="panel">
-    <h2>Celular</h2>
-
-    <div class="options">
-      <button class="option weaponDevice selected" onclick="selectOpt(this,'weaponDevice')">iPhone</button>
-      <button class="option weaponDevice" onclick="selectOpt(this,'weaponDevice')">Android</button>
-    </div>
-
-    <button class="primary full" onclick="generateWeapon()">
-      ▣ Gerar Sensi da Arma
-    </button>
-  </div>
-
-  <div id="result-weapon" class="result"></div>
-
-</section>
-
-
-<!-- ESPECIAL -->
-<section id="especial" class="page">
-
-  <div class="hero">
-    <h1>Sensi <span>Especial</span></h1>
-    <p>Escolha o objetivo da configuração.</p>
-  </div>
-
-  <div class="grid">
-
-    <button class="card" onclick="special('Headshot')">
-      <div class="cardIcon">🎯</div>
-      <h3>Headshot</h3>
-      <p>Foco em puxada e capa.</p>
-    </button>
-
-    <button class="card" onclick="special('Capa')">
-      <div class="cardIcon">↑</div>
-      <h3>Capa</h3>
-      <p>Configuração para capa.</p>
-    </button>
-
-    <button class="card" onclick="special('Rush')">
-      <div class="cardIcon">⚡</div>
-      <h3>Rush</h3>
-      <p>Movimentação rápida.</p>
-    </button>
-
-    <button class="card" onclick="special('Precisão')">
-      <div class="cardIcon">◎</div>
-      <h3>Precisão</h3>
-      <p>Foco em controle.</p>
-    </button>
-
-    <button class="card" onclick="special('One Tap')">
-      <div class="cardIcon">✦</div>
-      <h3>One Tap</h3>
-      <p>Foco em disparos precisos.</p>
-    </button>
-
-    <button class="card" onclick="special('Equilibrada')">
-      <div class="cardIcon">◈</div>
-      <h3>Equilibrada</h3>
-      <p>Configuração geral.</p>
-    </button>
-
-  </div>
-
-  <div id="result-special" class="result"></div>
-
-</section>
-
-
-<!-- DPI -->
-<section id="dpi" class="page">
-
-  <div class="hero">
-    <h1>DPI <span>iarlqsensi</span></h1>
-    <p>Escolha seu aparelho para receber uma recomendação.</p>
-  </div>
-
-  <div class="panel">
-    <h2>Qual é seu aparelho?</h2>
-
-    <div class="options">
-      <button class="option dpiDevice selected" onclick="selectOpt(this,'dpiDevice')">iPhone</button>
-      <button class="option dpiDevice" onclick="selectOpt(this,'dpiDevice')">Android</button>
-    </div>
-
-    <button class="primary full" onclick="generateDpi()">
-      ◉ Ver recomendação
-    </button>
-  </div>
-
-  <div id="dpiResult"></div>
-
-</section>
-
-
-<!-- FAVORITOS -->
-<section id="favoritos" class="page">
-
-  <div class="hero">
-    <h1>Meus <span>Favoritos</span></h1>
-    <p>Suas configurações salvas ficam armazenadas neste aparelho.</p>
-  </div>
-
-  <div id="favoritesList"></div>
-
-</section>
-
-
-<!-- CICLOS -->
-<section id="ciclos" class="page">
-
-  <div class="hero">
-    <h1><span>Ciclos</span></h1>
-    <p>Explore os ciclos de configuração do iarlqsensi.</p>
-  </div>
-
-  <div class="list">
-
-    <div class="listItem cycle">
-      <div class="cycleNum">01</div>
-      <div class="listInfo">
-        <strong>Ciclo 1</strong>
-        <small>Base equilibrada para começar.</small>
-      </div>
-    </div>
-
-    <div class="listItem cycle">
-      <div class="cycleNum">02</div>
-      <div class="listInfo">
-        <strong>Ciclo 2</strong>
-        <small>Mais velocidade na mira.</small>
-      </div>
-    </div>
-
-    <div class="listItem cycle">
-      <div class="cycleNum">03</div>
-      <div class="listInfo">
-        <strong>Ciclo 3</strong>
-        <small>Foco em capa.</small>
-      </div>
-    </div>
-
-    <div class="listItem cycle">
-      <div class="cycleNum">04</div>
-      <div class="listInfo">
-        <strong>Ciclo 4</strong>
-        <small>Controle e precisão.</small>
-      </div>
-    </div>
-
-    <div class="listItem cycle">
-      <div class="cycleNum">05</div>
-      <div class="listInfo">
-        <strong>Ciclo 5</strong>
-        <small>Configuração agressiva.</small>
-      </div>
-    </div>
-
-    <div class="listItem cycle">
-      <div class="cycleNum">06</div>
-      <div class="listInfo">
-        <strong>Ciclo 6</strong>
-        <small>Configuração avançada.</small>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- APOIE -->
-<section id="apoie" class="page">
-
-  <div class="panel support">
-
-    <div class="supportIcon">♥</div>
-
-    <h1>Apoie o <span style="color:#c084fc">iarlqsensi</span></h1>
-
-    <p>
-      O iarlqsensi é um projeto feito para facilitar a criação
-      de sensibilidades e configurações para jogadores de Free Fire.
-    </p>
-
-    <p>
-      Se você gosta do projeto, compartilhe com seus amigos
-      e ajude o site a continuar crescendo.
-    </p>
-
-    <button class="primary full" onclick="toast('Obrigado por apoiar o iarlqsensi! ♥')">
-      ♥ Apoiar projeto
-    </button>
-
-  </div>
-
-</section>
-
-</main>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script>
-/* =========================
-   NAVEGAÇÃO
-========================= */
-
-function go(page){
-
-  document.querySelectorAll('.page').forEach(p=>{
-    p.classList.remove('active');
-  });
-
-  const target=document.getElementById(page);
-
-  if(target){
-    target.classList.add('active');
-  }
-
-  closeMenu();
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-
-  if(page==='favoritos'){
-    renderFavorites();
-  }
-}
-
-function openMenu(){
-  document.getElementById('drawer').classList.add('open');
-}
-
-function closeMenu(){
-  document.getElementById('drawer').classList.remove('open');
-}
-
-
-/* =========================
-   OPÇÕES
-========================= */
-
-function selectOpt(button,group){
-
-  document.querySelectorAll('.'+group).forEach(el=>{
-    el.classList.remove('selected');
-  });
-
-  button.classList.add('selected');
-}
-
-function selected(group){
-
-  const el=document.querySelector('.'+group+'.selected');
-
-  return el ? el.textContent.trim() : '';
-}
-
-
-/* =========================
-   SENSI
-========================= */
-
-function createSensi(base){
-
-  return {
-    Geral:Math.min(200,Math.max(0,base)),
-    "Ponto Vermelho":Math.min(200,Math.max(0,base-5)),
-    "Mira 2x":Math.min(200,Math.max(0,base-10)),
-    "Mira 4x":Math.min(200,Math.max(0,base-20)),
-    AWM:Math.min(200,Math.max(0,base-30)),
-    Olhadinha:Math.min(200,Math.max(0,base-15))
-  };
-}
-
-function randomNumber(min,max){
-  return Math.floor(Math.random()*(max-min+1))+min;
-}
-
-function renderResult(container,data,title,subtitle){
-
-  const values=Object.entries(data);
-
-  container.innerHTML=`
-    <div class="panel">
-      <div class="resultTop">
-        <div>
-          <div class="resultTitle">${title}</div>
-          <div style="color:#aaa3b5;font-size:13px;margin-top:5px">${subtitle}</div>
-        </div>
-
-        <button class="smallBtn" onclick='saveFavorite(${JSON.stringify(data)})'>
-          ♡
-        </button>
-      </div>
-
-      <div class="resultGrid">
-        ${values.map(([name,value])=>`
-          <div class="stat">
-            <small>${name}</small>
-            <strong>${value}</strong>
-          </div>
-        `).join('')}
-      </div>
-
-      <div class="actions">
-        <button class="secondary" onclick='copySensi(${JSON.stringify(data)})'>
-          Copiar
-        </button>
-
-        <button class="primary" onclick="toast('Nova configuração gerada!')">
-          Gerar outra
-        </button>
-      </div>
-    </div>
-  `;
-
-  container.classList.add('show');
-}
-
-
-/* =========================
-   ALEATÓRIA
-========================= */
-
-function generateRandom(){
-
-  const device=selected('device');
-  const category=selected('category');
-  const style=selected('style');
-
-  let min=130;
-  let max=190;
-
-  if(category==='Baixa'){
-    min=80;
-    max=125;
-  }
-
-  if(category==='Média'){
-    min=120;
-    max=160;
-  }
-
-  if(category==='Alta'){
-    min=160;
-    max=200;
-  }
-
-  if(style==='Capa'){
-    min+=5;
-    max+=5;
-  }
-
-  if(style==='Precisão'){
-    min-=8;
-    max-=5;
-  }
-
-  if(style==='Controle'){
-    min-=15;
-    max-=10;
-  }
-
-  const base=randomNumber(min,max);
-
-  const data=createSensi(base);
-
-  renderResult(
-    document.getElementById('result-random'),
-    data,
-    'Sua Sensi',
-    `${device} • ${category} • ${style}`
-  );
-}
-
-
-/* =========================
-   ARMAS
-========================= */
-
-const weapons=[
-  'Desert Eagle',
-  'M1887',
-  'MP40',
-  'UMP',
-  'XM8',
-  'SCAR',
-  'M4A1',
-  'AK47',
-  'FAMAS',
-  'Groza',
-  'AWM',
-  'Kar98k',
-  'M82B',
-  'P90',
-  'Thompson',
-  'Vector'
-];
-
-let currentWeapon='Desert Eagle';
-
-const weaponBox=document.getElementById('weapons');
-
-weapons.forEach((weapon,i)=>{
-
-  const button=document.createElement('button');
-
-  button.className='option weapon'+(i===0?' selected':'');
-  button.textContent=weapon;
-
-  button.onclick=()=>{
-
-    document.querySelectorAll('.weapon').forEach(x=>{
-      x.classList.remove('selected');
-    });
-
-    button.classList.add('selected');
-    currentWeapon=weapon;
-  };
-
-  weaponBox.appendChild(button);
-});
-
-
-function generateWeapon(){
-
-  const device=selected('weaponDevice');
-
-  let base=randomNumber(140,195);
-
-  if(currentWeapon==='AWM' || currentWeapon==='Kar98k'){
-    base=randomNumber(100,165);
-  }
-
-  if(currentWeapon==='M1887' || currentWeapon==='Desert Eagle'){
-    base=randomNumber(160,200);
-  }
-
-  const data=createSensi(base);
-
-  renderResult(
-    document.getElementById('result-weapon'),
-    data,
-    currentWeapon,
-    `${device} • Sensi por arma`
-  );
-}
-
-
-/* =========================
-   FAMOSOS
-========================= */
-
-const famousData={
-
-  Nobru:createSensi(190),
-
-  VTRLQ:{
-    Geral:200,
-    "Ponto Vermelho":195,
-    "Mira 2x":190,
-    "Mira 4x":180,
-    AWM:165,
-    Olhadinha:185
-  },
-
-  Fantasma:createSensi(185),
-
-  Personalizada:createSensi(175)
-};
-
-function famous(name){
-
-  const data=famousData[name];
-
-  renderResult(
-    document.getElementById('result-famosos'),
-    data,
-    name,
-    'Sensi dos Famosos'
-  );
-}
-
-
-/* =========================
-   ESPECIAL
-========================= */
-
-function special(type){
-
-  let base=175;
-
-  if(type==='Headshot') base=195;
-  if(type==='Capa') base=190;
-  if(type==='Rush') base=185;
-  if(type==='Precisão') base=155;
-  if(type==='One Tap') base=198;
-  if(type==='Equilibrada') base=175;
-
-  const data=createSensi(base);
-
-  renderResult(
-    document.getElementById('result-special'),
-    data,
-    type,
-    'Sensi Especial'
-  );
-}
-
-
-/* =========================
-   DPI
-========================= */
-
-function generateDpi(){
-
-  const device=selected('dpiDevice');
-
-  let html='';
-
-  if(device==='iPhone'){
-
-    html=`
-      <div class="grid">
+    <header>
+        <h1><span>RLQ</span> SENSI</h1>
+        <p>Gerador de Sensibilidade e DPI - VTRLQ</p>
+    </header>
+
+    <div class="container">
+        <!-- Form/Painel -->
         <div class="card">
-          <div class="cardIcon">◉</div>
-          <h3>DPI recomendado</h3>
-          <p>iPhone utiliza configuração própria de toque e sensibilidade.</p>
-          <h2 style="margin-top:15px;color:#c084fc">Padrão iOS</h2>
-        </div>
-
-        <div class="card">
-          <div class="cardIcon">⚡</div>
-          <h3>Perfil rápido</h3>
-          <p>Foco em velocidade de resposta.</p>
-          <h2 style="margin-top:15px;color:#c084fc">Alta</h2>
-        </div>
-      </div>
-    `;
-
-  }else{
-
-    html=`
-      <div class="grid">
-        <div class="card">
-          <div class="cardIcon">◉</div>
-          <h3>DPI equilibrado</h3>
-          <p>Uma faixa intermediária para começar.</p>
-          <h2 style="margin-top:15px;color:#c084fc">480 DPI</h2>
-        </div>
-
-        <div class="card">
-          <div class="cardIcon">⚡</div>
-          <h3>DPI rápido</h3>
-          <p>Mais velocidade no toque.</p>
-          <h2 style="margin-top:15px;color:#c084fc">520 DPI</h2>
-        </div>
-
-        <div class="card">
-          <div class="cardIcon">🎯</div>
-          <h3>DPI precisão</h3>
-          <p>Uma opção mais controlada.</p>
-          <h2 style="margin-top:15px;color:#c084fc">420 DPI</h2>
-        </div>
-      </div>
-    `;
-  }
-
-  document.getElementById('dpiResult').innerHTML=html;
-}
-
-
-/* =========================
-   FAVORITOS
-========================= */
-
-function getFavorites(){
-
-  try{
-    return JSON.parse(localStorage.getItem('iarlqsensi_favorites')) || [];
-  }catch(e){
-    return [];
-  }
-}
-
-function saveFavorite(data){
-
-  const favorites=getFavorites();
-
-  favorites.unshift({
-    id:Date.now(),
-    date:new Date().toLocaleDateString('pt-BR'),
-    data:data
-  });
-
-  localStorage.setItem(
-    'iarlqsensi_favorites',
-    JSON.stringify(favorites.slice(0,30))
-  );
-
-  toast('Sensi adicionada aos favoritos ♥');
-
-  renderFavorites();
-}
-
-function deleteFavorite(id){
-
-  const favorites=getFavorites().filter(x=>x.id!==id);
-
-  localStorage.setItem(
-    'iarlqsensi_favorites',
-    JSON.stringify(favorites)
-  );
-
-  renderFavorites();
-
-  toast('Favorito removido');
-}
-
-function renderFavorites(){
-
-  const box=document.getElementById('favoritesList');
-
-  const favorites=getFavorites();
-
-  if(!favorites.length){
-
-    box.innerHTML=`
-      <div class="empty">
-        <div class="emptyIcon">♡</div>
-        <strong>Nenhum favorito ainda</strong>
-        <p style="margin-top:8px">
-          Gere uma sensi e toque no coração para salvá-la.
-        </p>
-      </div>
-    `;
-
-    return;
-  }
-
-  box.innerHTML=`
-    <div class="list">
-      ${favorites.map(item=>{
-
-        const values=Object.entries(item.data);
-
-        return `
-          <div class="panel">
-
-            <div class="resultTop">
-              <div>
-                <strong>Minha Sensi</strong>
-                <div style="color:#aaa3b5;font-size:12px;margin-top:4px">
-                  ${item.date}
-                </div>
-              </div>
-
-              <button class="smallBtn delete"
-                onclick="deleteFavorite(${item.id})">
-                Excluir
-              </button>
+            <h2>Configuração do Dispositivo</h2>
+            
+            <div class="form-group">
+                <label for="sistema">Sistema Operacional</label>
+                <select id="sistema">
+                    <option value="android">Android</option>
+                    <option value="ios">iOS (iPhone)</option>
+                </select>
             </div>
 
-            <div class="resultGrid">
-              ${values.map(([name,value])=>`
-                <div class="stat">
-                  <small>${name}</small>
-                  <strong>${value}</strong>
-                </div>
-              `).join('')}
+            <div class="form-group">
+                <label for="estilo">Estilo de Sensi</label>
+                <select id="estilo">
+                    <option value="alta">Alta (Rápida)</option>
+                    <option value="media">Média (Equilibrada)</option>
+                    <option value="baixa">Baixa (Puxada Controlada)</option>
+                </select>
             </div>
 
-            <button class="secondary full"
-              onclick='copySensi(${JSON.stringify(item.data)})'>
-              Copiar sensibilidade
-            </button>
+            <button class="btn-gerar" onclick="gerarSensi()">Gerar Configuração</button>
+        </div>
 
-          </div>
-        `;
-
-      }).join('')}
+        <!-- Painel de Resultados -->
+        <div class="resultado-box" id="resultado">
+            <h2 style="color: #fff; font-size: 1rem;">Sensi Gerada para VTRLQ</h2>
+            <div class="grid-sensi">
+                <div class="sensi-item">Geral <span id="val-geral">98</span></div>
+                <div class="sensi-item">Ponto Vermelho <span id="val-reddot">95</span></div>
+                <div class="sensi-item">Mira 2x <span id="val-2x">92</span></div>
+                <div class="sensi-item">Mira 4x <span id="val-4x">88</span></div>
+                <div class="sensi-item">DPI Indicada <span id="val-dpi">600</span></div>
+                <div class="sensi-item">Botão de Atirar <span id="val-botao">55%</span></div>
+            </div>
+        </div>
     </div>
-  `;
-}
 
+    <footer>
+        &copy; 2026 RLQ - Todos os direitos reservados.
+    </footer>
 
-/* =========================
-   COPIAR
-========================= */
+    <script>
+        // Lógica em JavaScript
+        function gerarSensi() {
+            const estilo = document.getElementById('estilo').value;
+            let geral, reddot, m2x, m4x, dpi, botao;
 
-function copySensi(data){
+            if (estilo === 'alta') {
+                geral = Math.floor(Math.random() * 5) + 95;
+                reddot = Math.floor(Math.random() * 5) + 95;
+                m2x = Math.floor(Math.random() * 5) + 90;
+                m4x = Math.floor(Math.random() * 5) + 90;
+                dpi = Math.floor(Math.random() * 100) + 600;
+                botao = "50%";
+            } else if (estilo === 'media') {
+                geral = Math.floor(Math.random() * 10) + 85;
+                reddot = Math.floor(Math.random() * 10) + 85;
+                m2x = Math.floor(Math.random() * 10) + 80;
+                m4x = Math.floor(Math.random() * 10) + 80;
+                dpi = Math.floor(Math.random() * 100) + 500;
+                botao = "55%";
+            } else {
+                geral = Math.floor(Math.random() * 10) + 75;
+                reddot = Math.floor(Math.random() * 10) + 75;
+                m2x = Math.floor(Math.random() * 10) + 70;
+                m4x = Math.floor(Math.random() * 10) + 70;
+                dpi = Math.floor(Math.random() * 100) + 400;
+                botao = "60%";
+            }
 
-  const text=Object.entries(data)
-    .map(([name,value])=>`${name}: ${value}`)
-    .join('\n');
+            document.getElementById('val-geral').innerText = geral;
+            document.getElementById('val-reddot').innerText = reddot;
+            document.getElementById('val-2x').innerText = m2x;
+            document.getElementById('val-4x').innerText = m4x;
+            document.getElementById('val-dpi').innerText = dpi;
+            document.getElementById('val-botao').innerText = botao;
 
-  if(navigator.clipboard){
-
-    navigator.clipboard.writeText(text)
-      .then(()=>{
-        toast('Sensi copiada!');
-      })
-      .catch(()=>{
-        toast('Não foi possível copiar');
-      });
-
-  }else{
-
-    toast('Copie manualmente os valores');
-  }
-}
-
-
-/* =========================
-   TOAST
-========================= */
-
-let toastTimer;
-
-function toast(message){
-
-  const el=document.getElementById('toast');
-
-  el.textContent=message;
-  el.classList.add('show');
-
-  clearTimeout(toastTimer);
-
-  toastTimer=setTimeout(()=>{
-    el.classList.remove('show');
-  },2200);
-}
-
-
-/* =========================
-   INICIALIZAÇÃO
-========================= */
-
-renderFavorites();
-</script>
-
+            document.getElementById('resultado').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
