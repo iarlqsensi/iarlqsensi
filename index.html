@@ -2,424 +2,619 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#08060d">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#08040d">
 <title>rlqsensi.ia 2.0</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+:root{
+  --bg:#050507;
+  --card:#0e0b13;
+  --card2:#15101d;
+  --purple:#8b35ff;
+  --purple2:#b56cff;
+  --border:#28153d;
+  --text:#fff;
+  --muted:#aaa1b4;
+  --green:#45e58a;
 }
 
-:root{
-  --bg:#07060b;
-  --card:#100c18;
-  --card2:#15101f;
-  --purple:#9b4dff;
-  --purple2:#6e25c9;
-  --text:#fff;
-  --muted:#aaa0b8;
-  --line:#281c38;
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
+  overflow-x:hidden;
 }
 
 button{
   font:inherit;
+  color:inherit;
   border:0;
   cursor:pointer;
-  color:#fff;
 }
 
-.app{
-  max-width:560px;
-  margin:auto;
-  min-height:100vh;
-  background:linear-gradient(180deg,#08060d,#0b0811);
+.hidden{
+  display:none!important;
 }
+
+/* =========================
+   ENTRADA
+========================= */
+
+#entry{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(139,53,255,.18),transparent 38%),
+    #050507;
+}
+
+.entry-box{
+  width:min(430px,100%);
+  text-align:center;
+}
+
+.entry-brand{
+  font-size:42px;
+  font-weight:900;
+  letter-spacing:-2px;
+  margin-bottom:4px;
+}
+
+.entry-version{
+  color:var(--purple2);
+  font-size:16px;
+  font-weight:800;
+  margin-bottom:34px;
+}
+
+.entry-line{
+  width:90px;
+  height:3px;
+  margin:0 auto 26px;
+  border-radius:99px;
+  background:linear-gradient(90deg,transparent,var(--purple),transparent);
+}
+
+.entry-sub{
+  color:#c9c2d0;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  margin-bottom:30px;
+}
+
+.start-btn{
+  width:100%;
+  min-height:58px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#7423e9,#a94fff);
+  box-shadow:0 0 35px rgba(139,53,255,.28);
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:.8px;
+}
+
+.start-btn:active{
+  transform:scale(.98);
+}
+
+/* =========================
+   APP
+========================= */
+
+#app{
+  min-height:100dvh;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 16px;
+  background:rgba(5,5,7,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #17111e;
+}
+
+.logo{
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:-.5px;
+}
+
+.logo span{
+  color:var(--purple2);
+}
+
+.main{
+  width:min(760px,100%);
+  margin:auto;
+  padding:14px;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.home-head{
+  text-align:center;
+  padding:8px 0 14px;
+}
+
+.home-head h1{
+  margin:0;
+  font-size:21px;
+  font-weight:900;
+}
+
+.home-head p{
+  margin:5px 0 0;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+
+.card{
+  min-height:112px;
+  padding:14px 12px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:
+    linear-gradient(145deg,rgba(139,53,255,.08),rgba(255,255,255,.015)),
+    var(--card);
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  text-align:left;
+  transition:.15s;
+}
+
+.card:active{
+  transform:scale(.98);
+  border-color:#55218a;
+}
+
+.card-icon{
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:11px;
+  background:#1b1027;
+  border:1px solid #32184b;
+  font-size:19px;
+  margin-bottom:9px;
+}
+
+.card h3{
+  margin:0 0 4px;
+  font-size:13px;
+}
+
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.35;
+}
+
+.footer{
+  text-align:center;
+  color:#5f5668;
+  font-size:10px;
+  padding:18px 0 8px;
+}
+
+/* =========================
+   TELAS INTERNAS
+========================= */
 
 .screen{
   display:none;
-  min-height:100vh;
-  padding:22px 16px 40px;
+  animation:fade .18s ease;
 }
 
 .screen.active{
   display:block;
 }
 
-.center{
+@keyframes fade{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.screen-title{
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
+  gap:10px;
+  margin-bottom:5px;
 }
 
-.splash{
-  min-height:100vh;
-  flex-direction:column;
-  padding:28px;
+.screen-title h2{
+  margin:0;
+  font-size:21px;
 }
 
-.logo{
-  font-size:38px;
-  font-weight:900;
-  letter-spacing:-2px;
-}
-
-.version{
-  color:var(--purple);
-  font-weight:800;
-  margin-top:4px;
-}
-
-.tag{
-  font-size:13px;
-  color:#d7d0df;
-  margin:15px 0 30px;
-  font-weight:700;
-}
-
-.btn{
-  width:100%;
-  padding:16px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--purple),#6420bd);
-  font-weight:900;
-  box-shadow:0 8px 28px #6d25c933;
-}
-
-.btn.secondary{
-  background:#17111f;
-  border:1px solid var(--line);
-  box-shadow:none;
-}
-
-.btn.small{
-  padding:12px;
-}
-
-.header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:20px;
+.screen-sub{
+  color:var(--muted);
+  font-size:12px;
+  margin:0 0 16px;
+  line-height:1.5;
 }
 
 .back{
   width:40px;
   height:40px;
   border-radius:12px;
-  background:#17111f;
-  border:1px solid var(--line);
+  background:#100c15;
+  border:1px solid var(--border);
+  font-size:20px;
 }
 
-.title{
-  font-size:25px;
+.section-label{
+  color:#9e8daa;
+  font-size:10px;
   font-weight:900;
+  letter-spacing:1.4px;
+  margin:18px 0 9px;
 }
 
-.sub{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:4px;
-}
-
-.grid{
+.option-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
 }
 
-.card{
-  background:linear-gradient(145deg,#15101d,#0e0a14);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-  min-height:126px;
-  position:relative;
-  overflow:hidden;
-}
-
-.card:after{
-  content:"";
-  position:absolute;
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:#9b4dff0d;
-  right:-35px;
-  bottom:-35px;
-}
-
-.card h3{
-  font-size:16px;
-  margin:8px 0;
-}
-
-.card p{
+.option{
+  min-height:52px;
+  padding:12px;
+  border-radius:14px;
+  background:var(--card);
+  border:1px solid var(--border);
+  font-weight:800;
   font-size:12px;
-  color:var(--muted);
-  line-height:1.4;
+  text-align:left;
 }
 
-.icon{
-  font-size:27px;
+.option:active{
+  transform:scale(.98);
+  border-color:var(--purple);
+  background:#160d20;
 }
 
-.full{
+.option.wide{
   grid-column:1/-1;
 }
 
-.section{
-  font-size:12px;
-  color:var(--purple);
-  font-weight:900;
-  letter-spacing:1px;
-  margin:22px 2px 10px;
-}
-
-.list{
-  display:grid;
-  gap:10px;
-}
-
-.choice{
-  width:100%;
-  padding:16px;
-  text-align:left;
-  background:#120d19;
-  border:1px solid var(--line);
-  border-radius:14px;
-  font-weight:800;
-}
-
-.choice:hover,
-.choice.selected{
-  border-color:var(--purple);
-  background:#1a1027;
-}
-
-.badge{
-  float:right;
-  color:var(--purple);
-  font-size:11px;
-}
-
-.avatar{
-  width:54px;
-  height:54px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#25153b,#09070d);
-  border:2px solid var(--purple);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-}
-
 .player{
-  display:flex;
-  align-items:center;
-  gap:13px;
+  position:relative;
+  text-align:center;
+  min-height:110px;
 }
 
 .crown{
-  text-align:center;
-  font-size:20px;
-  margin-bottom:-4px;
+  font-size:23px;
+  margin-bottom:4px;
 }
 
-.field{
-  margin:12px 0;
-}
-
-.field label{
-  display:block;
-  font-size:12px;
-  color:var(--muted);
-  margin-bottom:7px;
-}
-
-select{
-  width:100%;
-  padding:14px;
-  background:#120d19;
-  color:#fff;
-  border:1px solid var(--line);
-  border-radius:12px;
-  outline:none;
-}
-
-.result{
-  background:#100b16;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px;
-}
-
-.sensi-row{
-  display:flex;
-  justify-content:space-between;
-  padding:12px 0;
-  border-bottom:1px solid #21182d;
-}
-
-.sensi-row:last-child{
-  border-bottom:0;
-}
-
-.num{
-  color:var(--purple);
-  font-weight:900;
-}
-
-.fav{
-  margin-top:12px;
-  background:#17111f;
-  border:1px solid var(--line);
-  padding:12px;
-  border-radius:12px;
-  width:100%;
-}
-
-.empty{
-  text-align:center;
-  padding:60px 20px;
-  color:var(--muted);
-}
-
-.empty strong{
-  display:block;
-  color:#fff;
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.fav-item{
-  padding:15px;
-  background:#120d19;
-  border:1px solid var(--line);
-  border-radius:14px;
-  margin-bottom:10px;
-}
-
-/* OTIMIZAÇÃO */
-
-.progress-wrap{
-  text-align:center;
-  padding:25px 10px;
-}
-
-.progress-circle{
-  width:190px;
-  height:190px;
+.avatar{
+  width:45px;
+  height:45px;
   border-radius:50%;
-  margin:5px auto 25px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:conic-gradient(var(--purple) 0deg,#261c31 0deg);
+  margin:0 auto 7px;
+  background:linear-gradient(135deg,#241033,#7f2fe8);
+  font-weight:900;
+}
+
+.player-name{
+  text-align:center;
+  font-size:13px;
+  font-weight:900;
+}
+
+/* =========================
+   RESULTADOS
+========================= */
+
+.result-box{
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:14px;
+  background:var(--card);
+}
+
+.result-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.result-head strong{
+  font-size:14px;
+}
+
+.result-tag{
+  padding:5px 8px;
+  border-radius:8px;
+  background:#21102f;
+  color:var(--purple2);
+  font-size:9px;
+  font-weight:900;
+}
+
+.sensi-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.value{
+  padding:12px;
+  border-radius:12px;
+  background:#09070b;
+  border:1px solid #1e1525;
+}
+
+.value small{
+  display:block;
+  color:#8f8597;
+  font-size:9px;
+  margin-bottom:5px;
+}
+
+.value b{
+  font-size:20px;
+  color:#fff;
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-top:10px;
+}
+
+.action{
+  min-height:47px;
+  border-radius:13px;
+  background:#140d1b;
+  border:1px solid var(--border);
+  font-size:11px;
+  font-weight:900;
+}
+
+.action.primary{
+  background:linear-gradient(135deg,#7021df,#9c45f5);
+  border-color:transparent;
+}
+
+/* =========================
+   RECONHECIMENTO
+========================= */
+
+.unlock{
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:var(--card);
+  text-align:center;
+}
+
+.unlock-icon{
+  font-size:35px;
+  margin-bottom:8px;
+}
+
+.unlock h3{
+  margin:0 0 7px;
+}
+
+.unlock p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+  margin:0 0 15px;
+}
+
+.social-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-bottom:10px;
+}
+
+.social{
+  min-height:48px;
+  border-radius:13px;
+  background:#15101b;
+  border:1px solid var(--border);
+  font-size:11px;
+  font-weight:900;
+}
+
+/* =========================
+   OTIMIZAÇÃO
+========================= */
+
+.loader-wrap{
+  text-align:center;
+  padding:22px 10px;
+}
+
+.loader{
+  width:145px;
+  height:145px;
+  border-radius:50%;
+  margin:0 auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:conic-gradient(var(--purple) 0deg,#201827 0deg);
   position:relative;
 }
 
-.progress-circle:before{
+.loader::before{
   content:"";
   position:absolute;
-  width:166px;
-  height:166px;
+  inset:9px;
+  background:#08060b;
   border-radius:50%;
-  background:#0d0913;
 }
 
 .percent{
   position:relative;
-  font-size:42px;
+  z-index:1;
+  font-size:28px;
   font-weight:900;
 }
 
-.process{
-  background:#100b16;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:15px;
+.loading-lines{
+  text-align:left;
+  margin-top:16px;
+  padding:13px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:var(--card);
 }
 
-.process-line{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 0;
-  color:#81778b;
-  font-size:13px;
-  border-bottom:1px solid #21182d;
+.load-line{
+  color:#77707e;
+  font-size:11px;
+  padding:7px 0;
+  transition:.2s;
 }
 
-.process-line:last-child{
-  border:0;
+.load-line.done{
+  color:var(--green);
 }
 
-.dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:#3b3045;
-}
-
-.process-line.active{
+.load-line.current{
   color:#fff;
 }
 
-.process-line.done{
-  color:#bca8d3;
-}
+/* =========================
+   FAVORITOS
+========================= */
 
-.process-line.active .dot,
-.process-line.done .dot{
-  background:var(--purple);
-  box-shadow:0 0 10px #9b4dff;
-}
-
-.success{
+.empty{
   text-align:center;
-  padding:20px 0;
+  padding:55px 20px;
+  border:1px dashed #2a2032;
+  border-radius:18px;
+  background:#09070b;
 }
 
-.success .check{
-  font-size:52px;
+.empty-icon{
+  font-size:35px;
+  margin-bottom:12px;
 }
 
-.success h2{
-  margin:8px 0;
+.empty h3{
+  margin:0 0 7px;
 }
 
-.success p{
+.empty p{
+  margin:0;
   color:var(--muted);
-  font-size:13px;
-  margin-bottom:20px;
-}
-
-.notice{
-  font-size:11px;
-  color:#857a90;
+  font-size:12px;
   line-height:1.5;
-  margin-top:10px;
 }
 
-@media(max-width:380px){
-  .grid{
-    grid-template-columns:1fr;
+.favorite-item{
+  padding:13px;
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:14px;
+  margin-bottom:8px;
+}
+
+.favorite-item strong{
+  display:block;
+  font-size:12px;
+}
+
+.favorite-item span{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:4px;
+}
+
+.remove-fav{
+  margin-top:9px;
+  width:100%;
+  min-height:35px;
+  border-radius:10px;
+  background:#170b12;
+  border:1px solid #351524;
+  color:#ff8eac;
+  font-size:10px;
+  font-weight:900;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:370px){
+  .cards{
+    gap:7px;
   }
 
-  .full{
-    grid-column:auto;
+  .card{
+    min-height:105px;
+    padding:11px;
+  }
+
+  .card-icon{
+    width:32px;
+    height:32px;
+    margin-bottom:6px;
+  }
+
+  .card h3{
+    font-size:12px;
+  }
+
+  .card p{
+    font-size:9px;
+  }
+}
+
+@media(min-width:650px){
+  .cards{
+    grid-template-columns:repeat(3,1fr);
   }
 }
 </style>
@@ -427,2570 +622,1519 @@ select{
 
 <body>
 
-<div class="app">
+<!-- =========================
+     TELA DE ENTRADA
+========================= -->
 
-<!-- TELA INICIAL -->
+<section id="entry">
+  <div class="entry-box">
+    <div class="entry-line"></div>
 
-<section id="splash" class="screen active center splash">
+    <div class="entry-brand">rlqsensi.ia</div>
+    <div class="entry-version">2.0</div>
 
-  <div class="logo">
-    rlqsensi.ia
+    <div class="entry-sub">
+      A MELHOR SENSI DO CENÁRIO
+    </div>
+
+    <button class="start-btn" onclick="startSite()">
+      ▶ INICIAR
+    </button>
   </div>
-
-  <div class="version">
-    2.0
-  </div>
-
-  <div class="tag">
-    A MELHOR SENSI DO CENÁRIO
-  </div>
-
-  <button class="btn" onclick="go('home')">
-    ▶ INICIAR
-  </button>
-
 </section>
 
 
-<!-- HOME -->
+<!-- =========================
+     APP
+========================= -->
 
-<section id="home" class="screen">
+<div id="app" class="hidden">
 
-  <div class="header">
+  <header class="topbar">
+    <div class="logo">rlq<span>sensi.ia</span></div>
+  </header>
 
-    <div>
-      <div class="title">
-        rlqsensi.ia
+  <main class="main">
+
+    <!-- HOME -->
+
+    <section id="home" class="screen active">
+
+      <div class="home-head">
+        <h1>Central de configurações</h1>
+        <p>Escolha uma função para começar</p>
       </div>
 
-      <div class="sub">
-        Central de configurações
+      <div class="cards">
+
+        <button class="card" onclick="openScreen('famous')">
+          <div class="card-icon">👑</div>
+          <h3>Sensi dos Famosos</h3>
+          <p>Gere sensibilidades inspiradas nos jogadores.</p>
+        </button>
+
+        <button class="card" onclick="openScreen('custom')">
+          <div class="card-icon">🎯</div>
+          <h3>Sensi Personalizada</h3>
+          <p>Escolha seu aparelho e gere sua sensi.</p>
+        </button>
+
+        <button class="card" onclick="openScreen('weapon')">
+          <div class="card-icon">🔫</div>
+          <h3>Sensibilidade por Arma</h3>
+          <p>Escolha a arma e o estilo.</p>
+        </button>
+
+        <button class="card" onclick="openScreen('special')">
+          <div class="card-icon">✨</div>
+          <h3>Sensi Especial</h3>
+          <p>Libere o acesso pelas redes.</p>
+        </button>
+
+        <button class="card" onclick="openScreen('cursor')">
+          <div class="card-icon">🖱️</div>
+          <h3>Cursor Móvel</h3>
+          <p>Geração para seu modelo.</p>
+        </button>
+
+        <button class="card" onclick="openScreen('dpi')">
+          <div class="card-icon">📱</div>
+          <h3>DPI</h3>
+          <p>Ajuste recomendado para Android.</p>
+        </button>
+
+        <button class="card" onclick="openScreen('optimization')">
+          <div class="card-icon">⚡</div>
+          <h3>Otimização Fluida</h3>
+          <p>Prepare seu celular para uma experiência mais fluida.</p>
+        </button>
+
+        <button class="card" onclick="openFavorites()">
+          <div class="card-icon">❤️</div>
+          <h3>Favoritos</h3>
+          <p>Veja tudo que você salvou.</p>
+        </button>
+
+        <button class="card" onclick="openScreen('support')">
+          <div class="card-icon">💜</div>
+          <h3>Apoie o VTRLQ</h3>
+          <p>Discord e TikTok.</p>
+        </button>
+
       </div>
-    </div>
 
-  </div>
+      <div class="footer">
+        rlqsensi.ia • 2.0
+      </div>
+
+    </section>
 
 
-  <div class="grid">
+    <!-- =========================
+         FAMOSOS
+    ========================== -->
 
-    <button class="card" onclick="go('famous')">
+    <section id="famous" class="screen">
 
-      <div class="icon">👑</div>
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Sensi dos Famosos</h2>
+      </div>
 
-      <h3>
-        Sensi dos Famosos
-      </h3>
+      <p class="screen-sub">Escolha o jogador</p>
 
-      <p>
-        Gere sensibilidades inspiradas nos jogadores.
+      <div class="option-grid">
+
+        <button class="option player" onclick="chooseFamous('Nobru')">
+          <div class="avatar">N</div>
+          <div class="player-name">Nobru</div>
+        </button>
+
+        <button class="option player" onclick="chooseFamous('VTRLQ')">
+          <div class="crown">👑</div>
+          <div class="avatar">V</div>
+          <div class="player-name">VTRLQ</div>
+        </button>
+
+        <button class="option player wide" onclick="chooseFamous('Fantasma')">
+          <div class="avatar">F</div>
+          <div class="player-name">Fantasma</div>
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- FAMOSOS CATEGORIA -->
+
+    <section id="famousCategory" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="openScreen('famous')">‹</button>
+        <h2>Categoria</h2>
+      </div>
+
+      <p class="screen-sub">Escolha sua sensibilidade</p>
+
+      <div class="option-grid">
+        <button class="option" onclick="chooseLevel('Baixa')">Baixa</button>
+        <button class="option" onclick="chooseLevel('Média')">Média</button>
+        <button class="option wide" onclick="chooseLevel('Alta')">Alta</button>
+      </div>
+
+    </section>
+
+
+    <!-- FAMOSOS PLATAFORMA -->
+
+    <section id="famousPlatform" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="openScreen('famousCategory')">‹</button>
+        <h2>Seu aparelho</h2>
+      </div>
+
+      <p class="screen-sub">Escolha a plataforma</p>
+
+      <div class="option-grid">
+        <button class="option" onclick="phoneType='Android';openBrand('famousPlatform')">Android</button>
+        <button class="option" onclick="phoneType='iPhone';openIphoneFamilies('famousPlatform')">iPhone</button>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CUSTOM
+    ========================== -->
+
+    <section id="custom" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Sensi Personalizada</h2>
+      </div>
+
+      <p class="screen-sub">Escolha seu aparelho</p>
+
+      <div class="option-grid">
+        <button class="option" onclick="phoneType='Android';openBrand('custom')">Android</button>
+        <button class="option" onclick="phoneType='iPhone';openIphoneFamilies('custom')">iPhone</button>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MARCAS
+    ========================== -->
+
+    <section id="brands" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="backFromBrands()">‹</button>
+        <h2>Marca</h2>
+      </div>
+
+      <p class="screen-sub">Selecione uma opção</p>
+
+      <div id="brandList" class="option-grid"></div>
+
+    </section>
+
+
+    <!-- =========================
+         MODELOS
+    ========================== -->
+
+    <section id="models" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="backFromModels()">‹</button>
+        <h2>Modelo</h2>
+      </div>
+
+      <p class="screen-sub">Selecione seu aparelho</p>
+
+      <div id="modelList" class="option-grid"></div>
+
+    </section>
+
+
+    <!-- =========================
+         IPHONE FAMÍLIA
+    ========================== -->
+
+    <section id="iphoneFamilies" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="backFromIphoneFamilies()">‹</button>
+        <h2>iPhone</h2>
+      </div>
+
+      <p class="screen-sub">Escolha a linha do seu aparelho</p>
+
+      <div id="iphoneFamilyList" class="option-grid"></div>
+
+    </section>
+
+
+    <!-- =========================
+         IPHONE VARIANTE
+    ========================== -->
+
+    <section id="iphoneVariants" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="openScreen('iphoneFamilies')">‹</button>
+        <h2>Modelo</h2>
+      </div>
+
+      <p class="screen-sub">Escolha a versão</p>
+
+      <div id="iphoneVariantList" class="option-grid"></div>
+
+    </section>
+
+
+    <!-- =========================
+         RESULTADO SENSI
+    ========================== -->
+
+    <section id="sensiResult" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Sua Sensi</h2>
+      </div>
+
+      <div id="sensiResultBox"></div>
+
+    </section>
+
+
+    <!-- =========================
+         ARMAS
+    ========================== -->
+
+    <section id="weapon" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Sensibilidade por Arma</h2>
+      </div>
+
+      <p class="screen-sub">Primeiro escolha a arma</p>
+
+      <div class="section-label">ARMAS POPULARES</div>
+
+      <div class="option-grid">
+        <button class="option" onclick="chooseWeapon('XM8')">XM8</button>
+        <button class="option" onclick="chooseWeapon('UMP')">UMP</button>
+        <button class="option" onclick="chooseWeapon('Desert')">Desert</button>
+        <button class="option" onclick="chooseWeapon('MP40')">MP40</button>
+        <button class="option" onclick="chooseWeapon('Carapina')">Carapina</button>
+        <button class="option" onclick="chooseWeapon('12 Nova')">12 Nova</button>
+      </div>
+
+    </section>
+
+
+    <section id="weaponStyle" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="openScreen('weapon')">‹</button>
+        <h2>Estilo</h2>
+      </div>
+
+      <p class="screen-sub">Escolha o estilo da arma</p>
+
+      <div class="section-label">ESTILO</div>
+
+      <div class="option-grid">
+        <button class="option" onclick="chooseWeaponStyle('4X4')">4X4</button>
+        <button class="option" onclick="chooseWeaponStyle('X1')">X1</button>
+        <button class="option wide" onclick="chooseWeaponStyle('RANK')">RANK</button>
+      </div>
+
+    </section>
+
+
+    <section id="weaponResult" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Resultado</h2>
+      </div>
+
+      <div id="weaponResultBox"></div>
+
+    </section>
+
+
+    <!-- =========================
+         ESPECIAL
+    ========================== -->
+
+    <section id="special" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Sensi Especial</h2>
+      </div>
+
+      <div class="unlock">
+
+        <div class="unlock-icon">🔐</div>
+
+        <h3>Reconhecimento</h3>
+
+        <p>
+          Entre no Discord e siga o TikTok para liberar a Sensi Especial.
+        </p>
+
+        <div class="social-grid">
+
+          <button class="social"
+            onclick="window.open('https://discord.gg/rlq','_blank')">
+            DISCORD
+          </button>
+
+          <button class="social"
+            onclick="window.open('https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC','_blank')">
+            TIKTOK
+          </button>
+
+        </div>
+
+        <button class="action primary"
+          style="width:100%"
+          onclick="unlockSpecial()">
+          ✓ VERIFICAR E LIBERAR
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section id="specialResult" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Sensi Especial</h2>
+      </div>
+
+      <p class="screen-sub">Gerador liberado</p>
+
+      <div id="specialResultBox"></div>
+
+    </section>
+
+
+    <!-- =========================
+         CURSOR
+    ========================== -->
+
+    <section id="cursor" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Cursor Móvel</h2>
+      </div>
+
+      <p class="screen-sub">
+        <b>Geração automática de cursor móvel</b><br><br>
+        Cursor móvel é gerado para cada modelo próprio por um especialista 24h.
       </p>
 
-    </button>
+      <div class="section-label">MODELO DO IPHONE / APARELHO</div>
+
+      <div class="option-grid">
+        <button class="option" onclick="cursorType='Android';openBrand('cursor')">Android</button>
+        <button class="option" onclick="cursorType='iPhone';openIphoneFamilies('cursor')">iPhone</button>
+      </div>
+
+    </section>
 
 
-    <button class="card" onclick="go('custom')">
+    <section id="cursorMode" class="screen">
 
-      <div class="icon">🎯</div>
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Modo de Geração</h2>
+      </div>
 
-      <h3>
-        Sensi Personalizada
-      </h3>
+      <p class="screen-sub">Escolha o modo</p>
 
-      <p>
-        Escolha seu aparelho e gere sua sensi.
+      <div class="option-grid">
+        <button class="option" onclick="generateCursor('Refinado')">Refinado</button>
+        <button class="option" onclick="generateCursor('Individual')">Individual</button>
+        <button class="option wide" onclick="generateCursor('Preciso')">Preciso</button>
+      </div>
+
+    </section>
+
+
+    <section id="cursorResult" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Cursor Gerado</h2>
+      </div>
+
+      <div id="cursorResultBox"></div>
+
+    </section>
+
+
+    <!-- =========================
+         DPI
+    ========================== -->
+
+    <section id="dpi" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>DPI</h2>
+      </div>
+
+      <p class="screen-sub">
+        <b>Ajuste do sistema para Android</b><br><br>
+        DPI é ajuste do sistema e costuma existir apenas no Android.
+        Use com cuidado e pesquise como alterar no seu aparelho.
       </p>
 
-    </button>
+      <div class="section-label">MARCA DO APARELHO</div>
+
+      <div id="dpiBrandList" class="option-grid"></div>
+
+    </section>
 
 
-    <button class="card" onclick="go('weapon')">
+    <section id="dpiModels" class="screen">
 
-      <div class="icon">🔫</div>
-
-      <h3>
-        Sensibilidade por Arma
-      </h3>
-
-      <p>
-        Escolha a arma e o estilo.
-      </p>
-
-    </button>
-
-
-    <button class="card" onclick="go('special')">
-
-      <div class="icon">✨</div>
-
-      <h3>
-        Sensi Especial
-      </h3>
-
-      <p>
-        Libere o acesso pelas redes.
-      </p>
-
-    </button>
-
-
-    <button class="card" onclick="go('cursor')">
-
-      <div class="icon">🖱️</div>
-
-      <h3>
-        Cursor Móvel
-      </h3>
-
-      <p>
-        Geração para seu modelo.
-      </p>
-
-    </button>
-
-
-    <button class="card" onclick="go('dpi')">
-
-      <div class="icon">📱</div>
-
-      <h3>
-        DPI
-      </h3>
-
-      <p>
-        Ajuste recomendado para Android.
-      </p>
-
-    </button>
-
-
-    <!-- OTIMIZAÇÃO -->
-
-    <button class="card full" onclick="go('optimization')">
-
-      <div class="icon">
-        ⚡
+      <div class="screen-title">
+        <button class="back" onclick="openScreen('dpi')">‹</button>
+        <h2>Modelo</h2>
       </div>
 
-      <h3>
-        Otimização Fluida
-      </h3>
+      <p class="screen-sub">Selecione seu aparelho</p>
 
-      <p>
-        Prepare seu celular para uma experiência mais fluida.
-      </p>
+      <div id="dpiModelList" class="option-grid"></div>
 
-    </button>
+    </section>
 
 
-    <button class="card" onclick="go('favorites')">
+    <section id="dpiProfile" class="screen">
 
-      <div class="icon">
-        ❤️
+      <div class="screen-title">
+        <button class="back" onclick="openScreen('dpiModels')">‹</button>
+        <h2>Perfil do Aparelho</h2>
       </div>
 
-      <h3>
-        Favoritos
-      </h3>
+      <p class="screen-sub">Escolha o perfil</p>
 
-      <p>
-        Veja tudo que você salvou.
-      </p>
-
-    </button>
-
-
-    <button class="card" onclick="go('support')">
-
-      <div class="icon">
-        💜
+      <div class="option-grid">
+        <button class="option" onclick="chooseDpiProfile('Fraco')">Fraco</button>
+        <button class="option" onclick="chooseDpiProfile('Médio')">Médio</button>
+        <button class="option wide" onclick="chooseDpiProfile('Forte')">Forte</button>
       </div>
 
-      <h3>
-        Apoie o VTRLQ
-      </h3>
-
-      <p>
-        Discord e TikTok.
-      </p>
-
-    </button>
-
-  </div>
-
-</section>
+    </section>
 
 
-<!-- FAMOSOS -->
+    <section id="dpiType" class="screen">
 
-<section id="famous" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('home')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Sensi dos Famosos
+      <div class="screen-title">
+        <button class="back" onclick="openScreen('dpiProfile')">‹</button>
+        <h2>Tipo de DPI</h2>
       </div>
 
-      <div class="sub">
-        Escolha o jogador
+      <p class="screen-sub">Escolha o tipo</p>
+
+      <div class="option-grid">
+        <button class="option" onclick="generateDpi('DPI Baixa')">DPI Baixa</button>
+        <button class="option" onclick="generateDpi('DPI Média')">DPI Média</button>
+        <button class="option wide" onclick="generateDpi('DPI Alta')">DPI Alta</button>
       </div>
 
-    </div>
-
-  </div>
-
-  <div class="list" id="players"></div>
-
-</section>
+    </section>
 
 
-<!-- CATEGORIA DA SENSI -->
+    <section id="dpiResult" class="screen">
 
-<section id="famousLevel" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('famous')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Categoria
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>DPI Gerada</h2>
       </div>
 
-      <div class="sub">
-        Escolha sua sensibilidade
+      <div id="dpiResultBox"></div>
+
+    </section>
+
+
+    <!-- =========================
+         OTIMIZAÇÃO
+    ========================== -->
+
+    <section id="optimization" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Otimização Fluida</h2>
       </div>
 
-    </div>
+      <p class="screen-sub">Primeiro escolha o celular</p>
 
-  </div>
-
-
-  <div class="list">
-
-    <button class="choice"
-      onclick="famousLevel='Baixa';go('famousPhone')">
-      Baixa
-    </button>
-
-    <button class="choice"
-      onclick="famousLevel='Média';go('famousPhone')">
-      Média
-    </button>
-
-    <button class="choice"
-      onclick="famousLevel='Alta';go('famousPhone')">
-      Alta
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- CELULAR DOS FAMOSOS -->
-
-<section id="famousPhone" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('famousLevel')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Seu aparelho
+      <div class="option-grid">
+        <button class="option" onclick="optimizationType='Android';openBrand('optimization')">Android</button>
+        <button class="option" onclick="optimizationType='iPhone';openIphoneFamilies('optimization')">iPhone</button>
       </div>
 
-      <div class="sub">
-        Escolha a plataforma
+    </section>
+
+
+    <section id="optimizationGame" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Escolha o jogo</h2>
       </div>
 
-    </div>
-
-  </div>
-
-
-  <div class="list">
-
-    <button class="choice"
-      onclick="startPhone('famous','Android')">
-      Android
-    </button>
-
-    <button class="choice"
-      onclick="startPhone('famous','iPhone')">
-      iPhone
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- SENSI PERSONALIZADA -->
-
-<section id="custom" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('home')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Sensi Personalizada
+      <div class="option-grid">
+        <button class="option" onclick="startOptimization('Free Fire')">🔥 Free Fire</button>
+        <button class="option" onclick="startOptimization('Free Fire MAX')">🔥 Free Fire MAX</button>
       </div>
 
-      <div class="sub">
-        Escolha seu aparelho
+    </section>
+
+
+    <section id="optimizationLoading" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Otimizando</h2>
       </div>
 
-    </div>
+      <div class="loader-wrap">
 
-  </div>
+        <div id="loader" class="loader">
+          <div id="percent" class="percent">0%</div>
+        </div>
 
+        <div class="loading-lines">
 
-  <div class="list">
+          <div class="load-line">Limpando memória RAM</div>
+          <div class="load-line">Injetando boneco lento</div>
+          <div class="load-line">Injetando precision</div>
+          <div class="load-line">Otimizando o celular</div>
+          <div class="load-line">Ajustando desempenho</div>
+          <div class="load-line">Finalizando otimização</div>
 
-    <button class="choice"
-      onclick="startPhone('custom','Android')">
-      Android
-    </button>
-
-    <button class="choice"
-      onclick="startPhone('custom','iPhone')">
-      iPhone
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- MARCA -->
-
-<section id="phoneBrand" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="phoneBack()">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title" id="phoneTitle">
-        Marca
-      </div>
-
-      <div class="sub">
-        Selecione uma opção
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="list" id="brandList"></div>
-
-</section>
-
-
-<!-- MODELO -->
-
-<section id="phoneModel" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('phoneBrand')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Modelo
-      </div>
-
-      <div class="sub" id="modelSub"></div>
-
-    </div>
-
-  </div>
-
-
-  <div class="list" id="modelList"></div>
-
-</section>
-
-
-<!-- RESULTADO SENSI -->
-
-<section id="generatedSensi" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="backFromGenerated()">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Sua Sensi
-      </div>
-
-      <div class="sub" id="generatedSub"></div>
-
-    </div>
-
-  </div>
-
-
-  <div class="result" id="sensiResult"></div>
-
-
-  <button
-    class="btn"
-    style="margin-top:12px"
-    onclick="generateSensi()">
-
-    ↻ GERAR OUTRA
-
-  </button>
-
-
-  <button
-    class="fav"
-    onclick="saveCurrent()">
-
-    ❤️ Salvar nos favoritos
-
-  </button>
-
-</section>
-
-
-<!-- ARMAS -->
-
-<section id="weapon" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('home')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Sensibilidade por Arma
-      </div>
-
-      <div class="sub">
-        Primeiro escolha a arma
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="section">
-    ARMAS POPULARES
-  </div>
-
-
-  <div class="list">
-
-    <button class="choice"
-      onclick="weapon='XM8';go('weaponStyle')">
-      XM8
-    </button>
-
-    <button class="choice"
-      onclick="weapon='UMP';go('weaponStyle')">
-      UMP
-    </button>
-
-    <button class="choice"
-      onclick="weapon='Desert';go('weaponStyle')">
-      Desert
-    </button>
-
-    <button class="choice"
-      onclick="weapon='MP40';go('weaponStyle')">
-      MP40
-    </button>
-
-    <button class="choice"
-      onclick="weapon='Carapina';go('weaponStyle')">
-      Carapina
-    </button>
-
-    <button class="choice"
-      onclick="weapon='12 Nova';go('weaponStyle')">
-      12 Nova
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ESTILO DA ARMA -->
-
-<section id="weaponStyle" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('weapon')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Estilo
-      </div>
-
-      <div class="sub">
-        Escolha o estilo da arma
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="section">
-    ESTILO
-  </div>
-
-
-  <div class="list">
-
-    <button class="choice"
-      onclick="weaponStyle='4X4';generateWeapon()">
-      4X4
-    </button>
-
-    <button class="choice"
-      onclick="weaponStyle='X1';generateWeapon()">
-      X1
-    </button>
-
-    <button class="choice"
-      onclick="weaponStyle='RANK';generateWeapon()">
-      RANK
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- RESULTADO ARMA -->
-
-<section id="weaponResult" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('weaponStyle')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Resultado
-      </div>
-
-      <div class="sub" id="weaponSub"></div>
-
-    </div>
-
-  </div>
-
-
-  <div class="result" id="weaponResultBox"></div>
-
-
-  <button
-    class="btn"
-    style="margin-top:12px"
-    onclick="generateWeapon()">
-
-    ↻ GERAR OUTRA
-
-  </button>
-
-
-  <button
-    class="fav"
-    onclick="saveFavorite(
-      'Sensibilidade por Arma',
-      weapon+' • '+weaponStyle,
-      document.getElementById('weaponResultBox').innerText
-    )">
-
-    ❤️ Salvar nos favoritos
-
-  </button>
-
-</section>
-
-
-<!-- SENSI ESPECIAL -->
-
-<section id="special" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('home')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Sensi Especial
-      </div>
-
-      <div class="sub">
-        Libere o acesso
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="result">
-
-    <h3 style="margin-bottom:10px">
-      🔐 Reconhecimento
-    </h3>
-
-    <p class="sub">
-      Entre no Discord e siga o TikTok para liberar a Sensi Especial.
-    </p>
-
-
-    <button
-      class="btn small"
-      style="margin-top:15px"
-      onclick="window.open(
-        'https://discord.gg/rlq',
-        '_blank'
-      )">
-
-      DISCORD
-
-    </button>
-
-
-    <button
-      class="btn small"
-      style="margin-top:10px"
-      onclick="window.open(
-        'https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC',
-        '_blank'
-      )">
-
-      TIKTOK
-
-    </button>
-
-  </div>
-
-
-  <button
-    class="btn"
-    style="margin-top:12px"
-    onclick="go('specialResult')">
-
-    ✓ VERIFICAR E LIBERAR
-
-  </button>
-
-</section>
-
-
-<!-- RESULTADO ESPECIAL -->
-
-<section id="specialResult" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('special')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Sensi Especial
-      </div>
-
-      <div class="sub">
-        Gerador liberado
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="result" id="specialBox"></div>
-
-
-  <button
-    class="btn"
-    style="margin-top:12px"
-    onclick="generateSpecial()">
-
-    ↻ GERAR OUTRA
-
-  </button>
-
-
-  <button
-    class="fav"
-    onclick="saveFavorite(
-      'Sensi Especial',
-      'Sensi Especial',
-      document.getElementById('specialBox').innerText
-    )">
-
-    ❤️ Salvar nos favoritos
-
-  </button>
-
-</section>
-
-
-<!-- CURSOR -->
-
-<section id="cursor" class="screen">
-
-  <div class="header">
-
-    <button class="back" onclick="go('home')">
-      ‹
-    </button>
-
-    <div>
-
-      <div class="title">
-        Cursor Móvel
-      </div>
-
-      <div class="sub">
-        Geração automática de cursor móvel
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="result"
-    style="margin-bottom:14px">
-
-    <p style="font-weight:800">
-      Cursor móvel é gerado para cada modelo próprio por um especialista 24h.
-    </p>
-
-  </div>
-
-
-  <div class="section">
-    MODELO DO IPHONE / APARELHO
-  </div>
-
-
-  <div class="list">
-
-    <button
-      class="choice"
-      onclick="startPhone('cursor','Android')">
-
-      Android
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="startPhone('cursor','iPhone')">
-
-      iPhone
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- MODO CURSOR -->
-
-<section id="cursorMode" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="backFromCursorMode()">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Modo de Geração
-      </div>
-
-      <div class="sub">
-        Escolha o modo
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="list">
-
-    <button
-      class="choice"
-      onclick="cursorMode='Refinado';generateCursor()">
-
-      Refinado
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="cursorMode='Individual';generateCursor()">
-
-      Individual
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="cursorMode='Preciso';generateCursor()">
-
-      Preciso
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- RESULTADO CURSOR -->
-
-<section id="cursorResult" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('cursorMode')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Cursor Gerado
-      </div>
-
-      <div class="sub" id="cursorSub"></div>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="result"
-    id="cursorBox">
-  </div>
-
-
-  <button
-    class="btn"
-    style="margin-top:12px"
-    onclick="generateCursor()">
-
-    ↻ GERAR OUTRO
-
-  </button>
-
-
-  <button
-    class="fav"
-    onclick="saveFavorite(
-      'Cursor Móvel',
-      cursorMode,
-      document.getElementById('cursorBox').innerText
-    )">
-
-    ❤️ Salvar nos favoritos
-
-  </button>
-
-</section>
-
-
-<!-- DPI -->
-
-<section id="dpi" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('home')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        DPI
-      </div>
-
-      <div class="sub">
-        Ajuste do sistema para Android
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="result"
-    style="margin-bottom:14px">
-
-    <p class="sub">
-      DPI é ajuste do sistema e costuma existir apenas no Android. Use com cuidado e pesquise como alterar no seu aparelho.
-    </p>
-
-  </div>
-
-
-  <div class="section">
-    MARCA DO APARELHO
-  </div>
-
-
-  <div
-    class="list"
-    id="dpiBrands">
-  </div>
-
-</section>
-
-
-<!-- MODELO DPI -->
-
-<section id="dpiModel" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('dpi')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Modelo
-      </div>
-
-      <div
-        class="sub"
-        id="dpiModelSub">
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="list"
-    id="dpiModels">
-  </div>
-
-</section>
-
-
-<!-- PERFIL DPI -->
-
-<section id="dpiProfile" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('dpiModel')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Perfil do Aparelho
-      </div>
-
-      <div class="sub">
-        Escolha o perfil
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="list">
-
-    <button
-      class="choice"
-      onclick="dpiProfile='Fraco';go('dpiType')">
-
-      Fraco
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="dpiProfile='Médio';go('dpiType')">
-
-      Médio
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="dpiProfile='Forte';go('dpiType')">
-
-      Forte
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- TIPO DPI -->
-
-<section id="dpiType" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('dpiProfile')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Tipo de DPI
-      </div>
-
-      <div class="sub">
-        Escolha o tipo
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="list">
-
-    <button
-      class="choice"
-      onclick="dpiType='DPI Baixa';generateDPI()">
-
-      DPI Baixa
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="dpiType='DPI Média';generateDPI()">
-
-      DPI Média
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="dpiType='DPI Alta';generateDPI()">
-
-      DPI Alta
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- RESULTADO DPI -->
-
-<section id="dpiResult" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('dpiType')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        DPI Gerada
-      </div>
-
-      <div
-        class="sub"
-        id="dpiSub">
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="result"
-    id="dpiBox">
-  </div>
-
-
-  <button
-    class="btn"
-    style="margin-top:12px"
-    onclick="generateDPI()">
-
-    ↻ GERAR OUTRA
-
-  </button>
-
-
-  <button
-    class="fav"
-    onclick="saveFavorite(
-      'DPI',
-      dpiType,
-      document.getElementById('dpiBox').innerText
-    )">
-
-    ❤️ Salvar nos favoritos
-
-  </button>
-
-</section>
-
-
-<!-- OTIMIZAÇÃO -->
-
-<section id="optimization" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('home')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Otimização Fluida
-      </div>
-
-      <div class="sub">
-        Primeiro escolha o celular
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="list">
-
-    <button
-      class="choice"
-      onclick="startPhone('optimization','Android')">
-
-      Android
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="startPhone('optimization','iPhone')">
-
-      iPhone
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- ESCOLHER JOGO -->
-
-<section id="gameChoice" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="backFromGame()">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Escolha o jogo
-      </div>
-
-      <div
-        class="sub"
-        id="gamePhone">
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="list">
-
-    <button
-      class="choice"
-      onclick="selectedGame='Free Fire';startOptimization()">
-
-      🔥 Free Fire
-
-    </button>
-
-
-    <button
-      class="choice"
-      onclick="selectedGame='Free Fire MAX';startOptimization()">
-
-      🔥 Free Fire MAX
-
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- PROCESSO OTIMIZAÇÃO -->
-
-<section id="optimizationRun" class="screen">
-
-  <div class="header">
-
-    <div>
-
-      <div class="title">
-        Otimizando
-      </div>
-
-      <div
-        class="sub"
-        id="optSub">
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="progress-wrap">
-
-    <div
-      class="progress-circle"
-      id="progressCircle">
-
-      <div
-        class="percent"
-        id="percent">
-
-        0%
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
 
-    <div
-      class="process"
-      id="processBox">
-    </div>
+    <section id="optimizationResult" class="screen">
 
-  </div>
-
-</section>
-
-
-<!-- FINALIZAÇÃO -->
-
-<section id="optimizationDone" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('home')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Otimização Fluida
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Otimização Fluida</h2>
       </div>
 
-      <div class="sub">
-        Processo finalizado
+      <div class="result-box" style="text-align:center">
+
+        <div style="font-size:45px;margin:8px">✓</div>
+
+        <h2 style="margin:5px 0 8px">
+          OTIMIZAÇÃO CONCLUÍDA
+        </h2>
+
+        <p style="color:var(--muted);font-size:11px">
+          Processo finalizado para <b id="optimizationGameName"></b>.
+        </p>
+
+        <div class="actions">
+
+          <button class="action primary"
+            onclick="activateGame()">
+            ⚡ ATIVAR
+          </button>
+
+          <button class="action"
+            onclick="saveFavorite(
+              'Otimização Fluida',
+              optimizationGameName.textContent
+            )">
+            ❤️ Salvar
+          </button>
+
+        </div>
+
+        <p style="color:#665d6c;font-size:9px;margin-top:13px">
+          O botão de ativação tenta abrir o jogo pelo mecanismo disponível no aparelho.
+        </p>
+
       </div>
 
-    </div>
-
-  </div>
+    </section>
 
 
-  <div class="success">
+    <!-- =========================
+         FAVORITOS
+    ========================== -->
 
-    <div class="check">
-      ✓
-    </div>
+    <section id="favorites" class="screen">
 
-    <h2>
-      OTIMIZAÇÃO CONCLUÍDA
-    </h2>
-
-    <p id="doneText"></p>
-
-  </div>
-
-
-  <button
-    class="btn"
-    onclick="activateGame()">
-
-    ⚡ ATIVAR
-
-  </button>
-
-
-  <button
-    class="fav"
-    onclick="saveFavorite(
-      'Otimização Fluida',
-      selectedGame,
-      optPhone+' • '+selectedGame
-    )">
-
-    ❤️ Salvar nos favoritos
-
-  </button>
-
-
-  <div class="notice">
-
-    O botão de ativação tenta abrir o jogo pelo mecanismo disponível no aparelho.
-
-  </div>
-
-</section>
-
-
-<!-- FAVORITOS -->
-
-<section id="favorites" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('home')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Favoritos
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Favoritos</h2>
       </div>
 
-      <div class="sub">
-        Tudo que você salvou
+      <p class="screen-sub">Tudo que você salvou</p>
+
+      <div id="favoritesContent"></div>
+
+    </section>
+
+
+    <!-- =========================
+         APOIO
+    ========================== -->
+
+    <section id="support" class="screen">
+
+      <div class="screen-title">
+        <button class="back" onclick="goHome()">‹</button>
+        <h2>Apoie o VTRLQ</h2>
       </div>
 
-    </div>
+      <p class="screen-sub">Acompanhe nas redes</p>
 
-  </div>
+      <div class="option-grid">
 
+        <button class="option"
+          onclick="window.open('https://discord.gg/rlq','_blank')">
+          💬 Discord
+        </button>
 
-  <div id="favList"></div>
+        <button class="option"
+          onclick="window.open('https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC','_blank')">
+          ♪ TikTok
+        </button>
 
-</section>
-
-
-<!-- APOIE -->
-
-<section id="support" class="screen">
-
-  <div class="header">
-
-    <button
-      class="back"
-      onclick="go('home')">
-
-      ‹
-
-    </button>
-
-
-    <div>
-
-      <div class="title">
-        Apoie o VTRLQ
       </div>
 
-      <div class="sub">
-        Acompanhe nas redes
-      </div>
+    </section>
 
-    </div>
-
-  </div>
-
-
-  <div class="list">
-
-    <button
-      class="card"
-      onclick="window.open(
-        'https://discord.gg/rlq',
-        '_blank'
-      )">
-
-      <div class="icon">
-        💬
-      </div>
-
-      <h3>
-        Discord
-      </h3>
-
-      <p>
-        Entre na comunidade.
-      </p>
-
-    </button>
-
-
-    <button
-      class="card"
-      onclick="window.open(
-        'https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC',
-        '_blank'
-      )">
-
-      <div class="icon">
-        ♪
-      </div>
-
-      <h3>
-        TikTok
-      </h3>
-
-      <p>
-        Siga o VTRLQ.
-      </p>
-
-    </button>
-
-  </div>
-
-</section>
-
+  </main>
 </div>
 
 
 <script>
 
-/* =========================
-   DADOS DOS CELULARES
-========================= */
+/* =====================================================
+   CORREÇÃO PRINCIPAL:
+   A TELA DE ENTRADA EXISTE SOMENTE UMA VEZ POR ABA.
+===================================================== */
 
-const brands = [
-  'Samsung',
-  'POCO',
-  'Realme',
-  'Xiaomi',
-  'Motorola',
-  'ASUS'
-];
+const entry = document.getElementById("entry");
+const app = document.getElementById("app");
+
+if(sessionStorage.getItem("rlq_started") === "1"){
+  entry.remove();
+  app.classList.remove("hidden");
+}
+
+function startSite(){
+
+  sessionStorage.setItem("rlq_started","1");
+
+  entry.style.opacity="0";
+  entry.style.pointerEvents="none";
+  entry.style.transition="opacity .2s ease";
+
+  setTimeout(function(){
+
+    entry.remove();
+    app.classList.remove("hidden");
+
+    window.scrollTo({
+      top:0,
+      left:0,
+      behavior:"instant"
+    });
+
+  },200);
+}
 
 
-const models = {
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+const screens = document.querySelectorAll(".screen");
+
+function openScreen(id){
+
+  screens.forEach(s=>{
+    s.classList.remove("active");
+  });
+
+  const target=document.getElementById(id);
+
+  if(target){
+    target.classList.add("active");
+  }
+
+  window.scrollTo({
+    top:0,
+    left:0,
+    behavior:"instant"
+  });
+}
+
+function goHome(){
+  openScreen("home");
+}
+
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+let famousPlayer="";
+let famousLevel="";
+
+let phoneType="";
+let phoneBrand="";
+let phoneModel="";
+
+let currentFlow="";
+
+let weapon="";
+let weaponStyle="";
+
+let cursorType="";
+let cursorMode="";
+
+let dpiBrand="";
+let dpiModel="";
+let dpiProfile="";
+let dpiType="";
+
+let optimizationType="";
+let optimizationGame="";
+
+
+/* =====================================================
+   MODELOS ANDROID
+===================================================== */
+
+const androidModels = {
 
 Samsung:[
-'Galaxy A14 64GB',
-'Galaxy A24 128GB',
-'Galaxy A34 128GB',
-'Galaxy A54 128GB',
-'Galaxy A55 128GB',
-'Galaxy A56 128GB',
-'Galaxy S21 128GB',
-'Galaxy S21 Ultra 256GB',
-'Galaxy S22 128GB',
-'Galaxy S22 Ultra 256GB',
-'Galaxy S23 128GB',
-'Galaxy S23 Ultra 256GB',
-'Galaxy S24 128GB',
-'Galaxy S24 Ultra 256GB',
-'Galaxy S25 128GB',
-'Galaxy S25 Ultra 256GB',
-'Galaxy Note 20 128GB',
-'Galaxy Note 20 Ultra 256GB',
-'Galaxy Z Flip 5 256GB',
-'Galaxy Z Fold 6 512GB'
+"Galaxy A04 64GB",
+"Galaxy A05 128GB",
+"Galaxy A05s 128GB",
+"Galaxy A14 128GB",
+"Galaxy A15 128GB",
+"Galaxy A16 128GB",
+"Galaxy A24 128GB",
+"Galaxy A25 128GB",
+"Galaxy A26 128GB",
+"Galaxy A34 128GB",
+"Galaxy A35 128GB",
+"Galaxy A54 128GB",
+"Galaxy A55 128GB",
+"Galaxy A56 128GB",
+"Galaxy M14 128GB",
+"Galaxy M15 128GB",
+"Galaxy M34 128GB",
+"Galaxy M35 128GB",
+"Galaxy S21 FE 128GB",
+"Galaxy S22 128GB",
+"Galaxy S22 Ultra 256GB",
+"Galaxy S23 128GB",
+"Galaxy S23 Ultra 256GB",
+"Galaxy S24 128GB",
+"Galaxy S24 Ultra 256GB",
+"Galaxy S25 128GB",
+"Galaxy S25 Ultra 256GB"
 ],
 
 POCO:[
-'POCO X3 NFC 128GB',
-'POCO X3 Pro 128GB',
-'POCO X4 Pro 128GB',
-'POCO X5 128GB',
-'POCO X5 Pro 256GB',
-'POCO X6 256GB',
-'POCO X6 Pro 512GB',
-'POCO X7 256GB',
-'POCO X7 Pro 512GB',
-'POCO F3 128GB',
-'POCO F4 128GB',
-'POCO F5 256GB',
-'POCO F5 Pro 256GB',
-'POCO F6 256GB',
-'POCO F6 Pro 512GB',
-'POCO F7 256GB',
-'POCO M4 Pro 128GB',
-'POCO M5 128GB',
-'POCO M6 Pro 256GB',
-'POCO C65 128GB'
+"POCO C40 64GB",
+"POCO C55 64GB",
+"POCO C65 128GB",
+"POCO M4 Pro 128GB",
+"POCO M5 128GB",
+"POCO M6 128GB",
+"POCO M6 Pro 256GB",
+"POCO X3 NFC 128GB",
+"POCO X3 Pro 128GB",
+"POCO X4 Pro 128GB",
+"POCO X5 128GB",
+"POCO X5 Pro 256GB",
+"POCO X6 256GB",
+"POCO X6 Pro 256GB",
+"POCO X7 256GB",
+"POCO X7 Pro 256GB",
+"POCO F3 128GB",
+"POCO F4 128GB",
+"POCO F5 256GB",
+"POCO F6 256GB"
 ],
 
 Realme:[
-'Realme C35 128GB',
-'Realme C55 128GB',
-'Realme C67 128GB',
-'Realme C75 256GB',
-'Realme 8 128GB',
-'Realme 9 128GB',
-'Realme 10 128GB',
-'Realme 11 256GB',
-'Realme 12 256GB',
-'Realme 12 Pro 256GB',
-'Realme 13 256GB',
-'Realme 13 Pro 256GB',
-'Realme GT 128GB',
-'Realme GT Neo 3 256GB',
-'Realme GT Neo 5 256GB',
-'Realme GT 5 512GB',
-'Realme GT 6 256GB',
-'Realme GT 6T 256GB',
-'Realme GT 7 256GB',
-'Realme GT 7 Pro 512GB'
+"Realme C21 64GB",
+"Realme C25 128GB",
+"Realme C30 64GB",
+"Realme C31 128GB",
+"Realme C33 128GB",
+"Realme C35 128GB",
+"Realme C51 128GB",
+"Realme C53 128GB",
+"Realme C55 128GB",
+"Realme C61 128GB",
+"Realme C63 128GB",
+"Realme C65 256GB",
+"Realme 8 128GB",
+"Realme 9 128GB",
+"Realme 10 128GB",
+"Realme 11 256GB",
+"Realme 12 256GB",
+"Realme GT 2 128GB",
+"Realme GT 5 256GB",
+"Realme GT 6 256GB"
 ],
 
 Xiaomi:[
-'Redmi 10 128GB',
-'Redmi 12 128GB',
-'Redmi 13 256GB',
-'Redmi Note 10 128GB',
-'Redmi Note 11 128GB',
-'Redmi Note 12 128GB',
-'Redmi Note 13 256GB',
-'Redmi Note 13 Pro 256GB',
-'Redmi Note 13 Pro+ 512GB',
-'Redmi Note 14 256GB',
-'Redmi Note 14 Pro 256GB',
-'Redmi Note 14 Pro+ 512GB',
-'Xiaomi 11T 128GB',
-'Xiaomi 12 128GB',
-'Xiaomi 12T 256GB',
-'Xiaomi 13 256GB',
-'Xiaomi 13 Pro 256GB',
-'Xiaomi 14 512GB',
-'Xiaomi 14 Ultra 512GB',
-'Xiaomi 15 512GB'
+"Redmi 9 64GB",
+"Redmi 10 128GB",
+"Redmi 12 128GB",
+"Redmi 13 128GB",
+"Redmi Note 10 128GB",
+"Redmi Note 11 128GB",
+"Redmi Note 12 128GB",
+"Redmi Note 13 128GB",
+"Redmi Note 14 256GB",
+"Redmi Note 10 Pro 128GB",
+"Redmi Note 11 Pro 128GB",
+"Redmi Note 12 Pro 256GB",
+"Redmi Note 13 Pro 256GB",
+"Redmi Note 14 Pro 256GB",
+"Xiaomi 11T 128GB",
+"Xiaomi 12 128GB",
+"Xiaomi 12T 256GB",
+"Xiaomi 13 256GB",
+"Xiaomi 14 256GB",
+"Xiaomi 15 256GB"
 ],
 
 Motorola:[
-'Moto G32 128GB',
-'Moto G52 128GB',
-'Moto G53 128GB',
-'Moto G54 256GB',
-'Moto G55 256GB',
-'Moto G62 128GB',
-'Moto G73 128GB',
-'Moto G84 256GB',
-'Moto G85 256GB',
-'Moto G75 256GB',
-'Edge 30 128GB',
-'Edge 30 Pro 256GB',
-'Edge 30 Ultra 256GB',
-'Edge 40 256GB',
-'Edge 40 Pro 256GB',
-'Edge 50 Fusion 256GB',
-'Edge 50 Pro 256GB',
-'Edge 50 Ultra 512GB',
-'Edge 60 Pro 512GB',
-'Razr 50 Ultra 512GB'
+"Moto E22 64GB",
+"Moto E32 64GB",
+"Moto G22 128GB",
+"Moto G23 128GB",
+"Moto G24 128GB",
+"Moto G34 128GB",
+"Moto G42 128GB",
+"Moto G52 128GB",
+"Moto G53 128GB",
+"Moto G54 128GB",
+"Moto G55 256GB",
+"Moto G62 128GB",
+"Moto G72 128GB",
+"Moto G73 128GB",
+"Moto G84 256GB",
+"Moto G85 256GB",
+"Edge 30 128GB",
+"Edge 40 256GB",
+"Edge 50 Pro 256GB",
+"Edge 60 Pro 256GB"
 ],
 
 ASUS:[
-'ROG Phone 5 128GB',
-'ROG Phone 5 Pro 256GB',
-'ROG Phone 6 256GB',
-'ROG Phone 6 Pro 512GB',
-'ROG Phone 7 256GB',
-'ROG Phone 7 Ultimate 512GB',
-'ROG Phone 8 256GB',
-'ROG Phone 8 Pro 512GB',
-'ROG Phone 9 256GB',
-'ROG Phone 9 Pro 512GB',
-'Zenfone 8 128GB',
-'Zenfone 9 128GB',
-'Zenfone 10 256GB',
-'Zenfone 11 Ultra 512GB',
-'Zenfone 12 Ultra 512GB',
-'Zenfone Max Pro M2 64GB',
-'ROG Phone 3 128GB',
-'ROG Phone 3 Strix 128GB',
-'ROG Phone 5s 256GB',
-'ROG Phone 6D Ultimate 512GB'
+"Zenfone 8 128GB",
+"Zenfone 9 128GB",
+"Zenfone 10 128GB",
+"Zenfone 11 256GB",
+"Zenfone 12 256GB",
+"ROG Phone 5 256GB",
+"ROG Phone 5s 256GB",
+"ROG Phone 6 256GB",
+"ROG Phone 6 Pro 512GB",
+"ROG Phone 7 256GB",
+"ROG Phone 7 Ultimate 512GB",
+"ROG Phone 8 256GB",
+"ROG Phone 8 Pro 512GB",
+"ROG Phone 9 256GB",
+"ROG Phone 9 Pro 512GB"
 ]
 
 };
 
 
-const iphones = {
+/* =====================================================
+   IPHONE
+===================================================== */
 
-XR:[
-'iPhone XR'
-],
+const iphoneFamilies = {
 
-XS:[
-'iPhone XS',
-'iPhone XS Max'
-],
+"XR":["iPhone XR"],
 
-'11':[
-'iPhone 11',
-'iPhone 11 Pro',
-'iPhone 11 Pro Max'
-],
+"XS":["iPhone XS","iPhone XS Max"],
 
-'12':[
-'iPhone 12',
-'iPhone 12 mini',
-'iPhone 12 Pro',
-'iPhone 12 Pro Max'
-],
+"11":["iPhone 11","iPhone 11 Pro","iPhone 11 Pro Max"],
 
-'13':[
-'iPhone 13',
-'iPhone 13 mini',
-'iPhone 13 Pro',
-'iPhone 13 Pro Max'
-],
+"12":["iPhone 12","iPhone 12 mini","iPhone 12 Pro","iPhone 12 Pro Max"],
 
-'14':[
-'iPhone 14',
-'iPhone 14 Plus',
-'iPhone 14 Pro',
-'iPhone 14 Pro Max'
-],
+"13":["iPhone 13","iPhone 13 mini","iPhone 13 Pro","iPhone 13 Pro Max"],
 
-'15':[
-'iPhone 15',
-'iPhone 15 Plus',
-'iPhone 15 Pro',
-'iPhone 15 Pro Max'
-],
+"14":["iPhone 14","iPhone 14 Plus","iPhone 14 Pro","iPhone 14 Pro Max"],
 
-'16':[
-'iPhone 16',
-'iPhone 16 Plus',
-'iPhone 16 Pro',
-'iPhone 16 Pro Max'
-],
+"15":["iPhone 15","iPhone 15 Plus","iPhone 15 Pro","iPhone 15 Pro Max"],
 
-'17':[
-'iPhone 17',
-'iPhone 17 Air',
-'iPhone 17 Pro',
-'iPhone 17 Pro Max'
-]
+"16":["iPhone 16","iPhone 16 Plus","iPhone 16 Pro","iPhone 16 Pro Max"],
+
+"17":["iPhone 17","iPhone 17 Air","iPhone 17 Pro","iPhone 17 Pro Max"]
 
 };
 
 
-/* =========================
-   VARIÁVEIS
-========================= */
+/* =====================================================
+   ABRIR MARCAS
+===================================================== */
 
-let phoneFlow = '';
-let phoneOS = '';
-let phoneBrand = '';
-let phoneModel = '';
+function openBrand(flow){
 
-let famousPlayer = '';
-let famousLevel = '';
+  currentFlow=flow;
 
-let weapon = '';
-let weaponStyle = '';
+  openScreen("brands");
 
-let cursorMode = '';
+  const list=document.getElementById("brandList");
 
-let dpiProfile = '';
-let dpiType = '';
+  list.innerHTML="";
 
-let selectedGame = '';
-let optPhone = '';
+  Object.keys(androidModels).forEach(brand=>{
 
-let favorites =
-JSON.parse(
-  localStorage.getItem('rlqsensiFavorites') || '[]'
-);
+    const button=document.createElement("button");
 
+    button.className="option";
+    button.textContent=brand;
 
-/* =========================
-   NAVEGAÇÃO
-========================= */
-
-function go(id){
-
-  document
-    .querySelectorAll('.screen')
-    .forEach(
-      s => s.classList.remove('active')
-    );
-
-  document
-    .getElementById(id)
-    .classList.add('active');
-
-  window.scrollTo(0,0);
-
-  if(id === 'favorites'){
-    renderFavorites();
-  }
-
-}
-
-
-/* =========================
-   RANDOM
-========================= */
-
-function rand(min,max){
-
-  return Math.floor(
-    Math.random() * (max-min+1)
-  ) + min;
-
-}
-
-
-/* =========================
-   ESCOLHA DE CELULAR
-========================= */
-
-function startPhone(flow,os){
-
-  phoneFlow = flow;
-  phoneOS = os;
-
-  phoneBrand = '';
-  phoneModel = '';
-
-  renderBrands();
-
-  go('phoneBrand');
-
-}
-
-
-function renderBrands(){
-
-  const list =
-    document.getElementById('brandList');
-
-  list.innerHTML = '';
-
-
-  if(phoneOS === 'Android'){
-
-    document.getElementById(
-      'phoneTitle'
-    ).textContent =
-      'Marca do aparelho';
-
-
-    brands.forEach(brand => {
-
-      const button =
-        document.createElement('button');
-
-      button.className = 'choice';
-
-      button.textContent = brand;
-
-      button.onclick =
-        () => chooseBrand(brand);
-
-      list.appendChild(button);
-
-    });
-
-  }
-
-  else{
-
-    document.getElementById(
-      'phoneTitle'
-    ).textContent =
-      'Família do iPhone';
-
-
-    Object.keys(iphones).forEach(family => {
-
-      const button =
-        document.createElement('button');
-
-      button.className = 'choice';
-
-      button.textContent =
-        'iPhone ' + family;
-
-      button.onclick =
-        () => chooseBrand(family);
-
-      list.appendChild(button);
-
-    });
-
-  }
-
-}
-
-
-function chooseBrand(brand){
-
-  phoneBrand = brand;
-
-  const arr =
-    phoneOS === 'Android'
-      ? models[brand]
-      : iphones[brand];
-
-
-  document.getElementById(
-    'modelSub'
-  ).textContent = phoneBrand;
-
-
-  const list =
-    document.getElementById('modelList');
-
-  list.innerHTML = '';
-
-
-  arr.forEach(model => {
-
-    const button =
-      document.createElement('button');
-
-    button.className = 'choice';
-
-    button.textContent = model;
-
-    button.onclick =
-      () => chooseModel(model);
+    button.onclick=function(){
+      selectBrand(brand);
+    };
 
     list.appendChild(button);
 
   });
-
-
-  go('phoneModel');
-
 }
 
 
-function chooseModel(model){
+/* =====================================================
+   ESCOLHER MARCA
+===================================================== */
 
-  phoneModel = model;
+function selectBrand(brand){
 
+  phoneBrand=brand;
 
-  /* OTIMIZAÇÃO */
+  openScreen("models");
 
-  if(phoneFlow === 'optimization'){
+  const list=document.getElementById("modelList");
 
-    optPhone = phoneModel;
+  list.innerHTML="";
 
-    document.getElementById(
-      'gamePhone'
-    ).textContent = phoneModel;
+  androidModels[brand].forEach(model=>{
 
-    go('gameChoice');
+    const button=document.createElement("button");
 
-    return;
+    button.className="option";
+    button.textContent=model;
 
-  }
+    button.onclick=function(){
+      selectModel(model);
+    };
 
+    list.appendChild(button);
 
-  /* CURSOR */
-
-  if(phoneFlow === 'cursor'){
-
-    document.getElementById(
-      'cursorSub'
-    ).textContent = phoneModel;
-
-    go('cursorMode');
-
-    return;
-
-  }
-
-
-  /* DPI */
-
-  if(phoneFlow === 'dpi'){
-
-    go('dpiProfile');
-
-    return;
-
-  }
-
-
-  /* SENSI */
-
-  document.getElementById(
-    'generatedSub'
-  ).textContent = phoneModel;
-
-  generateSensi();
-
-  go('generatedSensi');
-
+  });
 }
 
 
-function phoneBack(){
+/* =====================================================
+   ESCOLHER MODELO
+===================================================== */
 
-  if(phoneFlow === 'optimization'){
-    go('optimization');
+function selectModel(model){
+
+  phoneModel=model;
+
+  if(currentFlow==="famous"){
+    generateSensi();
+    return;
   }
 
-  else if(phoneFlow === 'cursor'){
-    go('cursor');
+  if(currentFlow==="custom"){
+    generateCustomSensi();
+    return;
   }
 
-  else if(phoneFlow === 'dpi'){
-    go('dpi');
+  if(currentFlow==="cursor"){
+    openScreen("cursorMode");
+    return;
   }
 
-  else if(phoneFlow === 'custom'){
-    go('custom');
+  if(currentFlow==="dpi"){
+    dpiModel=model;
+    openScreen("dpiProfile");
+    return;
   }
 
-  else{
-    go('famousPhone');
+  if(currentFlow==="optimization"){
+    openScreen("optimizationGame");
+    return;
   }
-
 }
 
 
-/* =========================
+/* =====================================================
+   IPHONE FAMÍLIAS
+===================================================== */
+
+function openIphoneFamilies(flow){
+
+  currentFlow=flow;
+
+  openScreen("iphoneFamilies");
+
+  const list=document.getElementById("iphoneFamilyList");
+
+  list.innerHTML="";
+
+  Object.keys(iphoneFamilies).forEach(family=>{
+
+    const button=document.createElement("button");
+
+    button.className="option";
+    button.textContent=family;
+
+    button.onclick=function(){
+      openIphoneVariants(family);
+    };
+
+    list.appendChild(button);
+
+  });
+}
+
+
+function openIphoneVariants(family){
+
+  openScreen("iphoneVariants");
+
+  const list=document.getElementById("iphoneVariantList");
+
+  list.innerHTML="";
+
+  iphoneFamilies[family].forEach(model=>{
+
+    const button=document.createElement("button");
+
+    button.className="option";
+
+    button.textContent=model;
+
+    button.onclick=function(){
+
+      phoneModel=model;
+
+      if(currentFlow==="famous"){
+        generateSensi();
+      }
+
+      else if(currentFlow==="custom"){
+        generateCustomSensi();
+      }
+
+      else if(currentFlow==="cursor"){
+        openScreen("cursorMode");
+      }
+
+      else if(currentFlow==="optimization"){
+        openScreen("optimizationGame");
+      }
+
+    };
+
+    list.appendChild(button);
+
+  });
+}
+
+
+/* =====================================================
    FAMOSOS
-========================= */
+===================================================== */
 
-const playerData = [
+function chooseFamous(player){
 
-  ['Nobru','N'],
+  famousPlayer=player;
 
-  ['VTRLQ','V'],
-
-  ['Fantasma','F']
-
-];
+  openScreen("famousCategory");
+}
 
 
-function renderPlayers(){
+function chooseLevel(level){
 
-  const container =
-    document.getElementById('players');
+  famousLevel=level;
 
-  container.innerHTML = '';
+  currentFlow="famous";
 
-
-  playerData.forEach(
-    ([name,letter]) => {
-
-      const button =
-        document.createElement('button');
-
-      button.className = 'card';
+  openScreen("famousPlatform");
+}
 
 
-      button.onclick = () => {
+function random(min,max){
 
-        famousPlayer = name;
-
-        go('famousLevel');
-
-      };
-
-
-      button.innerHTML =
-
-        (name === 'VTRLQ'
-          ? '<div class="crown">👑</div>'
-          : ''
-        )
-
-        +
-
-        '<div class="player">'
-
-        +
-
-        '<div class="avatar">'
-        + letter +
-        '</div>'
-
-        +
-
-        '<div>'
-
-        +
-
-        '<h3>'
-        + name +
-        '</h3>'
-
-        +
-
-        '<p>'
-        + 'Selecionar jogador' +
-        '</p>'
-
-        +
-
-        '</div>'
-
-        +
-
-        '</div>';
-
-
-      container.appendChild(button);
-
-    }
-  );
+  return Math.floor(
+    Math.random()*(max-min+1)
+  )+min;
 
 }
 
 
-renderPlayers();
+function getLevelRange(level){
+
+  if(level==="Baixa"){
+    return [78,118];
+  }
+
+  if(level==="Média"){
+    return [120,150];
+  }
+
+  return [151,200];
+}
+
+
+function makeSensiValues(level){
+
+  const [min,max]=getLevelRange(level);
+
+  return {
+    "Geral":random(min,max),
+    "Ponto Vermelho":random(min,max),
+    "Mira 2x":random(min,max),
+    "Mira 4x":random(min,max),
+    "AWM":random(min,max),
+    "Olhadinha":random(min,max)
+  };
+
+}
+
+
+function renderSensi(title,values,type){
+
+  let html=`
+
+  <div class="result-box">
+
+    <div class="result-head">
+      <strong>${title}</strong>
+      <span class="result-tag">${type}</span>
+    </div>
+
+    <div class="sensi-grid">
+  `;
+
+  Object.entries(values).forEach(([name,value])=>{
+
+    html+=`
+      <div class="value">
+        <small>${name}</small>
+        <b>${value}</b>
+      </div>
+    `;
+
+  });
+
+  html+=`
+    </div>
+
+    <div class="actions">
+
+      <button class="action primary"
+        onclick="generateSensi()">
+        ↻ GERAR OUTRA
+      </button>
+
+      <button class="action"
+        onclick="saveFavorite('${title}','${JSON.stringify(values).replace(/'/g,"")}')">
+        ❤️ Salvar
+      </button>
+
+    </div>
+
+  </div>
+  `;
+
+  return html;
+}
 
 
 function generateSensi(){
 
-  const ranges = {
+  const values=makeSensiValues(famousLevel);
 
-    Baixa:[78,118],
+  document.getElementById("sensiResultBox").innerHTML=
+    renderSensi(
+      famousPlayer+" • "+phoneModel,
+      values,
+      famousLevel
+    );
 
-    Média:[120,150],
+  openScreen("sensiResult");
+}
 
-    Alta:[151,200]
+
+/* =====================================================
+   CUSTOM
+===================================================== */
+
+function generateCustomSensi(){
+
+  const levels=["Baixa","Média","Alta"];
+
+  const level=
+    levels[random(0,2)];
+
+  const values=makeSensiValues(level);
+
+  document.getElementById("sensiResultBox").innerHTML=
+    renderSensi(
+      "Sensi Personalizada • "+phoneModel,
+      values,
+      level
+    );
+
+  openScreen("sensiResult");
+}
+
+
+/* =====================================================
+   ARMAS
+===================================================== */
+
+function chooseWeapon(name){
+
+  weapon=name;
+
+  openScreen("weaponStyle");
+
+}
+
+
+function chooseWeaponStyle(style){
+
+  weaponStyle=style;
+
+  const values={
+
+    "Geral":random(80,200),
+    "Ponto Vermelho":random(80,200),
+    "Mira 2x":random(80,200),
+    "Mira 4x":random(80,200),
+    "AWM":random(80,200),
+    "Olhadinha":random(80,200)
 
   };
 
+  document.getElementById("weaponResultBox").innerHTML=`
 
-  const range =
-    ranges[famousLevel] || [78,118];
+    <div class="result-box">
+
+      <div class="result-head">
+        <strong>${weapon}</strong>
+        <span class="result-tag">${weaponStyle}</span>
+      </div>
+
+      <div class="sensi-grid">
+
+        ${Object.entries(values).map(([n,v])=>`
+
+          <div class="value">
+            <small>${n}</small>
+            <b>${v}</b>
+          </div>
+
+        `).join("")}
+
+      </div>
+
+      <div class="actions">
+
+        <button class="action primary"
+          onclick="chooseWeaponStyle(weaponStyle)">
+          ↻ GERAR OUTRA
+        </button>
+
+        <button class="action"
+          onclick="saveFavorite('Arma • '+weapon,weaponStyle)">
+          ❤️ Salvar
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+  openScreen("weaponResult");
+}
 
 
-  const names = [
+/* =====================================================
+   ESPECIAL
+===================================================== */
 
-    'Geral',
+function unlockSpecial(){
 
-    'Ponto Vermelho',
+  const values=makeSensiValues("Alta");
 
-    'Mira 2x',
+  document.getElementById("specialResultBox").innerHTML=
 
-    'Mira 4x',
-
-    'AWM',
-
-    'Olhadinha'
-
-  ];
-
-
-  const values =
-    names.map(
-      name => [
-        name,
-        rand(range[0],range[1])
-      ]
+    renderSensi(
+      "Sensi Especial",
+      values,
+      "ESPECIAL"
     );
 
-
-  document.getElementById(
-    'sensiResult'
-  ).innerHTML =
-
-    values
-      .map(
-        v =>
-
-          '<div class="sensi-row">'
-
-          +
-
-          '<span>'
-          + v[0] +
-          '</span>'
-
-          +
-
-          '<span class="num">'
-          + v[1] +
-          '</span>'
-
-          +
-
-          '</div>'
-
-      )
-      .join('');
-
-
-  document.getElementById(
-    'generatedSub'
-  ).textContent =
-
-    famousPlayer
-    + ' • '
-    + famousLevel
-    + ' • '
-    + phoneModel;
+  openScreen("specialResult");
 
 }
 
 
-function saveCurrent(){
-
-  saveFavorite(
-
-    'Sensi',
-
-    famousPlayer
-    + ' • '
-    + famousLevel,
-
-    document.getElementById(
-      'sensiResult'
-    ).innerText
-
-  );
-
-}
-
-
-/* =========================
-   ARMAS
-========================= */
-
-function generateWeapon(){
-
-  let range;
-
-
-  if(weaponStyle === '4X4'){
-
-    range = [80,200];
-
-  }
-
-  else if(weaponStyle === 'X1'){
-
-    range = [100,200];
-
-  }
-
-  else{
-
-    range = [90,200];
-
-  }
-
-
-  const value =
-    rand(range[0],range[1]);
-
-
-  document.getElementById(
-    'weaponSub'
-  ).textContent =
-
-    weapon
-    + ' • '
-    + weaponStyle;
-
-
-  document.getElementById(
-    'weaponResultBox'
-  ).innerHTML =
-
-    '<div class="sensi-row">'
-
-    +
-
-    '<span>'
-    + weapon +
-    '</span>'
-
-    +
-
-    '<span class="num">'
-    + value +
-    '</span>'
-
-    +
-
-    '</div>'
-
-    +
-
-    '<div class="sensi-row">'
-
-    +
-
-    '<span>Estilo</span>'
-
-    +
-
-    '<span class="num">'
-    + weaponStyle +
-    '</span>'
-
-    +
-
-    '</div>';
-
-
-  go('weaponResult');
-
-}
-
-
-/* =========================
-   SENSI ESPECIAL
-========================= */
-
-function generateSpecial(){
-
-  const names = [
-
-    'Geral',
-
-    'Ponto Vermelho',
-
-    'Mira 2x',
-
-    'Mira 4x',
-
-    'AWM',
-
-    'Olhadinha'
-
-  ];
-
-
-  document.getElementById(
-    'specialBox'
-  ).innerHTML =
-
-    names
-      .map(
-        name =>
-
-          '<div class="sensi-row">'
-
-          +
-
-          '<span>'
-          + name +
-          '</span>'
-
-          +
-
-          '<span class="num">'
-          + rand(100,200) +
-          '</span>'
-
-          +
-
-          '</div>'
-
-      )
-      .join('');
-
-
-  go('specialResult');
-
-}
-
-
-/* =========================
+/* =====================================================
    CURSOR
-========================= */
+===================================================== */
 
-function generateCursor(){
+function generateCursor(mode){
 
-  const value =
-    rand(31,120);
+  cursorMode=mode;
 
+  const value=random(31,120);
 
-  document.getElementById(
-    'cursorBox'
-  ).innerHTML =
+  document.getElementById("cursorResultBox").innerHTML=`
 
-    '<div class="sensi-row">'
+    <div class="result-box">
 
-    +
+      <div class="result-head">
+        <strong>Cursor Móvel</strong>
+        <span class="result-tag">${mode}</span>
+      </div>
 
-    '<span>Cursor Móvel</span>'
+      <div class="value" style="text-align:center">
 
-    +
+        <small>CURSOR GERADO</small>
 
-    '<span class="num">'
-    + value +
-    '</span>'
+        <b style="font-size:38px">
+          ${value}
+        </b>
 
-    +
+      </div>
 
-    '</div>'
+      <div class="actions">
 
-    +
+        <button class="action primary"
+          onclick="generateCursor(cursorMode)">
+          ↻ GERAR OUTRO
+        </button>
 
-    '<div class="sensi-row">'
+        <button class="action"
+          onclick="saveFavorite('Cursor Móvel', '${value} • ${cursorMode}')">
+          ❤️ Salvar
+        </button>
 
-    +
+      </div>
 
-    '<span>Modo</span>'
+    </div>
 
-    +
+  `;
 
-    '<span class="num">'
-    + cursorMode +
-    '</span>'
-
-    +
-
-    '</div>';
-
-
-  document.getElementById(
-    'cursorSub'
-  ).textContent =
-
-    phoneModel
-    + ' • '
-    + cursorMode;
-
-
-  go('cursorResult');
-
+  openScreen("cursorResult");
 }
 
 
-/* =========================
+/* =====================================================
    DPI
-========================= */
+===================================================== */
 
 function setupDpi(){
 
-  const list =
-    document.getElementById(
-      'dpiBrands'
-    );
+  const list=document.getElementById("dpiBrandList");
 
-  list.innerHTML = '';
+  list.innerHTML="";
 
+  [
+    "Samsung",
+    "Xiaomi",
+    "POCO",
+    "Motorola",
+    "Realme",
+    "ASUS"
+  ].forEach(brand=>{
 
-  brands.forEach(brand => {
+    const button=document.createElement("button");
 
-    const button =
-      document.createElement('button');
+    button.className="option";
+    button.textContent=brand;
 
-    button.className = 'choice';
+    button.onclick=function(){
 
-    button.textContent = brand;
+      dpiBrand=brand;
 
+      const key =
+        brand==="POCO" ? "POCO" :
+        brand==="Xiaomi" ? "Xiaomi" :
+        brand==="Samsung" ? "Samsung" :
+        brand==="Motorola" ? "Motorola" :
+        brand==="Realme" ? "Realme" :
+        "ASUS";
 
-    button.onclick = () => {
+      const list2=document.getElementById("dpiModelList");
 
-      phoneBrand = brand;
+      list2.innerHTML="";
 
+      androidModels[key].forEach(model=>{
 
-      const arr =
-        models[brand];
+        const b=document.createElement("button");
 
+        b.className="option";
+        b.textContent=model;
 
-      document.getElementById(
-        'dpiModelSub'
-      ).textContent = brand;
+        b.onclick=function(){
 
+          dpiModel=model;
 
-      const modelList =
-        document.getElementById(
-          'dpiModels'
-        );
+          openScreen("dpiProfile");
 
-      modelList.innerHTML = '';
+        };
 
-
-      arr.forEach(model => {
-
-        const modelButton =
-          document.createElement(
-            'button'
-          );
-
-        modelButton.className =
-          'choice';
-
-        modelButton.textContent =
-          model;
-
-
-        modelButton.onclick =
-          () => {
-
-            phoneModel = model;
-
-            go('dpiProfile');
-
-          };
-
-
-        modelList.appendChild(
-          modelButton
-        );
+        list2.appendChild(b);
 
       });
 
-
-      go('dpiModel');
+      openScreen("dpiModels");
 
     };
-
 
     list.appendChild(button);
 
@@ -2999,458 +2143,302 @@ function setupDpi(){
 }
 
 
+/* chama a lista quando o site abre */
 setupDpi();
 
 
-function generateDPI(){
+function chooseDpiProfile(profile){
 
-  let range;
+  dpiProfile=profile;
+
+  openScreen("dpiType");
+
+}
 
 
-  if(dpiType === 'DPI Baixa'){
+function generateDpi(type){
 
-    range = [440,680];
+  dpiType=type;
 
+  let value;
+
+  if(type==="DPI Baixa"){
+    value=random(440,680);
   }
 
-  else if(dpiType === 'DPI Média'){
-
-    range = [700,850];
-
+  else if(type==="DPI Média"){
+    value=random(700,850);
   }
 
   else{
-
-    range = [920,1400];
-
+    value=random(920,1400);
   }
 
+  document.getElementById("dpiResultBox").innerHTML=`
 
-  const value =
-    rand(range[0],range[1]);
+    <div class="result-box">
 
+      <div class="result-head">
+        <strong>${dpiModel}</strong>
+        <span class="result-tag">${dpiProfile}</span>
+      </div>
 
-  document.getElementById(
-    'dpiSub'
-  ).textContent =
+      <div class="value" style="text-align:center">
 
-    phoneModel
-    + ' • '
-    + dpiProfile
-    + ' • '
-    + dpiType;
+        <small>${type}</small>
 
+        <b style="font-size:40px">
+          ${value}
+        </b>
 
-  document.getElementById(
-    'dpiBox'
-  ).innerHTML =
+      </div>
 
-    '<div class="sensi-row">'
+      <div class="actions">
 
-    +
+        <button class="action primary"
+          onclick="generateDpi(dpiType)">
+          ↻ GERAR OUTRA
+        </button>
 
-    '<span>Valor DPI</span>'
+        <button class="action"
+          onclick="saveFavorite('DPI • '+dpiModel,'${value} • ${type}')">
+          ❤️ Salvar
+        </button>
 
-    +
+      </div>
 
-    '<span class="num">'
-    + value +
-    '</span>'
+    </div>
 
-    +
+  `;
 
-    '</div>'
-
-    +
-
-    '<div class="sensi-row">'
-
-    +
-
-    '<span>Perfil</span>'
-
-    +
-
-    '<span class="num">'
-    + dpiProfile +
-    '</span>'
-
-    +
-
-    '</div>';
-
-
-  go('dpiResult');
-
+  openScreen("dpiResult");
 }
 
 
-/* =========================
-   OTIMIZAÇÃO FLUIDA
-========================= */
+/* =====================================================
+   OTIMIZAÇÃO
+===================================================== */
 
-const processes = [
+function startOptimization(game){
 
-  'Limpando memória RAM',
+  optimizationGame=game;
 
-  'Injetando boneco lento',
+  openScreen("optimizationLoading");
 
-  'Injetando precision',
+  const percent=document.getElementById("percent");
+  const loader=document.getElementById("loader");
+  const lines=document.querySelectorAll(".load-line");
 
-  'Otimizando o celular',
+  lines.forEach(line=>{
+    line.classList.remove("done","current");
+  });
 
-  'Ajustando desempenho',
+  let value=0;
 
-  'Finalizando otimização'
+  const timer=setInterval(()=>{
 
-];
+    value++;
 
+    percent.textContent=value+"%";
 
-let optTimer = null;
+    loader.style.background=
+      `conic-gradient(
+        var(--purple) ${value*3.6}deg,
+        #201827 ${value*3.6}deg
+      )`;
 
-
-function startOptimization(){
-
-  document.getElementById(
-    'optSub'
-  ).textContent =
-
-    optPhone
-    + ' • '
-    + selectedGame;
-
-
-  const box =
-    document.getElementById(
-      'processBox'
+    const lineIndex=Math.min(
+      lines.length-1,
+      Math.floor(value/(100/lines.length))
     );
 
+    lines.forEach((line,index)=>{
 
-  box.innerHTML =
-
-
-    processes
-      .map(
-        (process,index) =>
-
-          '<div class="process-line" id="proc'
-          + index +
-          '">'
-
-          +
-
-          '<span class="dot"></span>'
-
-          +
-
-          process
-
-          +
-
-          '</div>'
-
-      )
-      .join('');
-
-
-  let percent = 0;
-
-
-  clearInterval(optTimer);
-
-
-  go('optimizationRun');
-
-
-  optTimer =
-    setInterval(() => {
-
-      percent++;
-
-
-      document.getElementById(
-        'percent'
-      ).textContent =
-        percent + '%';
-
-
-      document.getElementById(
-        'progressCircle'
-      ).style.background =
-
-        'conic-gradient('
-
-        +
-
-        'var(--purple) '
-
-        +
-
-        (percent * 3.6)
-
-        +
-
-        'deg,#261c31 0deg)';
-
-
-      const active =
-        Math.min(
-
-          processes.length - 1,
-
-          Math.floor(
-            percent /
-            (100 / processes.length)
-          )
-
-      );
-
-
-      document
-        .querySelectorAll(
-          '.process-line'
-        )
-        .forEach(
-          (element,index) => {
-
-            element.classList.toggle(
-              'done',
-              index < active
-            );
-
-
-            element.classList.toggle(
-              'active',
-              index === active
-            );
-
-          }
-        );
-
-
-      if(percent >= 100){
-
-        clearInterval(optTimer);
-
-
-        setTimeout(() => {
-
-          document.getElementById(
-            'doneText'
-          ).textContent =
-
-            optPhone
-            + ' • '
-            + selectedGame;
-
-
-          go('optimizationDone');
-
-        },500);
-
+      if(index<lineIndex){
+        line.classList.add("done");
+        line.classList.remove("current");
       }
 
-    },45);
+      else if(index===lineIndex){
+        line.classList.add("current");
+      }
+
+    });
+
+    if(value>=100){
+
+      clearInterval(timer);
+
+      lines.forEach(line=>{
+        line.classList.remove("current");
+        line.classList.add("done");
+      });
+
+      setTimeout(()=>{
+
+        document.getElementById(
+          "optimizationGameName"
+        ).textContent=optimizationGame;
+
+        openScreen("optimizationResult");
+
+      },400);
+
+    }
+
+  },35);
 
 }
 
-
-/* =========================
-   BOTÃO ATIVAR
-========================= */
 
 function activateGame(){
 
-  let url;
+  const isMax=
+    optimizationGame==="Free Fire MAX";
 
+  const deepLink=
+    isMax
+      ? "freefiremax://"
+      : "freefire://";
 
-  if(selectedGame === 'Free Fire'){
+  const store=
+    isMax
+      ? "https://play.google.com/store/apps/details?id=com.dts.freefiremax"
+      : "https://play.google.com/store/apps/details?id=com.dts.freefireth";
 
-    url = 'freefire://';
+  window.location.href=deepLink;
 
-  }
+  setTimeout(()=>{
 
-  else{
-
-    url = 'freefiremax://';
-
-  }
-
-
-  window.location.href = url;
-
-
-  setTimeout(() => {
-
-    if(selectedGame === 'Free Fire'){
-
-      window.location.href =
-        'https://play.google.com/store/apps/details?id=com.dts.freefireth';
-
-    }
-
-    else{
-
-      window.location.href =
-        'https://play.google.com/store/apps/details?id=com.dts.freefiremax';
-
-    }
+    window.open(store,"_blank");
 
   },1200);
 
 }
 
 
-/* =========================
+/* =====================================================
    FAVORITOS
-========================= */
+===================================================== */
 
-function saveFavorite(
-  type,
-  title,
-  detail
-){
+function getFavorites(){
 
-  favorites.unshift({
+  try{
 
-    type:type,
+    return JSON.parse(
+      localStorage.getItem("rlq_favorites") || "[]"
+    );
 
-    title:title,
+  }catch{
 
-    detail:detail,
+    return [];
 
-    date:
-      new Date()
-        .toLocaleString('pt-BR')
+  }
+
+}
+
+
+function saveFavorite(title,detail){
+
+  const favorites=getFavorites();
+
+  favorites.push({
+
+    id:Date.now(),
+
+    title:String(title),
+
+    detail:String(detail)
 
   });
 
-
-  favorites =
-    favorites.slice(0,100);
-
-
   localStorage.setItem(
-    'rlqsensiFavorites',
+    "rlq_favorites",
     JSON.stringify(favorites)
   );
 
+  alert("❤️ Salvo nos favoritos!");
 
-  alert(
-    'Salvo nos favoritos!'
-  );
+}
+
+
+function openFavorites(){
+
+  renderFavorites();
+
+  openScreen("favorites");
 
 }
 
 
 function renderFavorites(){
 
-  const element =
-    document.getElementById(
-      'favList'
-    );
+  const box=
+    document.getElementById("favoritesContent");
 
+  const favorites=getFavorites();
 
   if(!favorites.length){
 
-    element.innerHTML =
+    box.innerHTML=`
 
-      '<div class="empty">'
+      <div class="empty">
 
-      +
+        <div class="empty-icon">❤️</div>
 
-      '<strong>'
-      + 'Nenhum favorito ainda' +
-      '</strong>'
+        <h3>Nenhum favorito ainda</h3>
 
-      +
+        <p>
+          Salve suas sensis, DPI, cursor,
+          otimizações e outros resultados
+          para encontrar tudo aqui.
+        </p>
 
-      'Salve suas sensis, DPI, cursor, otimizações e outros resultados para encontrar tudo aqui.'
+      </div>
 
-      +
-
-      '</div>';
+    `;
 
     return;
 
   }
 
+  box.innerHTML="";
 
-  element.innerHTML =
+  favorites.forEach(item=>{
 
-    favorites
-      .map(
-        (favorite,index) =>
+    const div=document.createElement("div");
 
-          '<div class="fav-item">'
+    div.className="favorite-item";
 
-          +
+    div.innerHTML=`
 
-          '<b>'
-          + escapeHtml(
-              favorite.title
-            )
-          + '</b>'
+      <strong>${escapeHtml(item.title)}</strong>
 
-          +
+      <span>${escapeHtml(item.detail)}</span>
 
-          '<div class="sub">'
-          + escapeHtml(
-              favorite.type
-            )
-          + '</div>'
+      <button class="remove-fav"
+        onclick="removeFavorite(${item.id})">
+        REMOVER
+      </button>
 
-          +
+    `;
 
-          '<p style="margin-top:8px;font-size:12px;color:#aaa">'
+    box.appendChild(div);
 
-          +
-
-          escapeHtml(
-            favorite.detail
-          )
-
-          +
-
-          '</p>'
-
-          +
-
-          '<button class="fav" onclick="removeFavorite('
-          + index +
-          ')">'
-
-          +
-
-          '🗑 Remover'
-
-          +
-
-          '</button>'
-
-          +
-
-          '</div>'
-
-      )
-      .join('');
+  });
 
 }
 
 
-function removeFavorite(index){
+function removeFavorite(id){
 
-  favorites.splice(
-    index,
-    1
-  );
-
+  const favorites=
+    getFavorites().filter(item=>item.id!==id);
 
   localStorage.setItem(
-    'rlqsensiFavorites',
+    "rlq_favorites",
     JSON.stringify(favorites)
   );
-
 
   renderFavorites();
 
@@ -3459,61 +2447,82 @@ function removeFavorite(index){
 
 function escapeHtml(text){
 
-  return String(text)
-    .replace(
-      /[&<>"']/g,
-      character => ({
+  const div=document.createElement("div");
 
-        '&':'&amp;',
+  div.textContent=text;
 
-        '<':'&lt;',
-
-        '>':'&gt;',
-
-        '"':'&quot;',
-
-        "'":'&#039;'
-
-      }[character])
-
-    );
+  return div.innerHTML;
 
 }
 
 
-/* =========================
-   BOTÕES DE VOLTAR
-========================= */
+/* =====================================================
+   VOLTAS
+===================================================== */
 
-function backFromGenerated(){
+function backFromBrands(){
 
-  if(phoneFlow === 'famous'){
+  if(currentFlow==="famous"){
+    openScreen("famousPlatform");
+  }
 
-    go('famousPhone');
+  else if(currentFlow==="custom"){
+    openScreen("custom");
+  }
 
+  else if(currentFlow==="cursor"){
+    openScreen("cursor");
+  }
+
+  else if(currentFlow==="optimization"){
+    openScreen("optimization");
   }
 
   else{
-
-    go('custom');
-
+    goHome();
   }
 
 }
 
 
-function backFromCursorMode(){
+function backFromModels(){
+  openScreen("brands");
+}
 
-  go('phoneModel');
+
+function backFromIphoneFamilies(){
+
+  if(currentFlow==="famous"){
+    openScreen("famousPlatform");
+  }
+
+  else if(currentFlow==="custom"){
+    openScreen("custom");
+  }
+
+  else if(currentFlow==="cursor"){
+    openScreen("cursor");
+  }
+
+  else if(currentFlow==="optimization"){
+    openScreen("optimization");
+  }
+
+  else{
+    goHome();
+  }
 
 }
 
 
-function backFromGame(){
+/* =====================================================
+   CORREÇÃO EXTRA:
+   Quando entra em DPI, prepara as marcas.
+===================================================== */
 
-  go('phoneModel');
-
-}
+document.querySelector(
+  '[onclick="openScreen(\'dpi\')"]'
+)?.addEventListener("click",setupDpi);
 
 </script>
 
