@@ -1,249 +1,244 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VTRLQ - Sensi & Configurações</title>
-    <style>
-        /* CSS Integrado */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #0b0e14;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            margin-top: 10px;
-        }
-
-        header h1 {
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-transform: uppercase;
-        }
-
-        header span {
-            color: #00e5ff; /* Mude para a cor do seu tema */
-        }
-
-        header p {
-            color: #8a8f9d;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Card de Seleção */
-        .card {
-            background: #151a23;
-            border: 1px solid #222938;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .card h2 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #00e5ff; /* Mude para a cor do seu tema */
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            color: #a0a5b5;
-            margin-bottom: 8px;
-        }
-
-        select, input {
-            width: 100%;
-            padding: 12px;
-            background: #0b0e14;
-            border: 1px solid #2a3245;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 0.95rem;
-            outline: none;
-        }
-
-        select:focus, input:focus {
-            border-color: #00e5ff;
-        }
-
-        /* Botão de Ação */
-        .btn-gerar {
-            width: 100%;
-            padding: 14px;
-            background: #00e5ff; /* Mude para a cor do seu tema */
-            color: #000;
-            font-weight: bold;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            text-transform: uppercase;
-        }
-
-        .btn-gerar:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        /* Resultado */
-        .resultado-box {
-            display: none;
-            background: #151a23;
-            border: 1px dashed #00e5ff;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .grid-sensi {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .sensi-item {
-            background: #0b0e14;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-        }
-
-        .sensi-item span {
-            display: block;
-            font-weight: bold;
-            color: #00e5ff;
-            font-size: 1.1rem;
-            margin-top: 4px;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 20px 0 10px 0;
-            color: #555e70;
-            font-size: 0.8rem;
-            text-align: center;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<meta name="theme-color" content="#08070c">
+<title>iarlqsensi</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{--bg:#08070c;--panel:#111018;--panel2:#17131f;--line:#292332;--p:#a855f7;--p2:#c084fc;--txt:#faf8ff;--muted:#a7a1b2}
+body{background:radial-gradient(circle at 50% -10%,#341052 0,transparent 34%),var(--bg);color:var(--txt);font-family:Arial,sans-serif;min-height:100vh}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+.app{max-width:1100px;margin:auto;min-height:100vh}
+header{height:68px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1d1924;background:#08070ce8;backdrop-filter:blur(15px);position:sticky;top:0;z-index:20}
+.logo{font-size:24px;font-weight:900}.logo i{color:var(--p2);font-style:normal}
+.menu{width:44px;height:44px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);font-size:21px}
+main{padding:25px 16px 60px}.page{display:none}.page.active{display:block}
+.hero{padding:8px 0 24px}.hero h1{font-size:34px;line-height:1.08;margin-bottom:10px}.hero h1 span{color:var(--p2)}.hero p{color:var(--muted);line-height:1.55;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.card{background:linear-gradient(145deg,#15121b,#0e0c12);border:1px solid var(--line);border-radius:17px;padding:17px;text-align:left;min-height:125px}
+.card:active{transform:scale(.98)}.icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:#a855f71c;color:var(--p2);font-size:19px;margin-bottom:13px}
+.card h3{font-size:15px;margin-bottom:6px}.card p{font-size:12px;color:var(--muted);line-height:1.4}
+.title{font-size:20px;margin:25px 0 13px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px;margin-bottom:12px}
+.panel h2{font-size:17px;margin-bottom:5px}.desc{font-size:12px;color:var(--muted);margin-bottom:14px}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.opt{padding:13px 8px;border-radius:11px;background:#0b0910;border:1px solid var(--line);font-size:13px}
+.opt.selected{border-color:var(--p);background:#a855f71c;color:white;box-shadow:0 0 0 1px #a855f733 inset}
+.primary{width:100%;padding:14px;border-radius:12px;margin-top:12px;background:linear-gradient(135deg,#8b35df,#b02bd0);font-weight:800}
+.secondary{width:100%;padding:13px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);margin-top:9px}
+.result{display:none}.result.show{display:block}
+.resultHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.resultHead strong{font-size:20px}.resultHead small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.heart{width:40px;height:40px;border-radius:11px;background:var(--panel2);border:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.stat{background:#0b0910;border:1px solid var(--line);border-radius:12px;padding:13px}.stat small{display:block;color:var(--muted);font-size:11px;margin-bottom:6px}.stat b{font-size:24px;color:var(--p2)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.drawer{position:fixed;inset:0;z-index:100;pointer-events:none}.shade{position:absolute;inset:0;background:#000b;opacity:0;transition:.2s}.side{position:absolute;right:0;top:0;height:100%;width:min(330px,88vw);background:#0e0c13;border-left:1px solid var(--line);padding:18px;transform:translateX(100%);transition:.25s;overflow:auto}.drawer.open{pointer-events:auto}.drawer.open .shade{opacity:1}.drawer.open .side{transform:translateX(0)}
+.sideTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.close{width:38px;height:38px;border-radius:10px;background:var(--panel2)}
+.nav{display:block;width:100%;text-align:left;padding:14px;border-radius:11px;background:transparent;margin-bottom:6px}.nav:hover{background:var(--panel2)}
+.list{display:flex;flex-direction:column;gap:9px}.listitem{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px;display:flex;align-items:center;gap:13px}.num{width:43px;height:43px;display:grid;place-items:center;background:#a855f71c;color:var(--p2);border-radius:12px;font-weight:bold}.listitem small{display:block;color:var(--muted);margin-top:4px}
+.empty{text-align:center;padding:45px 10px;color:var(--muted)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;background:#1b1522;border:1px solid #4a365b;border-radius:12px;padding:12px 16px;z-index:200;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
 </head>
 <body>
+<div class="app">
+<header><div class="logo">iarlq<i>sensi</i></div><button class="menu" onclick="menu(true)">☰</button></header>
 
-    <header>
-        <h1><span>RLQ</span> SENSI</h1>
-        <p>Gerador de Sensibilidade e DPI - VTRLQ</p>
-    </header>
+<div class="drawer" id="drawer">
+<div class="shade" onclick="menu(false)"></div>
+<aside class="side">
+<div class="sideTop"><b>iarlqsensi</b><button class="close" onclick="menu(false)">×</button></div>
+<button class="nav" onclick="go('home')">⌂ Home</button>
+<button class="nav" onclick="go('famosos')">★ Sensi dos Famosos</button>
+<button class="nav" onclick="go('aleatoria')">⚡ Sensi Aleatória</button>
+<button class="nav" onclick="go('arma')">▣ Sensi por Arma</button>
+<button class="nav" onclick="go('especial')">✦ Sensi Especial</button>
+<button class="nav" onclick="go('dpi')">◉ DPI</button>
+<button class="nav" onclick="go('favoritos')">♡ Favoritos</button>
+<button class="nav" onclick="go('ciclos')">◌ Ciclos</button>
+<button class="nav" onclick="go('apoie')">♥ Apoie o iarlqsensi</button>
+</aside>
+</div>
 
-    <div class="container">
-        <!-- Form/Painel -->
-        <div class="card">
-            <h2>Configuração do Dispositivo</h2>
-            
-            <div class="form-group">
-                <label for="sistema">Sistema Operacional</label>
-                <select id="sistema">
-                    <option value="android">Android</option>
-                    <option value="ios">iOS (iPhone)</option>
-                </select>
-            </div>
+<main>
 
-            <div class="form-group">
-                <label for="estilo">Estilo de Sensi</label>
-                <select id="estilo">
-                    <option value="alta">Alta (Rápida)</option>
-                    <option value="media">Média (Equilibrada)</option>
-                    <option value="baixa">Baixa (Puxada Controlada)</option>
-                </select>
-            </div>
+<section id="home" class="page active">
+<div class="hero"><h1>Bem-vindo ao <span>iarlqsensi</span></h1><p>Gere sua sensibilidade, encontre configurações por arma, veja famosos e descubra recomendações de DPI.</p></div>
+<h2 class="title">Sensi</h2>
+<div class="grid">
+<button class="card" onclick="go('famosos')"><div class="icon">★</div><h3>Sensi dos Famosos</h3><p>Veja configurações por jogador.</p></button>
+<button class="card" onclick="go('aleatoria')"><div class="icon">⚡</div><h3>Sensi Aleatória</h3><p>Gere uma configuração personalizada.</p></button>
+<button class="card" onclick="go('arma')"><div class="icon">▣</div><h3>Sensi por Arma</h3><p>Escolha sua arma.</p></button>
+<button class="card" onclick="go('especial')"><div class="icon">✦</div><h3>Sensi Especial</h3><p>Escolha seu objetivo.</p></button>
+<button class="card" onclick="go('dpi')"><div class="icon">◉</div><h3>DPI</h3><p>Recomendações para seu celular.</p></button>
+<button class="card" onclick="go('favoritos')"><div class="icon">♡</div><h3>Favoritos</h3><p>Suas sensis salvas.</p></button>
+<button class="card" onclick="go('ciclos')"><div class="icon">◌</div><h3>Ciclos</h3><p>Explore os ciclos.</p></button>
+<button class="card" onclick="go('apoie')"><div class="icon">♥</div><h3>Apoie</h3><p>Ajude o projeto.</p></button>
+</div>
+</section>
 
-            <button class="btn-gerar" onclick="gerarSensi()">Gerar Configuração</button>
-        </div>
+<section id="famosos" class="page">
+<div class="hero"><h1>Sensi dos <span>Famosos</span></h1><p>Escolha o jogador, a categoria e o celular.</p></div>
+<div class="panel"><h2>1. Escolha o famoso</h2><div class="options" id="famousOptions"></div></div>
+<div class="panel"><h2>2. Categoria</h2><div class="options" id="famousCat">
+<button class="opt selected" onclick="pick(this,'fcat')">Baixa</button><button class="opt" onclick="pick(this,'fcat')">Média</button><button class="opt" onclick="pick(this,'fcat')">Alta</button>
+</div></div>
+<div class="panel"><h2>3. Celular</h2><div class="options" id="famousPhone">
+<button class="opt selected" onclick="pick(this,'fphone')">iPhone</button><button class="opt" onclick="pick(this,'fphone')">Android</button>
+</div><button class="primary" onclick="generateFamous()">Gerar Sensi</button></div>
+<div id="famousResult" class="result"></div>
+</section>
 
-        <!-- Painel de Resultados -->
-        <div class="resultado-box" id="resultado">
-            <h2 style="color: #fff; font-size: 1rem;">Sensi Gerada para VTRLQ</h2>
-            <div class="grid-sensi">
-                <div class="sensi-item">Geral <span id="val-geral">98</span></div>
-                <div class="sensi-item">Ponto Vermelho <span id="val-reddot">95</span></div>
-                <div class="sensi-item">Mira 2x <span id="val-2x">92</span></div>
-                <div class="sensi-item">Mira 4x <span id="val-4x">88</span></div>
-                <div class="sensi-item">DPI Indicada <span id="val-dpi">600</span></div>
-                <div class="sensi-item">Botão de Atirar <span id="val-botao">55%</span></div>
-            </div>
-        </div>
-    </div>
+<section id="aleatoria" class="page">
+<div class="hero"><h1>Sensi <span>Aleatória</span></h1><p>Escolha seu celular, categoria e estilo.</p></div>
+<div class="panel"><h2>Celular</h2><div class="options"><button class="opt selected" onclick="pick(this,'aphone')">iPhone</button><button class="opt" onclick="pick(this,'aphone')">Android</button></div></div>
+<div class="panel"><h2>Categoria</h2><div class="options"><button class="opt" onclick="pick(this,'acat')">Baixa</button><button class="opt selected" onclick="pick(this,'acat')">Média</button><button class="opt" onclick="pick(this,'acat')">Alta</button><button class="opt" onclick="pick(this,'acat')">Equilibrada</button></div></div>
+<div class="panel"><h2>Estilo</h2><div class="options"><button class="opt selected" onclick="pick(this,'astyle')">Balanceada</button><button class="opt" onclick="pick(this,'astyle')">Capa</button><button class="opt" onclick="pick(this,'astyle')">Precisão</button><button class="opt" onclick="pick(this,'astyle')">Controle</button></div><button class="primary" onclick="generateRandom()">⚡ Gerar Sensi</button></div>
+<div id="randomResult" class="result"></div>
+</section>
 
-    <footer>
-        &copy; 2026 RLQ - Todos os direitos reservados.
-    </footer>
+<section id="arma" class="page">
+<div class="hero"><h1>Sensi por <span>Arma</span></h1><p>Escolha a arma e seu celular.</p></div>
+<div class="panel"><h2>Arma</h2><div class="options" id="weaponOptions"></div></div>
+<div class="panel"><h2>Celular</h2><div class="options"><button class="opt selected" onclick="pick(this,'wphone')">iPhone</button><button class="opt" onclick="pick(this,'wphone')">Android</button></div><button class="primary" onclick="generateWeapon()">Gerar Sensi</button></div>
+<div id="weaponResult" class="result"></div>
+</section>
 
-    <script>
-        // Lógica em JavaScript
-        function gerarSensi() {
-            const estilo = document.getElementById('estilo').value;
-            let geral, reddot, m2x, m4x, dpi, botao;
+<section id="especial" class="page">
+<div class="hero"><h1>Sensi <span>Especial</span></h1><p>Escolha uma configuração especial.</p></div>
+<div class="grid" id="specialOptions"></div>
+<div class="panel"><h2>Celular</h2><div class="options"><button class="opt selected" onclick="pick(this,'sphone')">iPhone</button><button class="opt" onclick="pick(this,'sphone')">Android</button></div><button class="primary" onclick="generateSpecial()">Gerar Sensi</button></div>
+<div id="specialResult" class="result"></div>
+</section>
 
-            if (estilo === 'alta') {
-                geral = Math.floor(Math.random() * 5) + 95;
-                reddot = Math.floor(Math.random() * 5) + 95;
-                m2x = Math.floor(Math.random() * 5) + 90;
-                m4x = Math.floor(Math.random() * 5) + 90;
-                dpi = Math.floor(Math.random() * 100) + 600;
-                botao = "50%";
-            } else if (estilo === 'media') {
-                geral = Math.floor(Math.random() * 10) + 85;
-                reddot = Math.floor(Math.random() * 10) + 85;
-                m2x = Math.floor(Math.random() * 10) + 80;
-                m4x = Math.floor(Math.random() * 10) + 80;
-                dpi = Math.floor(Math.random() * 100) + 500;
-                botao = "55%";
-            } else {
-                geral = Math.floor(Math.random() * 10) + 75;
-                reddot = Math.floor(Math.random() * 10) + 75;
-                m2x = Math.floor(Math.random() * 10) + 70;
-                m4x = Math.floor(Math.random() * 10) + 70;
-                dpi = Math.floor(Math.random() * 100) + 400;
-                botao = "60%";
-            }
+<section id="dpi" class="page">
+<div class="hero"><h1><span>DPI</span></h1><p>Escolha o tipo do seu celular.</p></div>
+<div class="panel"><h2>Seu celular</h2><div class="options"><button class="opt selected" onclick="pick(this,'dphone')">iPhone</button><button class="opt" onclick="pick(this,'dphone')">Android</button></div><button class="primary" onclick="generateDpi()">Ver DPI</button></div>
+<div id="dpiResult"></div>
+</section>
 
-            document.getElementById('val-geral').innerText = geral;
-            document.getElementById('val-reddot').innerText = reddot;
-            document.getElementById('val-2x').innerText = m2x;
-            document.getElementById('val-4x').innerText = m4x;
-            document.getElementById('val-dpi').innerText = dpi;
-            document.getElementById('val-botao').innerText = botao;
+<section id="favoritos" class="page">
+<div class="hero"><h1>Meus <span>Favoritos</span></h1><p>Configurações salvas neste aparelho.</p></div>
+<div id="favList"></div>
+</section>
 
-            document.getElementById('resultado').style.display = 'block';
-        }
-    </script>
+<section id="ciclos" class="page">
+<div class="hero"><h1><span>Ciclos</span></h1><p>Configurações organizadas por ciclos.</p></div>
+<div class="list">
+<div class="listitem"><div class="num">01</div><div><b>Ciclo 1</b><small>Base equilibrada</small></div></div>
+<div class="listitem"><div class="num">02</div><div><b>Ciclo 2</b><small>Velocidade</small></div></div>
+<div class="listitem"><div class="num">03</div><div><b>Ciclo 3</b><small>Foco em capa</small></div></div>
+<div class="listitem"><div class="num">04</div><div><b>Ciclo 4</b><small>Controle</small></div></div>
+<div class="listitem"><div class="num">05</div><div><b>Ciclo 5</b><small>Precisão</small></div></div>
+<div class="listitem"><div class="num">06</div><div><b>Ciclo 6</b><small>Avançado</small></div></div>
+</div>
+</section>
+
+<section id="apoie" class="page">
+<div class="panel" style="text-align:center;padding:40px 20px">
+<div class="icon" style="margin:0 auto 18px;font-size:28px">♥</div>
+<h1>Apoie o <span style="color:#c084fc">iarlqsensi</span></h1>
+<p style="color:#a7a1b2;line-height:1.7;margin:14px 0 20px">Obrigado por apoiar o projeto e ajudar o iarlqsensi a continuar crescendo.</p>
+<button class="primary" onclick="toast('Obrigado por apoiar o iarlqsensi! ♥')">♥ Apoiar</button>
+</div>
+</section>
+
+</main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const famous=[
+ {n:'Nobru',base:188},
+ {n:'VTRLQ',base:200},
+ {n:'Fantasma',base:184},
+ {n:'Bak',base:186},
+ {n:'Cerol',base:181},
+ {n:'Bruno PlayHard',base:178},
+ {n:'Two9',base:190},
+ {n:'Loud Thurzin',base:192}
+];
+
+const weapons=['Desert Eagle','M1887','MP40','UMP','XM8','SCAR','M4A1','AK47','FAMAS','Groza','AWM','Kar98k','M82B','P90','Thompson','Vector'];
+const specials=['Headshot','Capa','Rush','Precisão','One Tap','Equilibrada'];
+
+let selectedFamous=0,selectedWeapon=0;
+
+function menu(open){document.getElementById('drawer').classList.toggle('open',open)}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');menu(false);scrollTo(0,0);if(id==='favoritos')renderFav()}
+function pick(el,group){el.parentElement.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));el.classList.add('selected')}
+function val(group){let x=document.querySelector('.'+group+'.selected');return x?x.textContent.trim():''}
+function rnd(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function sensi(base){
+ return {
+  Geral:Math.max(0,Math.min(200,base)),
+  'Ponto Vermelho':Math.max(0,Math.min(200,base-5)),
+  'Mira 2x':Math.max(0,Math.min(200,base-10)),
+  'Mira 4x':Math.max(0,Math.min(200,base-20)),
+  AWM:Math.max(0,Math.min(200,base-30)),
+  Olhadinha:Math.max(0,Math.min(200,base-15))
+ }
+}
+function result(box,data,title,sub){
+ box.innerHTML=`<div class="panel"><div class="resultHead"><div><strong>${title}</strong><small>${sub}</small></div><button class="heart" onclick='saveFav(${JSON.stringify(data)})'>♡</button></div><div class="stats">${Object.entries(data).map(([k,v])=>`<div class="stat"><small>${k}</small><b>${v}</b></div>`).join('')}</div><div class="actions"><button class="secondary" onclick='copy(${JSON.stringify(data)})'>Copiar</button><button class="primary" onclick="toast('Configuração gerada!')">Gerar outra</button></div></div>`;
+ box.classList.add('show')
+}
+function generateFamous(){
+ let f=famous[selectedFamous],cat=val('fcat'),phone=val('fphone');
+ let adj=cat==='Baixa'?-45:cat==='Alta'?0:-22;
+ if(phone==='Android')adj+=rnd(-5,5);
+ result(document.getElementById('famousResult'),sensi(f.base+adj),f.n,`${cat} • ${phone}`)
+}
+function generateRandom(){
+ let cat=val('acat'),style=val('astyle'),phone=val('aphone'),base=cat==='Baixa'?rnd(75,118):cat==='Alta'?rnd(160,200):cat==='Equilibrada'?rnd(135,175):rnd(120,150);
+ if(style==='Capa')base+=rnd(5,12);if(style==='Precisão')base-=rnd(5,12);if(style==='Controle')base-=rnd(10,18);if(phone==='Android')base+=rnd(-4,5);
+ result(document.getElementById('randomResult'),sensi(Math.min(200,Math.max(50,base))),'Sensi Aleatória',`${cat} • ${style} • ${phone}`)
+}
+function generateWeapon(){
+ let w=weapons[selectedWeapon],phone=val('wphone'),base=rnd(135,190);
+ if(['M1887','Desert Eagle'].includes(w))base=rnd(165,200);
+ if(['AWM','Kar98k','M82B'].includes(w))base=rnd(105,165);
+ result(document.getElementById('weaponResult'),sensi(base),w,phone)
+}
+function generateSpecial(){
+ let s=val('special'),phone=val('sphone'),bases={Headshot:195,Capa:190,Rush:185,Precisão:155,'One Tap':198,Equilibrada:175};
+ result(document.getElementById('specialResult'),sensi(bases[s]),s,phone)
+}
+function generateDpi(){
+ let p=val('dphone');
+ document.getElementById('dpiResult').innerHTML=p==='iPhone'?`<div class="grid"><div class="card"><div class="icon">◉</div><h3>iPhone</h3><p>Configuração recomendada</p><h2 style="margin-top:12px;color:#c084fc">DPI do sistema</h2></div></div>`:`<div class="grid"><div class="card"><div class="icon">◉</div><h3>Equilibrado</h3><p>Android</p><h2 style="margin-top:12px;color:#c084fc">480 DPI</h2></div><div class="card"><div class="icon">⚡</div><h3>Rápido</h3><p>Android</p><h2 style="margin-top:12px;color:#c084fc">520 DPI</h2></div><div class="card"><div class="icon">🎯</div><h3>Precisão</h3><p>Android</p><h2 style="margin-top:12px;color:#c084fc">420 DPI</h2></div></div>`
+}
+function saveFav(data){
+ let f=JSON.parse(localStorage.getItem('iarlqfav')||'[]');f.unshift({id:Date.now(),data});localStorage.setItem('iarlqfav',JSON.stringify(f.slice(0,30)));toast('Salvo nos favoritos ♥')
+}
+function renderFav(){
+ let box=document.getElementById('favList'),f=JSON.parse(localStorage.getItem('iarlqfav')||'[]');
+ if(!f.length){box.innerHTML='<div class="empty">♡<br><br>Nenhum favorito salvo ainda.</div>';return}
+ box.innerHTML=f.map(x=>`<div class="panel"><div class="stats">${Object.entries(x.data).map(([k,v])=>`<div class="stat"><small>${k}</small><b>${v}</b></div>`).join('')}</div><button class="secondary" onclick='copy(${JSON.stringify(x.data)})'>Copiar</button><button class="secondary" onclick="delFav(${x.id})">Excluir</button></div>`).join('')
+}
+function delFav(id){let f=JSON.parse(localStorage.getItem('iarlqfav')||'[]').filter(x=>x.id!==id);localStorage.setItem('iarlqfav',JSON.stringify(f));renderFav()}
+function copy(data){navigator.clipboard?.writeText(Object.entries(data).map(([k,v])=>`${k}: ${v}`).join('\n'));toast('Copiado!')}
+let timer;function toast(t){let x=document.getElementById('toast');x.textContent=t;x.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>x.classList.remove('show'),2200)}
+
+const fo=document.getElementById('famousOptions');
+famous.forEach((f,i)=>{let b=document.createElement('button');b.className='opt'+(i===0?' selected':'');b.textContent=f.n;b.onclick=()=>{fo.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');selectedFamous=i};fo.appendChild(b)});
+
+const wo=document.getElementById('weaponOptions');
+weapons.forEach((w,i)=>{let b=document.createElement('button');b.className='opt'+(i===0?' selected':'');b.textContent=w;b.onclick=()=>{wo.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');selectedWeapon=i};wo.appendChild(b)});
+
+const so=document.getElementById('specialOptions');
+specials.forEach(s=>{let b=document.createElement('button');b.className='card';b.innerHTML=`<div class="icon">✦</div><h3>${s}</h3><p>Configuração especial</p>`;b.onclick=()=>{so.querySelectorAll('.card').forEach(x=>x.style.borderColor='');b.style.borderColor='#a855f7';document.querySelectorAll('.specialPick').forEach(x=>x.remove());b.dataset.selected='true';let hidden=document.createElement('span');hidden.className='specialPick';hidden.style.display='none';hidden.textContent=s;b.after(hidden)};so.appendChild(b)});
+document.getElementById('specialOptions').addEventListener('click',e=>{let card=e.target.closest('.card');if(!card)return;document.querySelectorAll('#specialOptions .card').forEach(c=>c.classList.remove('picked'));card.classList.add('picked')});
+const oldVal=val;
+window.val=function(group){
+ if(group==='special'){let x=document.querySelector('#specialOptions .card.picked');return x?x.querySelector('h3').textContent:'Equilibrada'}
+ return oldVal(group)
+}
+</script>
 </body>
 </html>
