@@ -41,6 +41,10 @@ button{
   display:none!important;
 }
 
+/* =========================================================
+   ENTRADA
+========================================================= */
+
 #entry{
   position:fixed;
   inset:0;
@@ -113,6 +117,10 @@ button{
   background:linear-gradient(135deg,#8b2cff,#5b00d8);
   box-shadow:0 0 30px rgba(126,35,255,.25);
 }
+
+/* =========================================================
+   APP
+========================================================= */
 
 #app{
   min-height:100vh;
@@ -288,6 +296,10 @@ main{
   margin-top:8px;
 }
 
+/* =========================================================
+   HOME
+========================================================= */
+
 .home-title{
   margin:5px 0 18px;
 }
@@ -361,6 +373,10 @@ main{
   line-height:1.35;
 }
 
+/* =========================================================
+   FAMOSOS
+========================================================= */
+
 .players-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -419,6 +435,10 @@ main{
 .player-crown-space{
   height:27px;
 }
+
+/* =========================================================
+   RESULTADOS
+========================================================= */
 
 .result-box{
   background:
@@ -486,6 +506,10 @@ main{
   border-color:#8732ff;
   color:#b979ff;
 }
+
+/* =========================================================
+   EMPTY / SUPPORT / ETC
+========================================================= */
 
 .empty{
   text-align:center;
@@ -652,31 +676,11 @@ main{
   color:#fff;
   border-color:#8e39ff;
   background:#7728df;
-  animation:checkPop .5s cubic-bezier(.17,.67,.3,1.3);
-}
-
-@keyframes checkPop{
-  0%{transform:scale(0);opacity:0}
-  55%{transform:scale(1.22);opacity:1}
-  100%{transform:scale(1);opacity:1}
 }
 
 .check-mark{
   font-size:17px;
   font-weight:1000;
-  transform:scale(.5);
-  opacity:0;
-}
-
-.unlock-action.done .check-mark{
-  animation:markIn .35s .12s ease forwards;
-}
-
-@keyframes markIn{
-  to{
-    transform:scale(1);
-    opacity:1;
-  }
 }
 
 .acquire{
@@ -889,7 +893,97 @@ main{
   font-weight:900;
 }
 
+/* =========================================================
+   DÚVIDAS COMUNS
+========================================================= */
+
+.faq-system{
+  margin-bottom:20px;
+}
+
+.faq-question{
+  text-align:left;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.faq-question-icon{
+  width:38px;
+  height:38px;
+  flex-shrink:0;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(119,32,255,.12);
+  border:1px solid rgba(136,48,255,.18);
+  font-size:18px;
+}
+
+.faq-question-text{
+  text-align:left;
+}
+
+.faq-question-text strong{
+  display:block;
+  font-size:12px;
+}
+
+.faq-question-text span{
+  display:block;
+  color:#666;
+  font-size:9px;
+  margin-top:4px;
+}
+
+.faq-answer{
+  margin-top:15px;
+  padding:18px;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(119,31,255,.12),transparent 45%),
+    #0c0c0c;
+  border:1px solid #292929;
+  animation:screenIn .3s ease;
+}
+
+.faq-answer h3{
+  font-size:17px;
+  margin-bottom:10px;
+}
+
+.faq-answer p{
+  color:#aaa;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.faq-tip{
+  margin-top:14px;
+  padding:13px;
+  border-radius:12px;
+  background:rgba(111,0,255,.08);
+  border:1px solid rgba(135,50,255,.2);
+  color:#b77aff;
+  font-size:11px;
+  line-height:1.55;
+}
+
+.faq-note{
+  margin-top:12px;
+  color:#666;
+  font-size:10px;
+  line-height:1.5;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
 @media(min-width:700px){
+
   .cards{
     grid-template-columns:repeat(3,1fr);
   }
@@ -897,16 +991,29 @@ main{
   .players-grid{
     grid-template-columns:repeat(3,1fr);
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- =======================================================
+     ENTRADA
+======================================================= -->
+
 <section id="entry">
+
   <div class="entry-box">
-    <div class="entry-brand">rlqsensi.ia</div>
-    <div class="entry-version">2.0</div>
+
+    <div class="entry-brand">
+      rlqsensi.ia
+    </div>
+
+    <div class="entry-version">
+      2.0
+    </div>
 
     <div class="entry-title">
       A MELHOR SENSI DO CENÁRIO
@@ -916,208 +1023,499 @@ main{
       Sensibilidade, DPI, cursor e otimização.
     </div>
 
-    <button class="start-btn" onclick="startSite()">
+    <button
+      class="start-btn"
+      onclick="startSite()">
+
       ▶ INICIAR
+
     </button>
+
   </div>
+
 </section>
 
 <div id="app" class="hidden">
 
 <header class="topbar">
+
   <div class="topbar-inner">
+
     <div class="logo">
       rlqsensi<span>.ia</span>
       <span class="logo-version">2.0</span>
     </div>
 
-    <button class="home-btn" onclick="goHome()">⌂</button>
+    <button
+      class="home-btn"
+      onclick="goHome()">
+
+      ⌂
+
+    </button>
+
   </div>
+
 </header>
 
 <main>
 
+<!-- =======================================================
+     HOME
+======================================================= -->
+
 <section id="home" class="screen active">
 
   <div class="home-title">
-    <h1>Central rlqsensi</h1>
-    <p>Escolha uma função para começar.</p>
+
+    <h1>
+      Central rlqsensi
+    </h1>
+
+    <p>
+      Escolha uma função para começar.
+    </p>
+
   </div>
 
   <div class="cards">
 
-    <button class="card" onclick="openScreen('famous')">
-      <div class="card-icon">👑</div>
-      <h3>Sensi dos Famosos</h3>
-      <p>Use configurações inspiradas em jogadores famosos.</p>
+    <button
+      class="card"
+      onclick="openScreen('famous')">
+
+      <div class="card-icon">
+        👑
+      </div>
+
+      <h3>
+        Sensi dos Famosos
+      </h3>
+
+      <p>
+        Use configurações inspiradas em jogadores famosos.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('custom')">
-      <div class="card-icon">🎯</div>
-      <h3>Sensi Personalizada</h3>
-      <p>Gere uma sensibilidade para seu aparelho.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('custom')">
+
+      <div class="card-icon">
+        🎯
+      </div>
+
+      <h3>
+        Sensi Personalizada
+      </h3>
+
+      <p>
+        Gere uma sensibilidade para seu aparelho.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('weapon')">
-      <div class="card-icon">🔫</div>
-      <h3>Sensibilidade por Arma</h3>
-      <p>Escolha arma e estilo de jogo.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('weapon')">
+
+      <div class="card-icon">
+        🔫
+      </div>
+
+      <h3>
+        Sensibilidade por Arma
+      </h3>
+
+      <p>
+        Escolha arma e estilo de jogo.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('special')">
-      <div class="card-icon">🔓</div>
-      <h3>Sensi Especial</h3>
-      <p>Libere a configuração especial.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('special')">
+
+      <div class="card-icon">
+        🔓
+      </div>
+
+      <h3>
+        Sensi Especial
+      </h3>
+
+      <p>
+        Libere a configuração especial.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('cursor')">
-      <div class="card-icon">🖱️</div>
-      <h3>Cursor Móvel</h3>
-      <p>Geração automática para seu modelo.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('cursor')">
+
+      <div class="card-icon">
+        🖱️
+      </div>
+
+      <h3>
+        Cursor Móvel
+      </h3>
+
+      <p>
+        Geração automática para seu modelo.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('dpi')">
-      <div class="card-icon">⚙️</div>
-      <h3>DPI Android</h3>
-      <p>Gere uma configuração de DPI.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('dpi')">
+
+      <div class="card-icon">
+        ⚙️
+      </div>
+
+      <h3>
+        DPI Android
+      </h3>
+
+      <p>
+        Gere uma configuração de DPI.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('optimization')">
-      <div class="card-icon">⚡</div>
-      <h3>Otimização Fluida</h3>
-      <p>Simulação de otimização do aparelho.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('optimization')">
+
+      <div class="card-icon">
+        ⚡
+      </div>
+
+      <h3>
+        Otimização Fluida
+      </h3>
+
+      <p>
+        Simulação de otimização do aparelho.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('favorites')">
-      <div class="card-icon">⭐</div>
-      <h3>Favoritos</h3>
-      <p>Veja tudo que você salvou.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('favorites')">
+
+      <div class="card-icon">
+        ⭐
+      </div>
+
+      <h3>
+        Favoritos
+      </h3>
+
+      <p>
+        Veja tudo que você salvou.
+      </p>
+
     </button>
 
-    <button class="card" onclick="openScreen('support')">
-      <div class="card-icon">💜</div>
-      <h3>Apoie o VTRLQ</h3>
-      <p>Discord e TikTok oficiais.</p>
+
+    <button
+      class="card"
+      onclick="openScreen('support')">
+
+      <div class="card-icon">
+        💜
+      </div>
+
+      <h3>
+        Apoie o VTRLQ
+      </h3>
+
+      <p>
+        Discord e TikTok oficiais.
+      </p>
+
+    </button>
+
+
+    <!-- NOVA OPÇÃO -->
+
+    <button
+      class="card"
+      onclick="openScreen('faq')">
+
+      <div class="card-icon">
+        🤖
+      </div>
+
+      <h3>
+        Dúvidas Comuns
+      </h3>
+
+      <p>
+        Encontre soluções para problemas de sensibilidade.
+      </p>
+
     </button>
 
   </div>
+
 </section>
+
+
+<!-- =======================================================
+     FAMOSOS
+======================================================= -->
 
 <section id="famous" class="screen">
 
-  <button class="back-btn" onclick="backFlow('famous')">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="backFlow('famous')">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Sensi dos Famosos</h1>
-    <p>Escolha o jogador que você quer usar.</p>
+
+    <h1>
+      Sensi dos Famosos
+    </h1>
+
+    <p>
+      Escolha o jogador que você quer usar.
+    </p>
+
   </div>
 
   <div id="players" class="players-grid"></div>
+
   <div id="famousCategories"></div>
+
   <div id="famousPhone"></div>
 
 </section>
 
+
+<!-- =======================================================
+     PERSONALIZADA
+======================================================= -->
+
 <section id="custom" class="screen">
 
-  <button class="back-btn" onclick="backFlow('custom')">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="backFlow('custom')">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Sensi Personalizada</h1>
-    <p>Escolha seu sistema, marca e modelo.</p>
+
+    <h1>
+      Sensi Personalizada
+    </h1>
+
+    <p>
+      Escolha seu sistema, marca e modelo.
+    </p>
+
   </div>
 
   <div id="customPhone"></div>
 
 </section>
 
+
+<!-- =======================================================
+     ARMAS
+======================================================= -->
+
 <section id="weapon" class="screen">
 
-  <button class="back-btn" onclick="backFlow('weapon')">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="backFlow('weapon')">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Sensibilidade por Arma</h1>
-    <p>QUAL ARMA VOCÊ QUER?</p>
+
+    <h1>
+      Sensibilidade por Arma
+    </h1>
+
+    <p>
+      QUAL ARMA VOCÊ QUER?
+    </p>
+
   </div>
 
-  <div id="weaponList" class="weapon-grid"></div>
+  <div
+    id="weaponList"
+    class="weapon-grid">
+  </div>
+
   <div id="weaponStyle"></div>
+
   <div id="weaponResult"></div>
 
 </section>
 
+
+<!-- =======================================================
+     ESPECIAL
+======================================================= -->
+
 <section id="special" class="screen">
 
-  <button class="back-btn" onclick="goHome()">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="goHome()">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Sensi Especial</h1>
-    <p>Reconise</p>
+
+    <h1>
+      Sensi Especial
+    </h1>
+
+    <p>
+      Reconise
+    </p>
+
   </div>
 
   <div class="unlock-card">
 
     <div class="unlock-head">
-      <div class="unlock-icon">🔐</div>
 
-      <h2>Reconise</h2>
+      <div class="unlock-icon">
+        🔐
+      </div>
+
+      <h2>
+        Reconise
+      </h2>
 
       <p>
         Para adquirir a sensibilidade especial,
         complete as duas etapas abaixo.
       </p>
+
     </div>
 
     <div class="unlock-actions">
 
-      <button id="discordUnlock"
-              class="unlock-action"
-              onclick="completeUnlock('discord')">
+      <button
+        id="discordUnlock"
+        class="unlock-action"
+        onclick="completeUnlock('discord')">
 
         <div class="unlock-left">
-          <div class="social-icon">💬</div>
+
+          <div class="social-icon">
+            💬
+          </div>
 
           <div class="unlock-text">
-            <strong>Entrar no Discord</strong>
-            <span>Toque para continuar</span>
+
+            <strong>
+              Entrar no Discord
+            </strong>
+
+            <span>
+              Toque para continuar
+            </span>
+
           </div>
+
         </div>
 
         <div class="check-wrap">
-          <span class="check-mark">✓</span>
+          <span class="check-mark">
+            ✓
+          </span>
         </div>
 
       </button>
 
-      <button id="tiktokUnlock"
-              class="unlock-action"
-              onclick="completeUnlock('tiktok')">
+
+      <button
+        id="tiktokUnlock"
+        class="unlock-action"
+        onclick="completeUnlock('tiktok')">
 
         <div class="unlock-left">
-          <div class="social-icon">♪</div>
+
+          <div class="social-icon">
+            ♪
+          </div>
 
           <div class="unlock-text">
-            <strong>Seguir no TikTok</strong>
-            <span>Toque para continuar</span>
+
+            <strong>
+              Seguir no TikTok
+            </strong>
+
+            <span>
+              Toque para continuar
+            </span>
+
           </div>
+
         </div>
 
         <div class="check-wrap">
-          <span class="check-mark">✓</span>
+          <span class="check-mark">
+            ✓
+          </span>
         </div>
 
       </button>
 
     </div>
 
-    <div id="acquireArea" class="acquire">
-      <button class="primary-btn" onclick="acquireSpecial()">
+    <div
+      id="acquireArea"
+      class="acquire">
+
+      <button
+        class="primary-btn"
+        onclick="acquireSpecial()">
+
         ADQUIRIR SENSIBILIDADE
+
       </button>
+
     </div>
 
-    <div id="lockMessage" class="lock-message">
+    <div
+      id="lockMessage"
+      class="lock-message">
+
       Complete Discord e TikTok para desbloquear.
+
     </div>
 
   </div>
@@ -1126,19 +1524,39 @@ main{
 
 </section>
 
+
+<!-- =======================================================
+     CURSOR
+======================================================= -->
+
 <section id="cursor" class="screen">
 
-  <button class="back-btn" onclick="backFlow('cursor')">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="backFlow('cursor')">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Cursor Móvel</h1>
-    <p>Geração automática de cursor móvel.</p>
+
+    <h1>
+      Cursor Móvel
+    </h1>
+
+    <p>
+      Geração automática de cursor móvel.
+    </p>
+
   </div>
 
   <div class="cursor-box">
 
     <div class="cursor-preview">
-      <div class="fake-cursor">➤</div>
+      <div class="fake-cursor">
+        ➤
+      </div>
     </div>
 
     <p class="info-text">
@@ -1151,65 +1569,144 @@ main{
 
 </section>
 
+
+<!-- =======================================================
+     DPI
+======================================================= -->
+
 <section id="dpi" class="screen">
 
-  <button class="back-btn" onclick="backFlow('dpi')">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="backFlow('dpi')">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>DPI</h1>
-    <p>Configuração de DPI para Android.</p>
+
+    <h1>
+      DPI
+    </h1>
+
+    <p>
+      Configuração de DPI para Android.
+    </p>
+
   </div>
 
   <div class="warning">
+
     <b>Atenção:</b>
+
     DPI é ajuste do sistema e costuma existir apenas no Android.
     Use com cuidado e pesquise como alterar no seu aparelho.
+
   </div>
 
   <div id="dpiPhone"></div>
 
 </section>
 
+
+<!-- =======================================================
+     OTIMIZAÇÃO
+======================================================= -->
+
 <section id="optimization" class="screen">
 
-  <button class="back-btn" onclick="backFlow('optimization')">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="backFlow('optimization')">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Otimização Fluida</h1>
-    <p>Escolha seu aparelho e o jogo.</p>
+
+    <h1>
+      Otimização Fluida
+    </h1>
+
+    <p>
+      Escolha seu aparelho e o jogo.
+    </p>
+
   </div>
 
   <div id="optimizationPhone"></div>
+
   <div id="optimizationGame"></div>
+
   <div id="optimizationResult"></div>
 
 </section>
 
+
+<!-- =======================================================
+     FAVORITOS
+======================================================= -->
+
 <section id="favorites" class="screen">
 
-  <button class="back-btn" onclick="goHome()">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="goHome()">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Favoritos</h1>
-    <p>Suas configurações salvas.</p>
+
+    <h1>
+      Favoritos
+    </h1>
+
+    <p>
+      Suas configurações salvas.
+    </p>
+
   </div>
 
   <div id="favoriteContent"></div>
 
 </section>
 
+
+<!-- =======================================================
+     SUPORTE
+======================================================= -->
+
 <section id="support" class="screen">
 
-  <button class="back-btn" onclick="goHome()">← Voltar</button>
+  <button
+    class="back-btn"
+    onclick="goHome()">
+
+    ← Voltar
+
+  </button>
 
   <div class="page-head">
-    <h1>Apoie o VTRLQ</h1>
-    <p>Encontre as redes oficiais.</p>
+
+    <h1>
+      Apoie o VTRLQ
+    </h1>
+
+    <p>
+      Encontre as redes oficiais.
+    </p>
+
   </div>
 
   <div class="support-box">
 
-    <h2>💜 Apoie o VTRLQ</h2>
+    <h2>
+      💜 Apoie o VTRLQ
+    </h2>
 
     <p>
       Acompanhe o VTRLQ nas redes oficiais e fique por dentro das novidades.
@@ -1217,18 +1714,24 @@ main{
 
     <div class="social-buttons">
 
-      <a class="social-button"
-         href="https://discord.gg/rlq"
-         target="_blank"
-         rel="noopener">
+      <a
+        class="social-button"
+        href="https://discord.gg/rlq"
+        target="_blank"
+        rel="noopener">
+
         💬 Entrar no Discord
+
       </a>
 
-      <a class="social-button"
-         href="https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC"
-         target="_blank"
-         rel="noopener">
+      <a
+        class="social-button"
+        href="https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC"
+        target="_blank"
+        rel="noopener">
+
         ♪ TikTok do VTRLQ
+
       </a>
 
     </div>
@@ -1237,8 +1740,40 @@ main{
 
 </section>
 
+
+<!-- =======================================================
+     DÚVIDAS COMUNS
+======================================================= -->
+
+<section id="faq" class="screen">
+
+  <button
+    class="back-btn"
+    onclick="goHome()">
+
+    ← Voltar
+
+  </button>
+
+  <div class="page-head">
+
+    <h1>
+      Dúvidas Comuns
+    </h1>
+
+    <p>
+      Escolha seu sistema e encontre uma solução para seu problema.
+    </p>
+
+  </div>
+
+  <div id="faqContent"></div>
+
+</section>
+
 </main>
 </div>
+
 
 <script>
 
@@ -1250,7 +1785,11 @@ const entry = document.getElementById("entry");
 const app = document.getElementById("app");
 
 if(sessionStorage.getItem("rlq_started") === "1"){
-  if(entry) entry.remove();
+
+  if(entry){
+    entry.remove();
+  }
+
   app.classList.remove("hidden");
 }
 
@@ -1266,7 +1805,9 @@ function startSite(){
 
     setTimeout(function(){
 
-      if(entry) entry.remove();
+      if(entry){
+        entry.remove();
+      }
 
       app.classList.remove("hidden");
 
@@ -1281,65 +1822,98 @@ function startSite(){
   }
 }
 
+
 /* =========================================================
-   NAVEGAÇÃO POR ETAPAS
+   NAVEGAÇÃO
 ========================================================= */
 
-const screens = document.querySelectorAll(".screen");
+const screens =
+  document.querySelectorAll(".screen");
 
 const flowHistory = {
+
   famous:[],
   custom:[],
   weapon:[],
   cursor:[],
   dpi:[],
   optimization:[]
+
 };
 
 function openScreen(id){
 
   screens.forEach(function(screen){
+
     screen.classList.remove("active");
+
   });
 
-  const target = document.getElementById(id);
+  const target =
+    document.getElementById(id);
 
   if(target){
     target.classList.add("active");
   }
 
   if(id === "famous"){
+
     flowHistory.famous = [];
+
     renderPlayers();
+
   }
 
   if(id === "custom"){
+
     flowHistory.custom = [];
+
     renderCustomSystem();
+
   }
 
   if(id === "weapon"){
+
     flowHistory.weapon = [];
+
     renderWeapons();
+
   }
 
   if(id === "cursor"){
+
     flowHistory.cursor = [];
+
     renderCursorSystem();
+
   }
 
   if(id === "dpi"){
+
     flowHistory.dpi = [];
+
     renderDpiBrands();
+
   }
 
   if(id === "optimization"){
+
     flowHistory.optimization = [];
+
     renderOptimizationSystem();
+
   }
 
   if(id === "favorites"){
+
     renderFavorites();
+
+  }
+
+  if(id === "faq"){
+
+    renderFAQ();
+
   }
 
   window.scrollTo(0,0);
@@ -1348,15 +1922,18 @@ function openScreen(id){
 function saveFlowStep(mode,html){
 
   flowHistory[mode].push(html);
+
 }
 
 function backFlow(mode){
 
-  const history = flowHistory[mode];
+  const history =
+    flowHistory[mode];
 
   if(history.length){
 
-    const previous = history.pop();
+    const previous =
+      history.pop();
 
     previous();
 
@@ -1372,14 +1949,17 @@ function backFlow(mode){
 function goHome(){
 
   Object.keys(flowHistory).forEach(function(key){
+
     flowHistory[key] = [];
+
   });
 
   openScreen("home");
 }
 
+
 /* =========================================================
-   DADOS DOS CELULARES
+   CELULARES
 ========================================================= */
 
 const androidModels = {
@@ -1442,88 +2022,168 @@ const androidModels = {
     "Zenfone 9 128GB","Zenfone 10 256GB","Zenfone 11 256GB",
     "Zenfone 11 Ultra 512GB"
   ]
+
 };
 
 const iphoneModels = {
+
   "iPhone XR":["XR"],
+
   "iPhone XS":["XS","XS Max"],
-  "iPhone 11":["11","11 Pro","11 Pro Max"],
-  "iPhone 12":["12","12 mini","12 Pro","12 Pro Max"],
-  "iPhone 13":["13","13 mini","13 Pro","13 Pro Max"],
-  "iPhone 14":["14","14 Plus","14 Pro","14 Pro Max"],
-  "iPhone 15":["15","15 Plus","15 Pro","15 Pro Max"],
-  "iPhone 16":["16","16 Plus","16 Pro","16 Pro Max"],
-  "iPhone 17":["17","17 Air","17 Pro","17 Pro Max"]
+
+  "iPhone 11":[
+    "11","11 Pro","11 Pro Max"
+  ],
+
+  "iPhone 12":[
+    "12","12 mini","12 Pro","12 Pro Max"
+  ],
+
+  "iPhone 13":[
+    "13","13 mini","13 Pro","13 Pro Max"
+  ],
+
+  "iPhone 14":[
+    "14","14 Plus","14 Pro","14 Pro Max"
+  ],
+
+  "iPhone 15":[
+    "15","15 Plus","15 Pro","15 Pro Max"
+  ],
+
+  "iPhone 16":[
+    "16","16 Plus","16 Pro","16 Pro Max"
+  ],
+
+  "iPhone 17":[
+    "17","17 Air","17 Pro","17 Pro Max"
+  ]
+
 };
+
 
 /* =========================================================
    AUXILIARES
 ========================================================= */
 
 function random(min,max){
-  return Math.floor(Math.random()*(max-min+1))+min;
+
+  return Math.floor(
+    Math.random()*(max-min+1)
+  )+min;
+
 }
 
 function randomSensi(category){
 
   const ranges = {
+
     "Baixa":[78,118],
+
     "Média":[120,150],
+
     "Alta":[151,200]
+
   };
 
-  const range = ranges[category];
+  const range =
+    ranges[category];
 
   return {
-    "Geral":random(range[0],range[1]),
-    "Ponto Vermelho":random(range[0],range[1]),
-    "Mira 2x":random(range[0],range[1]),
-    "Mira 4x":random(range[0],range[1]),
-    "AWM":random(range[0],range[1]),
-    "Olhadinha":random(range[0],range[1])
+
+    "Geral":
+      random(range[0],range[1]),
+
+    "Ponto Vermelho":
+      random(range[0],range[1]),
+
+    "Mira 2x":
+      random(range[0],range[1]),
+
+    "Mira 4x":
+      random(range[0],range[1]),
+
+    "AWM":
+      random(range[0],range[1]),
+
+    "Olhadinha":
+      random(range[0],range[1])
+
   };
+
 }
 
-function resultHTML(title,sub,values,favId){
+function resultHTML(
+  title,
+  sub,
+  values,
+  favId
+){
 
   let html = `
+
     <div class="result-box">
-      <div class="result-title">${title}</div>
-      <div class="result-sub">${sub}</div>
+
+      <div class="result-title">
+        ${title}
+      </div>
+
+      <div class="result-sub">
+        ${sub}
+      </div>
+
       <div class="sensi-list">
+
   `;
 
   Object.keys(values).forEach(function(key){
 
     html += `
+
       <div class="sensi-item">
-        <span>${key}</span>
-        <span class="sensi-value">${values[key]}</span>
+
+        <span>
+          ${key}
+        </span>
+
+        <span class="sensi-value">
+          ${values[key]}
+        </span>
+
       </div>
+
     `;
 
   });
 
   html += `
+
       </div>
 
       <button
         id="fav-${favId}"
         class="favorite-btn"
         onclick="toggleFavorite('${favId}')">
+
         ☆ ADICIONAR AOS FAVORITOS
+
       </button>
+
     </div>
+
   `;
 
   return html;
+
 }
+
 
 /* =========================================================
    FAMOSOS
 ========================================================= */
 
 const famousPlayers = [
+
   {name:"vtrlq",initial:"V",crown:true},
   {name:"artrlq",initial:"A"},
   {name:"phzin7",initial:"P"},
@@ -1537,6 +2197,7 @@ const famousPlayers = [
   {name:"thurzin",initial:"T"},
   {name:"nobru",initial:"N"},
   {name:"freitas",initial:"F"}
+
 ];
 
 let famousPlayer = "";
@@ -1544,164 +2205,288 @@ let famousCategory = "";
 
 function renderPlayers(){
 
-  const container = document.getElementById("players");
+  const container =
+    document.getElementById("players");
 
   container.innerHTML = "";
 
   famousPlayers.forEach(function(player){
 
-    const card = document.createElement("button");
+    const card =
+      document.createElement("button");
 
-    card.className = "player-card";
+    card.className =
+      "player-card";
 
     card.innerHTML = `
+
       ${
         player.crown
+
         ? `<span class="crown">👑</span>`
+
         : `<span class="player-crown-space"></span>`
       }
 
-      <div class="player-avatar">${player.initial}</div>
+      <div class="player-avatar">
+        ${player.initial}
+      </div>
 
-      <h3>${player.name}</h3>
-      <p>Selecionar jogador</p>
+      <h3>
+        ${player.name}
+      </h3>
+
+      <p>
+        Selecionar jogador
+      </p>
+
     `;
 
     card.onclick = function(){
 
-      famousPlayer = player.name;
+      famousPlayer =
+        player.name;
 
-      saveFlowStep("famous",renderPlayers);
+      saveFlowStep(
+        "famous",
+        renderPlayers
+      );
 
       renderFamousCategories();
 
     };
 
     container.appendChild(card);
+
   });
+
 }
 
 function renderFamousCategories(){
 
-  document.getElementById("players").innerHTML = "";
+  document
+    .getElementById("players")
+    .innerHTML = "";
 
-  const box = document.getElementById("famousCategories");
+  const box =
+    document.getElementById(
+      "famousCategories"
+    );
 
   box.innerHTML = `
-    <div class="section-label">ESCOLHA A CATEGORIA</div>
+
+    <div class="section-label">
+      ESCOLHA A CATEGORIA
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="selectFamousCategory('Baixa')">
+
         Baixa
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="selectFamousCategory('Média')">
+
         Média
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="selectFamousCategory('Alta')">
+
         Alta
+
       </button>
 
     </div>
+
   `;
 
-  document.getElementById("famousPhone").innerHTML = "";
+  document
+    .getElementById("famousPhone")
+    .innerHTML = "";
 
-  window.scrollTo(0,0);
 }
 
 function selectFamousCategory(category){
 
-  famousCategory = category;
+  famousCategory =
+    category;
 
-  saveFlowStep("famous",renderFamousCategories);
+  saveFlowStep(
+    "famous",
+    renderFamousCategories
+  );
 
   renderPhoneSelector(
-    document.getElementById("famousPhone"),
+    document.getElementById(
+      "famousPhone"
+    ),
     "famous"
   );
 
-  document.getElementById("famousCategories").innerHTML = "";
+  document
+    .getElementById("famousCategories")
+    .innerHTML = "";
 
 }
+
 
 /* =========================================================
    SELETOR DE CELULAR
 ========================================================= */
 
-function renderPhoneSelector(container,mode){
+function renderPhoneSelector(
+  container,
+  mode
+){
 
-  container.classList.remove("hidden");
+  container.classList.remove(
+    "hidden"
+  );
 
   container.innerHTML = `
-    <div class="section-label">ESCOLHA O SISTEMA</div>
+
+    <div class="section-label">
+      ESCOLHA O SISTEMA
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="choosePhoneSystem('${mode}','Android')">
+
         Android
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="choosePhoneSystem('${mode}','iPhone')">
+
         iPhone
+
       </button>
 
     </div>
+
   `;
+
 }
 
-function choosePhoneSystem(mode,system){
+function choosePhoneSystem(
+  mode,
+  system
+){
 
-  saveFlowStep(mode,function(){
-    renderPhoneSelector(
-      document.getElementById(mode === "famous" ? "famousPhone" :
-                              mode === "custom" ? "customPhone" :
-                              mode === "cursor" ? "cursorPhone" :
-                              "optimizationPhone"),
-      mode
-    );
-  });
+  saveFlowStep(
+    mode,
+    function(){
+
+      renderPhoneSelector(
+
+        document.getElementById(
+
+          mode === "famous"
+          ? "famousPhone"
+
+          : mode === "custom"
+          ? "customPhone"
+
+          : mode === "cursor"
+          ? "cursorPhone"
+
+          : "optimizationPhone"
+
+        ),
+
+        mode
+
+      );
+
+    }
+  );
 
   const container =
     document.getElementById(
-      mode === "famous" ? "famousPhone" :
-      mode === "custom" ? "customPhone" :
-      mode === "cursor" ? "cursorPhone" :
-      "optimizationPhone"
+
+      mode === "famous"
+      ? "famousPhone"
+
+      : mode === "custom"
+      ? "customPhone"
+
+      : mode === "cursor"
+      ? "cursorPhone"
+
+      : "optimizationPhone"
+
     );
 
   if(system === "Android"){
 
     container.innerHTML = `
-      <div class="section-label">ESCOLHA A MARCA</div>
-      <div class="option-grid" id="${mode}Brands"></div>
+
+      <div class="section-label">
+        ESCOLHA A MARCA
+      </div>
+
+      <div
+        class="option-grid"
+        id="${mode}Brands">
+      </div>
+
     `;
 
     const brandBox =
-      document.getElementById(mode+"Brands");
+      document.getElementById(
+        mode+"Brands"
+      );
 
-    Object.keys(androidModels).forEach(function(brand){
+    Object.keys(
+      androidModels
+    ).forEach(function(brand){
 
-      const btn = document.createElement("button");
+      const btn =
+        document.createElement(
+          "button"
+        );
 
-      btn.className = "option";
-      btn.textContent = brand;
+      btn.className =
+        "option";
 
-      btn.onclick = function(){
+      btn.textContent =
+        brand;
 
-        saveFlowStep(mode,function(){
-          choosePhoneSystem(mode,"Android");
-        });
+      btn.onclick =
+        function(){
 
-        showAndroidModels(mode,brand);
-      };
+          saveFlowStep(
+            mode,
+            function(){
+
+              choosePhoneSystem(
+                mode,
+                "Android"
+              );
+
+            }
+          );
+
+          showAndroidModels(
+            mode,
+            brand
+          );
+
+        };
 
       brandBox.appendChild(btn);
 
@@ -1710,161 +2495,306 @@ function choosePhoneSystem(mode,system){
   }else{
 
     container.innerHTML = `
-      <div class="section-label">ESCOLHA A LINHA</div>
-      <div class="option-grid" id="${mode}IphoneFamilies"></div>
+
+      <div class="section-label">
+        ESCOLHA A LINHA
+      </div>
+
+      <div
+        class="option-grid"
+        id="${mode}IphoneFamilies">
+      </div>
+
     `;
 
     const box =
-      document.getElementById(mode+"IphoneFamilies");
+      document.getElementById(
+        mode+"IphoneFamilies"
+      );
 
-    Object.keys(iphoneModels).forEach(function(family){
+    Object.keys(
+      iphoneModels
+    ).forEach(function(family){
 
-      const btn = document.createElement("button");
+      const btn =
+        document.createElement(
+          "button"
+        );
 
-      btn.className = "option";
-      btn.textContent = family;
+      btn.className =
+        "option";
 
-      btn.onclick = function(){
+      btn.textContent =
+        family;
 
-        saveFlowStep(mode,function(){
-          choosePhoneSystem(mode,"iPhone");
-        });
+      btn.onclick =
+        function(){
 
-        showIphoneModels(mode,family);
-      };
+          saveFlowStep(
+            mode,
+            function(){
+
+              choosePhoneSystem(
+                mode,
+                "iPhone"
+              );
+
+            }
+          );
+
+          showIphoneModels(
+            mode,
+            family
+          );
+
+        };
 
       box.appendChild(btn);
 
     });
+
   }
 
-  window.scrollTo(0,0);
 }
 
-function showAndroidModels(mode,brand){
+function showAndroidModels(
+  mode,
+  brand
+){
 
   const container =
     document.getElementById(
-      mode === "famous" ? "famousPhone" :
-      mode === "custom" ? "customPhone" :
-      mode === "cursor" ? "cursorPhone" :
-      "optimizationPhone"
+
+      mode === "famous"
+      ? "famousPhone"
+
+      : mode === "custom"
+      ? "customPhone"
+
+      : mode === "cursor"
+      ? "cursorPhone"
+
+      : "optimizationPhone"
+
     );
 
   container.innerHTML = `
-    <div class="section-label">ESCOLHA O MODELO</div>
-    <div class="option-grid" id="${mode}ModelsList"></div>
+
+    <div class="section-label">
+      ESCOLHA O MODELO
+    </div>
+
+    <div
+      class="option-grid"
+      id="${mode}ModelsList">
+    </div>
+
   `;
 
   const grid =
-    document.getElementById(mode+"ModelsList");
+    document.getElementById(
+      mode+"ModelsList"
+    );
 
-  androidModels[brand].forEach(function(model){
+  androidModels[brand]
+    .forEach(function(model){
 
-    const btn = document.createElement("button");
+      const btn =
+        document.createElement(
+          "button"
+        );
 
-    btn.className = "option";
-    btn.textContent = model;
+      btn.className =
+        "option";
 
-    btn.onclick = function(){
+      btn.textContent =
+        model;
 
-      saveFlowStep(mode,function(){
-        showAndroidModels(mode,brand);
-      });
+      btn.onclick =
+        function(){
 
-      phoneSelected(mode,brand,model);
+          saveFlowStep(
+            mode,
+            function(){
 
-    };
+              showAndroidModels(
+                mode,
+                brand
+              );
 
-    grid.appendChild(btn);
+            }
+          );
 
-  });
+          phoneSelected(
+            mode,
+            brand,
+            model
+          );
 
-  window.scrollTo(0,0);
+        };
+
+      grid.appendChild(btn);
+
+    });
+
 }
 
-function showIphoneModels(mode,family){
+function showIphoneModels(
+  mode,
+  family
+){
 
   const container =
     document.getElementById(
-      mode === "famous" ? "famousPhone" :
-      mode === "custom" ? "customPhone" :
-      mode === "cursor" ? "cursorPhone" :
-      "optimizationPhone"
+
+      mode === "famous"
+      ? "famousPhone"
+
+      : mode === "custom"
+      ? "customPhone"
+
+      : mode === "cursor"
+      ? "cursorPhone"
+
+      : "optimizationPhone"
+
     );
 
   container.innerHTML = `
-    <div class="section-label">ESCOLHA O MODELO</div>
-    <div class="option-grid" id="${mode}ModelsList"></div>
+
+    <div class="section-label">
+      ESCOLHA O MODELO
+    </div>
+
+    <div
+      class="option-grid"
+      id="${mode}ModelsList">
+    </div>
+
   `;
 
   const grid =
-    document.getElementById(mode+"ModelsList");
+    document.getElementById(
+      mode+"ModelsList"
+    );
 
-  iphoneModels[family].forEach(function(model){
+  iphoneModels[family]
+    .forEach(function(model){
 
-    const btn = document.createElement("button");
+      const btn =
+        document.createElement(
+          "button"
+        );
 
-    btn.className = "option";
-    btn.textContent = model;
+      btn.className =
+        "option";
 
-    btn.onclick = function(){
+      btn.textContent =
+        model;
 
-      saveFlowStep(mode,function(){
-        showIphoneModels(mode,family);
-      });
+      btn.onclick =
+        function(){
 
-      phoneSelected(mode,"Apple",model);
+          saveFlowStep(
+            mode,
+            function(){
 
-    };
+              showIphoneModels(
+                mode,
+                family
+              );
 
-    grid.appendChild(btn);
+            }
+          );
 
-  });
+          phoneSelected(
+            mode,
+            "Apple",
+            model
+          );
 
-  window.scrollTo(0,0);
+        };
+
+      grid.appendChild(btn);
+
+    });
+
 }
 
-function phoneSelected(mode,brand,model){
+function phoneSelected(
+  mode,
+  brand,
+  model
+){
 
   if(mode === "famous"){
 
-    generateFamousResult(brand,model);
+    generateFamousResult(
+      brand,
+      model
+    );
 
   }else if(mode === "custom"){
 
-    generateCustomResult(brand,model);
+    generateCustomResult(
+      brand,
+      model
+    );
 
   }else if(mode === "cursor"){
 
-    showCursorModes(brand,model);
+    showCursorModes(
+      brand,
+      model
+    );
 
   }else if(mode === "optimization"){
 
-    showOptimizationGame(model);
+    showOptimizationGame(
+      model
+    );
 
   }
+
 }
 
+
 /* =========================================================
-   RESULTADO FAMOSOS
+   FAMOSOS - RESULTADO
 ========================================================= */
 
-function generateFamousResult(brand,model){
+function generateFamousResult(
+  brand,
+  model
+){
 
   const container =
-    document.getElementById("famousPhone");
+    document.getElementById(
+      "famousPhone"
+    );
 
-  saveFlowStep("famous",function(){
-    showAndroidModels("famous",brand);
-  });
+  saveFlowStep(
+    "famous",
+    function(){
 
-  const values = randomSensi(famousCategory);
+      showAndroidModels(
+        "famous",
+        brand
+      );
+
+    }
+  );
+
+  const values =
+    randomSensi(
+      famousCategory
+    );
 
   const favId =
     "famous-"+Date.now();
 
   container.innerHTML = `
+
     ${resultHTML(
       famousPlayer,
       famousCategory+" • "+model,
@@ -1877,14 +2807,17 @@ function generateFamousResult(brand,model){
       <button
         class="secondary-btn"
         onclick="generateFamousResult('${brand}','${model}')">
+
         🔄 Gerar outra
+
       </button>
 
     </div>
+
   `;
 
-  window.scrollTo(0,0);
 }
+
 
 /* =========================================================
    PERSONALIZADA
@@ -1893,54 +2826,86 @@ function generateFamousResult(brand,model){
 function renderCustomSystem(){
 
   const box =
-    document.getElementById("customPhone");
+    document.getElementById(
+      "customPhone"
+    );
 
   box.innerHTML = `
-    <div class="section-label">SISTEMA</div>
+
+    <div class="section-label">
+      SISTEMA
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="customSystem('Android')">
+
         Android
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="customSystem('iPhone')">
+
         iPhone
+
       </button>
 
     </div>
+
   `;
+
 }
 
 function customSystem(system){
 
-  saveFlowStep("custom",renderCustomSystem);
-
-  renderPhoneSelector(
-    document.getElementById("customPhone"),
-    "custom"
+  saveFlowStep(
+    "custom",
+    renderCustomSystem
   );
 
-  document.getElementById("customPhone").innerHTML = "";
+  choosePhoneSystem(
+    "custom",
+    system
+  );
 
-  choosePhoneSystem("custom",system);
 }
 
-function generateCustomResult(brand,model){
+function generateCustomResult(
+  brand,
+  model
+){
 
-  const categories = ["Baixa","Média","Alta"];
+  const categories =
+    [
+      "Baixa",
+      "Média",
+      "Alta"
+    ];
 
   const category =
-    categories[random(0,categories.length-1)];
+    categories[
+      random(
+        0,
+        categories.length-1
+      )
+    ];
 
-  const values = randomSensi(category);
+  const values =
+    randomSensi(
+      category
+    );
 
   const favId =
     "custom-"+Date.now();
 
-  document.getElementById("customPhone").innerHTML = `
+  document.getElementById(
+    "customPhone"
+  ).innerHTML = `
+
     ${resultHTML(
       "Sensi Personalizada",
       category+" • "+model,
@@ -1953,26 +2918,31 @@ function generateCustomResult(brand,model){
       <button
         class="secondary-btn"
         onclick="generateCustomResult('${brand}','${model}')">
+
         🔄 Gerar outra
+
       </button>
 
     </div>
+
   `;
 
-  window.scrollTo(0,0);
 }
+
 
 /* =========================================================
    ARMAS
 ========================================================= */
 
 const weapons = [
+
   "XM8",
   "UMP",
   "Desert",
   "MP40",
   "Carapina",
   "12 Nova"
+
 ];
 
 let selectedWeapon = "";
@@ -1980,87 +2950,148 @@ let selectedWeapon = "";
 function renderWeapons(){
 
   const box =
-    document.getElementById("weaponList");
+    document.getElementById(
+      "weaponList"
+    );
 
-  document.getElementById("weaponStyle").innerHTML = "";
-  document.getElementById("weaponResult").innerHTML = "";
+  document.getElementById(
+    "weaponStyle"
+  ).innerHTML = "";
+
+  document.getElementById(
+    "weaponResult"
+  ).innerHTML = "";
 
   box.innerHTML = "";
 
   weapons.forEach(function(weapon){
 
     const btn =
-      document.createElement("button");
+      document.createElement(
+        "button"
+      );
 
-    btn.className = "weapon";
+    btn.className =
+      "weapon";
 
     btn.innerHTML = `
-      <strong>${weapon}</strong>
-      <small>Selecionar arma</small>
+
+      <strong>
+        ${weapon}
+      </strong>
+
+      <small>
+        Selecionar arma
+      </small>
+
     `;
 
-    btn.onclick = function(){
+    btn.onclick =
+      function(){
 
-      selectedWeapon = weapon;
+        selectedWeapon =
+          weapon;
 
-      saveFlowStep("weapon",renderWeapons);
+        saveFlowStep(
+          "weapon",
+          renderWeapons
+        );
 
-      renderWeaponStyles();
+        renderWeaponStyles();
 
-    };
+      };
 
     box.appendChild(btn);
 
   });
+
 }
 
 function renderWeaponStyles(){
 
-  document.getElementById("weaponList").innerHTML = "";
+  document.getElementById(
+    "weaponList"
+  ).innerHTML = "";
 
-  document.getElementById("weaponStyle").innerHTML = `
-    <div class="section-label">ESCOLHA O ESTILO</div>
+  document.getElementById(
+    "weaponStyle"
+  ).innerHTML = `
+
+    <div class="section-label">
+      ESCOLHA O ESTILO
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateWeapon('4X4')">
+
         4X4
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateWeapon('X1')">
+
         X1
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateWeapon('RANK')">
+
         RANK
+
       </button>
 
     </div>
+
   `;
+
 }
 
 function generateWeapon(style){
 
-  saveFlowStep("weapon",renderWeaponStyles);
+  saveFlowStep(
+    "weapon",
+    renderWeaponStyles
+  );
 
   const values = {
-    "Geral":random(80,200),
-    "Ponto Vermelho":random(80,200),
-    "Mira 2x":random(80,200),
-    "Mira 4x":random(80,200),
-    "AWM":random(80,200),
-    "Olhadinha":random(80,200)
+
+    "Geral":
+      random(80,200),
+
+    "Ponto Vermelho":
+      random(80,200),
+
+    "Mira 2x":
+      random(80,200),
+
+    "Mira 4x":
+      random(80,200),
+
+    "AWM":
+      random(80,200),
+
+    "Olhadinha":
+      random(80,200)
+
   };
 
   const favId =
     "weapon-"+Date.now();
 
-  document.getElementById("weaponStyle").innerHTML = "";
+  document.getElementById(
+    "weaponStyle"
+  ).innerHTML = "";
 
-  document.getElementById("weaponResult").innerHTML =
+  document.getElementById(
+    "weaponResult"
+  ).innerHTML =
     resultHTML(
       selectedWeapon,
       style,
@@ -2068,23 +3099,26 @@ function generateWeapon(style){
       favId
     );
 
-  window.scrollTo(0,0);
 }
+
 
 /* =========================================================
    ESPECIAL
 ========================================================= */
 
 let unlockState = {
+
   discord:false,
   tiktok:false
+
 };
 
 function completeUnlock(type){
 
   if(type === "discord"){
 
-    unlockState.discord = true;
+    unlockState.discord =
+      true;
 
     window.open(
       "https://discord.gg/rlq",
@@ -2092,13 +3126,17 @@ function completeUnlock(type){
     );
 
     document
-      .getElementById("discordUnlock")
+      .getElementById(
+        "discordUnlock"
+      )
       .classList.add("done");
+
   }
 
   if(type === "tiktok"){
 
-    unlockState.tiktok = true;
+    unlockState.tiktok =
+      true;
 
     window.open(
       "https://www.tiktok.com/@vtrlq55?_r=1&_t=ZS-99nPEquyOyC",
@@ -2106,31 +3144,47 @@ function completeUnlock(type){
     );
 
     document
-      .getElementById("tiktokUnlock")
+      .getElementById(
+        "tiktokUnlock"
+      )
       .classList.add("done");
+
   }
 
   checkSpecialUnlock();
+
 }
 
 function checkSpecialUnlock(){
 
-  if(unlockState.discord && unlockState.tiktok){
+  if(
+    unlockState.discord &&
+    unlockState.tiktok
+  ){
 
     document
-      .getElementById("acquireArea")
+      .getElementById(
+        "acquireArea"
+      )
       .classList.add("show");
 
     document
-      .getElementById("lockMessage")
+      .getElementById(
+        "lockMessage"
+      )
       .textContent =
       "✓ Sensibilidade desbloqueada.";
+
   }
+
 }
 
 function acquireSpecial(){
 
-  if(!unlockState.discord || !unlockState.tiktok){
+  if(
+    !unlockState.discord ||
+    !unlockState.tiktok
+  ){
     return;
   }
 
@@ -2140,14 +3194,18 @@ function acquireSpecial(){
   const favId =
     "special-"+Date.now();
 
-  document.getElementById("specialResult").innerHTML =
+  document.getElementById(
+    "specialResult"
+  ).innerHTML =
     resultHTML(
       "Sensi Especial",
       "Reconise • configuração especial",
       values,
       favId
     );
+
 }
+
 
 /* =========================================================
    CURSOR
@@ -2155,68 +3213,118 @@ function acquireSpecial(){
 
 function renderCursorSystem(){
 
-  document.getElementById("cursorPhone").innerHTML = `
-    <div class="section-label">SISTEMA</div>
+  document.getElementById(
+    "cursorPhone"
+  ).innerHTML = `
+
+    <div class="section-label">
+      SISTEMA
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="cursorSystem('Android')">
+
         Android
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="cursorSystem('iPhone')">
+
         iPhone
+
       </button>
 
     </div>
+
   `;
+
 }
 
 function cursorSystem(system){
 
-  saveFlowStep("cursor",renderCursorSystem);
+  saveFlowStep(
+    "cursor",
+    renderCursorSystem
+  );
 
-  choosePhoneSystem("cursor",system);
+  choosePhoneSystem(
+    "cursor",
+    system
+  );
+
 }
 
-function showCursorModes(brand,model){
+function showCursorModes(
+  brand,
+  model
+){
 
-  saveFlowStep("cursor",function(){
-    showAndroidModels("cursor",brand);
-  });
+  saveFlowStep(
+    "cursor",
+    function(){
+
+      showAndroidModels(
+        "cursor",
+        brand
+      );
+
+    }
+  );
 
   const box =
-    document.getElementById("cursorPhone");
+    document.getElementById(
+      "cursorPhone"
+    );
 
   box.innerHTML = `
-    <div class="section-label">ESCOLHA O MODO</div>
+
+    <div class="section-label">
+      ESCOLHA O MODO
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateCursor('Refinado','${model}')">
+
         Refinado
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateCursor('Individual','${model}')">
+
         Individual
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateCursor('Preciso','${model}')">
+
         Preciso
+
       </button>
 
     </div>
 
     <div id="cursorResult"></div>
+
   `;
+
 }
 
-function generateCursor(mode,model){
+function generateCursor(
+  mode,
+  model
+){
 
   const value =
     random(31,120);
@@ -2224,8 +3332,13 @@ function generateCursor(mode,model){
   const favId =
     "cursor-"+Date.now();
 
-  document.getElementById("cursorPhone").innerHTML = `
-    <div class="result-box" style="margin-top:15px">
+  document.getElementById(
+    "cursorPhone"
+  ).innerHTML = `
+
+    <div
+      class="result-box"
+      style="margin-top:15px">
 
       <div class="result-title">
         Cursor Móvel
@@ -2236,34 +3349,46 @@ function generateCursor(mode,model){
       </div>
 
       <div class="sensi-item">
-        <span>Cursor</span>
-        <span class="sensi-value">${value}</span>
+
+        <span>
+          Cursor
+        </span>
+
+        <span class="sensi-value">
+          ${value}
+        </span>
+
       </div>
 
       <button
         id="fav-${favId}"
         class="favorite-btn"
         onclick="toggleFavorite('${favId}')">
+
         ☆ ADICIONAR AOS FAVORITOS
+
       </button>
 
     </div>
+
   `;
 
-  window.scrollTo(0,0);
 }
+
 
 /* =========================================================
    DPI
 ========================================================= */
 
 const dpiBrands = [
+
   "Samsung",
   "Xiaomi",
   "POCO",
   "Motorola",
   "Realme",
   "ASUS"
+
 ];
 
 let dpiBrand = "";
@@ -2272,50 +3397,80 @@ let dpiModel = "";
 function renderDpiBrands(){
 
   const box =
-    document.getElementById("dpiPhone");
+    document.getElementById(
+      "dpiPhone"
+    );
 
   box.innerHTML = `
-    <div class="section-label">MARCA</div>
+
+    <div class="section-label">
+      MARCA
+    </div>
 
     <div class="option-grid">
 
       ${dpiBrands.map(function(brand){
 
         return `
-          <button class="option"
+
+          <button
+            class="option"
             onclick="selectDpiBrand('${brand}')">
+
             ${brand}
+
           </button>
+
         `;
 
       }).join("")}
 
     </div>
+
   `;
+
 }
 
 function selectDpiBrand(brand){
 
-  dpiBrand = brand;
+  dpiBrand =
+    brand;
 
-  saveFlowStep("dpi",renderDpiBrands);
+  saveFlowStep(
+    "dpi",
+    renderDpiBrands
+  );
 
-  showDpiModels(brand);
+  showDpiModels(
+    brand
+  );
+
 }
 
 function showDpiModels(brand){
 
   const box =
-    document.getElementById("dpiPhone");
+    document.getElementById(
+      "dpiPhone"
+    );
 
   box.innerHTML = `
-    <div class="section-label">ESCOLHA O MODELO</div>
 
-    <div class="option-grid" id="dpiModels"></div>
+    <div class="section-label">
+      ESCOLHA O MODELO
+    </div>
+
+    <div
+      class="option-grid"
+      id="dpiModels">
+    </div>
+
   `;
 
   const grid =
-    document.getElementById("dpiModels");
+    document.getElementById(
+      "dpiModels"
+    );
 
   const models =
     androidModels[brand] || [];
@@ -2323,88 +3478,134 @@ function showDpiModels(brand){
   models.forEach(function(model){
 
     const btn =
-      document.createElement("button");
+      document.createElement(
+        "button"
+      );
 
-    btn.className = "option";
-    btn.textContent = model;
+    btn.className =
+      "option";
 
-    btn.onclick = function(){
+    btn.textContent =
+      model;
 
-      dpiModel = model;
+    btn.onclick =
+      function(){
 
-      saveFlowStep("dpi",function(){
-        showDpiModels(brand);
-      });
+        dpiModel =
+          model;
 
-      showDpiProfiles();
+        saveFlowStep(
+          "dpi",
+          function(){
 
-    };
+            showDpiModels(
+              brand
+            );
+
+          }
+        );
+
+        showDpiProfiles();
+
+      };
 
     grid.appendChild(btn);
 
   });
 
-  window.scrollTo(0,0);
 }
 
 function showDpiProfiles(){
 
   const box =
-    document.getElementById("dpiPhone");
+    document.getElementById(
+      "dpiPhone"
+    );
 
   box.innerHTML = `
-    <div class="section-label">ESCOLHA O PERFIL</div>
+
+    <div class="section-label">
+      ESCOLHA O PERFIL
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateDpi('Baixa')">
+
         Fraco
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateDpi('Média')">
+
         Médio
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="generateDpi('Alta')">
+
         Forte
+
       </button>
 
     </div>
+
   `;
 
-  window.scrollTo(0,0);
 }
 
 function generateDpi(profile){
 
-  saveFlowStep("dpi",showDpiProfiles);
+  saveFlowStep(
+    "dpi",
+    showDpiProfiles
+  );
 
   let currentDpiValue;
 
   if(profile === "Baixa"){
-    currentDpiValue = random(440,680);
+
+    currentDpiValue =
+      random(440,680);
+
   }
 
   if(profile === "Média"){
-    currentDpiValue = random(700,850);
+
+    currentDpiValue =
+      random(700,850);
+
   }
 
   if(profile === "Alta"){
-    currentDpiValue = random(920,1400);
+
+    currentDpiValue =
+      random(920,1400);
+
   }
 
   const values = {
-    ["DPI " + profile]: currentDpiValue
+
+    ["DPI "+profile]:
+      currentDpiValue
+
   };
 
   const favId =
     "dpi-"+Date.now();
 
-  document.getElementById("dpiPhone").innerHTML = `
-    <div style="margin-top:15px">
+  document.getElementById(
+    "dpiPhone"
+  ).innerHTML = `
+
+    <div
+      style="margin-top:15px">
 
       ${resultHTML(
         "DPI Android",
@@ -2414,10 +3615,11 @@ function generateDpi(profile){
       )}
 
     </div>
+
   `;
 
-  window.scrollTo(0,0);
 }
+
 
 /* =========================================================
    OTIMIZAÇÃO
@@ -2425,87 +3627,145 @@ function generateDpi(profile){
 
 function renderOptimizationSystem(){
 
-  document.getElementById("optimizationPhone").innerHTML = `
-    <div class="section-label">SISTEMA</div>
+  document.getElementById(
+    "optimizationPhone"
+  ).innerHTML = `
+
+    <div class="section-label">
+      SISTEMA
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="optimizationSystem('Android')">
+
         Android
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="optimizationSystem('iPhone')">
+
         iPhone
+
       </button>
 
     </div>
+
   `;
+
 }
 
 function optimizationSystem(system){
 
-  saveFlowStep("optimization",renderOptimizationSystem);
+  saveFlowStep(
+    "optimization",
+    renderOptimizationSystem
+  );
 
-  choosePhoneSystem("optimization",system);
+  choosePhoneSystem(
+    "optimization",
+    system
+  );
+
 }
 
 function showOptimizationGame(model){
 
-  window.optimizationPhone = model;
+  window.optimizationPhone =
+    model;
 
-  saveFlowStep("optimization",function(){
+  saveFlowStep(
+    "optimization",
+    function(){
 
-    choosePhoneSystem(
-      "optimization",
-      "Android"
-    );
+      choosePhoneSystem(
+        "optimization",
+        "Android"
+      );
 
-  });
+    }
+  );
 
-  document.getElementById("optimizationPhone").innerHTML = "";
+  document.getElementById(
+    "optimizationPhone"
+  ).innerHTML = "";
 
-  document.getElementById("optimizationGame").innerHTML = `
-    <div class="section-label">ESCOLHA O JOGO</div>
+  document.getElementById(
+    "optimizationGame"
+  ).innerHTML = `
+
+    <div class="section-label">
+      ESCOLHA O JOGO
+    </div>
 
     <div class="option-grid">
 
-      <button class="option"
+      <button
+        class="option"
         onclick="startOptimization('Free Fire')">
+
         Free Fire
+
       </button>
 
-      <button class="option"
+      <button
+        class="option"
         onclick="startOptimization('Free Fire MAX')">
+
         Free Fire MAX
+
       </button>
 
     </div>
+
   `;
 
-  window.scrollTo(0,0);
 }
 
 function startOptimization(game){
 
-  saveFlowStep("optimization",function(){
-    showOptimizationGame(window.optimizationPhone);
-  });
+  saveFlowStep(
+    "optimization",
+    function(){
 
-  document.getElementById("optimizationGame").innerHTML = "";
-  document.getElementById("optimizationPhone").innerHTML = "";
+      showOptimizationGame(
+        window.optimizationPhone
+      );
+
+    }
+  );
+
+  document.getElementById(
+    "optimizationGame"
+  ).innerHTML = "";
+
+  document.getElementById(
+    "optimizationPhone"
+  ).innerHTML = "";
 
   const result =
-    document.getElementById("optimizationResult");
+    document.getElementById(
+      "optimizationResult"
+    );
 
   result.innerHTML = `
+
     <div class="optimization-box">
 
-      <div class="progress-ring" id="progressRing">
+      <div
+        class="progress-ring"
+        id="progressRing">
 
         <div class="progress-number">
-          <span id="progressNumber">1</span>%
+
+          <span id="progressNumber">
+            1
+          </span>%
+
         </div>
 
       </div>
@@ -2538,8 +3798,9 @@ function startOptimization(game){
 
       </div>
 
-      <div class="optimization-complete"
-           id="optimizationComplete">
+      <div
+        class="optimization-complete"
+        id="optimizationComplete">
 
         <div class="complete-title">
           OTIMIZAÇÃO CONCLUÍDA
@@ -2553,30 +3814,42 @@ function startOptimization(game){
           class="primary-btn"
           style="margin-top:15px"
           onclick="activateGame('${game}')">
+
           ATIVAR
+
         </button>
 
       </div>
 
     </div>
+
   `;
 
   runOptimization();
+
 }
 
 function runOptimization(){
 
   const number =
-    document.getElementById("progressNumber");
+    document.getElementById(
+      "progressNumber"
+    );
 
   const ring =
-    document.getElementById("progressRing");
+    document.getElementById(
+      "progressRing"
+    );
 
   const lines =
-    document.querySelectorAll(".loading-line");
+    document.querySelectorAll(
+      ".loading-line"
+    );
 
   const complete =
-    document.getElementById("optimizationComplete");
+    document.getElementById(
+      "optimizationComplete"
+    );
 
   let progress = 1;
 
@@ -2586,12 +3859,16 @@ function runOptimization(){
       progress++;
 
       if(number){
-        number.textContent = progress;
+
+        number.textContent =
+          progress;
+
       }
 
       if(ring){
 
         ring.style.background =
+
           `radial-gradient(circle,#0c0c0c 57%,transparent 58%),
            conic-gradient(#8b32ff ${progress*3.6}deg,#222 ${progress*3.6}deg)`;
 
@@ -2603,34 +3880,60 @@ function runOptimization(){
           Math.floor(progress/17)
         );
 
-      lines.forEach(function(line,index){
+      lines.forEach(
+        function(line,index){
 
-        if(index < lineIndex){
-          line.classList.remove("active");
-          line.classList.add("done");
+          if(index < lineIndex){
+
+            line.classList.remove(
+              "active"
+            );
+
+            line.classList.add(
+              "done"
+            );
+
+          }
+
+          if(index === lineIndex){
+
+            line.classList.add(
+              "active"
+            );
+
+          }
+
         }
-
-        if(index === lineIndex){
-          line.classList.add("active");
-        }
-
-      });
+      );
 
       if(progress >= 100){
 
-        clearInterval(interval);
+        clearInterval(
+          interval
+        );
 
-        lines.forEach(function(line){
+        lines.forEach(
+          function(line){
 
-          line.classList.remove("active");
-          line.classList.add("done");
+            line.classList.remove(
+              "active"
+            );
 
-        });
+            line.classList.add(
+              "done"
+            );
 
-        complete.classList.add("show");
+          }
+        );
+
+        complete.classList.add(
+          "show"
+        );
+
       }
 
     },35);
+
 }
 
 function activateGame(game){
@@ -2640,7 +3943,8 @@ function activateGame(game){
     ? "freefire://"
     : "freefiremax://";
 
-  window.location.href = url;
+  window.location.href =
+    url;
 
   setTimeout(function(){
 
@@ -2657,7 +3961,9 @@ function activateGame(game){
     }
 
   },1200);
+
 }
+
 
 /* =========================================================
    FAVORITOS
@@ -2668,7 +3974,9 @@ function getFavorites(){
   try{
 
     return JSON.parse(
-      localStorage.getItem("rlq_favorites") || "[]"
+      localStorage.getItem(
+        "rlq_favorites"
+      ) || "[]"
     );
 
   }catch(e){
@@ -2676,6 +3984,7 @@ function getFavorites(){
     return [];
 
   }
+
 }
 
 function saveFavorites(list){
@@ -2684,33 +3993,48 @@ function saveFavorites(list){
     "rlq_favorites",
     JSON.stringify(list)
   );
+
 }
 
 function toggleFavorite(id){
 
   const button =
-    document.getElementById("fav-"+id);
+    document.getElementById(
+      "fav-"+id
+    );
 
   let favorites =
     getFavorites();
 
   const existing =
-    favorites.find(function(item){
-      return item.id === id;
-    });
+    favorites.find(
+      function(item){
+
+        return item.id === id;
+
+      }
+    );
 
   if(existing){
 
     favorites =
-      favorites.filter(function(item){
-        return item.id !== id;
-      });
+      favorites.filter(
+        function(item){
 
-    saveFavorites(favorites);
+          return item.id !== id;
+
+        }
+      );
+
+    saveFavorites(
+      favorites
+    );
 
     if(button){
 
-      button.classList.remove("saved");
+      button.classList.remove(
+        "saved"
+      );
 
       button.textContent =
         "☆ ADICIONAR AOS FAVORITOS";
@@ -2718,57 +4042,88 @@ function toggleFavorite(id){
     }
 
     return;
+
   }
 
   let title =
     "Configuração rlqsensi";
 
   if(id.startsWith("famous-")){
-    title = "Sensi dos Famosos";
+
+    title =
+      "Sensi dos Famosos";
+
   }
 
   if(id.startsWith("custom-")){
-    title = "Sensi Personalizada";
+
+    title =
+      "Sensi Personalizada";
+
   }
 
   if(id.startsWith("weapon-")){
-    title = "Sensibilidade por Arma";
+
+    title =
+      "Sensibilidade por Arma";
+
   }
 
   if(id.startsWith("special-")){
-    title = "Sensi Especial";
+
+    title =
+      "Sensi Especial";
+
   }
 
   if(id.startsWith("cursor-")){
-    title = "Cursor Móvel";
+
+    title =
+      "Cursor Móvel";
+
   }
 
   if(id.startsWith("dpi-")){
-    title = "DPI Android";
+
+    title =
+      "DPI Android";
+
   }
 
   favorites.push({
+
     id:id,
+
     title:title,
-    date:new Date().toLocaleString("pt-BR")
+
+    date:new Date()
+      .toLocaleString("pt-BR")
+
   });
 
-  saveFavorites(favorites);
+  saveFavorites(
+    favorites
+  );
 
   if(button){
 
-    button.classList.add("saved");
+    button.classList.add(
+      "saved"
+    );
 
     button.textContent =
       "★ SALVO NOS FAVORITOS";
 
   }
+
 }
 
 function renderFavorites(){
 
   const box =
-    document.getElementById("favoriteContent");
+    document.getElementById(
+      "favoriteContent"
+    );
 
   const favorites =
     getFavorites();
@@ -2776,11 +4131,16 @@ function renderFavorites(){
   if(!favorites.length){
 
     box.innerHTML = `
+
       <div class="empty">
 
-        <div class="empty-icon">⭐</div>
+        <div class="empty-icon">
+          ⭐
+        </div>
 
-        <h3>Nenhum favorito ainda</h3>
+        <h3>
+          Nenhum favorito ainda
+        </h3>
 
         <p>
           Salve suas configurações usando o botão
@@ -2788,62 +4148,502 @@ function renderFavorites(){
         </p>
 
       </div>
+
     `;
 
     return;
+
   }
 
   box.innerHTML = `
+
     <div class="favorite-list">
 
-      ${favorites.map(function(item){
+      ${favorites.map(
+        function(item){
 
-        return `
-          <div class="favorite-item">
+          return `
 
-            <div>
-              <strong>${item.title}</strong>
-              <small>${item.date}</small>
+            <div class="favorite-item">
+
+              <div>
+
+                <strong>
+                  ${item.title}
+                </strong>
+
+                <small>
+                  ${item.date}
+                </small>
+
+              </div>
+
+              <button
+                class="remove-fav"
+                onclick="removeFavorite('${item.id}')">
+
+                🗑
+
+              </button>
+
             </div>
 
-            <button
-              class="remove-fav"
-              onclick="removeFavorite('${item.id}')">
-              🗑
-            </button>
+          `;
 
-          </div>
-        `;
-
-      }).join("")}
+        }
+      ).join("")}
 
     </div>
+
   `;
+
 }
 
 function removeFavorite(id){
 
   const favorites =
-    getFavorites().filter(function(item){
-      return item.id !== id;
-    });
+    getFavorites()
+      .filter(
+        function(item){
 
-  saveFavorites(favorites);
+          return item.id !== id;
+
+        }
+      );
+
+  saveFavorites(
+    favorites
+  );
 
   renderFavorites();
+
 }
+
+
+/* =========================================================
+   DÚVIDAS COMUNS
+========================================================= */
+
+let faqSystem = "";
+
+const faqQuestions = [
+
+  {
+    id:"pinando",
+    icon:"🎯",
+    title:"Sensi pinando",
+    sub:"A mira está grudando ou passando demais."
+  },
+
+  {
+    id:"capa",
+    icon:"⬆️",
+    title:"Sensi não sobe capa",
+    sub:"A puxada não consegue subir."
+  },
+
+  {
+    id:"tremendo",
+    icon:"📳",
+    title:"Sensi tremendo",
+    sub:"A mira fica instável durante o movimento."
+  },
+
+  {
+    id:"passando",
+    icon:"🎯",
+    title:"Mira passa da cabeça",
+    sub:"A mira ultrapassa o alvo."
+  },
+
+  {
+    id:"pesada",
+    icon:"🐌",
+    title:"Mira muito pesada",
+    sub:"A mira parece lenta."
+  },
+
+  {
+    id:"rapida",
+    icon:"⚡",
+    title:"Mira rápida demais",
+    sub:"Está difícil controlar a mira."
+  },
+
+  {
+    id:"puxada",
+    icon:"🔫",
+    title:"Puxada não acompanha",
+    sub:"A mira não acompanha seu movimento."
+  },
+
+  {
+    id:"reddot",
+    icon:"🔴",
+    title:"Red Dot ruim",
+    sub:"Problemas especificamente na Red Dot."
+  },
+
+  {
+    id:"miras",
+    icon:"🔭",
+    title:"2x/4x descontrolada",
+    sub:"As miras ampliadas estão difíceis."
+  },
+
+  {
+    id:"atualizacao",
+    icon:"📱",
+    title:"Sensi mudou após atualização",
+    sub:"A configuração parece diferente."
+  }
+
+];
+
+
+/* =========================================================
+   RESPOSTAS ANDROID
+========================================================= */
+
+const faqAndroid = {
+
+  pinando:{
+    icon:"🎯",
+    title:"Sensi pinando",
+    text:"Quando a mira está pinando, tente reduzir a sensibilidade Geral e a Ponto Vermelho aos poucos. Faça pequenas alterações e teste novamente.",
+    tip:"Não altere todas as sensibilidades de uma vez. Mude uma configuração, teste e depois ajuste outra."
+  },
+
+  capa:{
+    icon:"⬆️",
+    title:"Sensi não sobe capa",
+    text:"Se a puxada não está subindo, experimente aumentar levemente a Geral. Se o problema estiver principalmente na mira, ajuste também a Ponto Vermelho.",
+    tip:"Faça alterações pequenas. Uma sensibilidade muito alta também pode fazer a mira passar do alvo."
+  },
+
+  tremendo:{
+    icon:"📳",
+    title:"Sensi tremendo",
+    text:"Uma sensibilidade muito alta pode deixar pequenos movimentos do dedo mais perceptíveis. Tente reduzir a Geral e a Ponto Vermelho gradualmente.",
+    tip:"Também confira se a película ou o toque da tela está interferindo na precisão."
+  },
+
+  passando:{
+    icon:"🎯",
+    title:"Mira passa da cabeça",
+    text:"Se a mira ultrapassa o alvo durante a puxada, tente diminuir um pouco a Geral ou a Ponto Vermelho.",
+    tip:"Teste primeiro uma redução pequena e compare no treinamento."
+  },
+
+  pesada:{
+    icon:"🐌",
+    title:"Mira muito pesada",
+    text:"Se a mira parece lenta para acompanhar o movimento, aumente a Geral gradualmente.",
+    tip:"Evite aumentar muito de uma vez para não perder o controle."
+  },
+
+  rapida:{
+    icon:"⚡",
+    title:"Mira rápida demais",
+    text:"Reduza a Geral e, se necessário, a Ponto Vermelho. O objetivo é encontrar um valor em que você consiga acompanhar o alvo sem perder o controle.",
+    tip:"Teste com movimentos curtos e longos."
+  },
+
+  puxada:{
+    icon:"🔫",
+    title:"Puxada não acompanha",
+    text:"Experimente ajustar a Geral primeiro. Se o problema acontece somente durante a mira, faça um pequeno ajuste na Ponto Vermelho.",
+    tip:"A técnica e a velocidade do movimento do dedo também influenciam."
+  },
+
+  reddot:{
+    icon:"🔴",
+    title:"Red Dot ruim",
+    text:"Se a Red Dot está difícil de controlar, ajuste somente essa sensibilidade primeiro.",
+    tip:"Mantenha a Geral igual durante o teste."
+  },
+
+  miras:{
+    icon:"🔭",
+    title:"Mira 2x/4x descontrolada",
+    text:"Faça o ajuste específico da mira que está apresentando o problema. Evite mudar Geral, Red Dot, 2x e 4x simultaneamente.",
+    tip:"Teste primeiro a mira que você mais utiliza."
+  },
+
+  atualizacao:{
+    icon:"📱",
+    title:"Sensi mudou depois da atualização",
+    text:"Atualizações do jogo ou do sistema podem alterar a sensação do toque. Refaça os testes antes de mudar drasticamente sua configuração.",
+    tip:"Anote sua configuração anterior para conseguir comparar."
+  }
+
+};
+
+
+/* =========================================================
+   RESPOSTAS IOS
+========================================================= */
+
+const faqIOS = {
+
+  pinando:{
+    icon:"🎯",
+    title:"Sensi pinando",
+    text:"No iPhone, experimente diminuir a Geral e a Ponto Vermelho gradualmente. Faça o teste mantendo as outras configurações iguais.",
+    tip:"No iOS, pequenas mudanças podem fazer diferença na sensação da mira."
+  },
+
+  capa:{
+    icon:"⬆️",
+    title:"Sensi não sobe capa",
+    text:"Tente aumentar a Geral aos poucos. Se a dificuldade aparece principalmente durante a mira, faça um pequeno ajuste na Ponto Vermelho.",
+    tip:"Teste a puxada com movimentos curtos antes de aumentar muito a sensibilidade."
+  },
+
+  tremendo:{
+    icon:"📳",
+    title:"Sensi tremendo",
+    text:"Reduza gradualmente a Geral ou a Ponto Vermelho. Se o toque estiver muito sensível, procure uma configuração que permita movimentos mais controlados.",
+    tip:"Também vale conferir se a tela está limpa e se a película está afetando o toque."
+  },
+
+  passando:{
+    icon:"🎯",
+    title:"Mira passa da cabeça",
+    text:"Diminua levemente a Geral e teste novamente. Se o problema aparece somente usando Red Dot, ajuste essa configuração separadamente.",
+    tip:"Evite fazer grandes mudanças entre um teste e outro."
+  },
+
+  pesada:{
+    icon:"🐌",
+    title:"Mira muito pesada",
+    text:"Aumente a Geral gradualmente até encontrar um movimento confortável.",
+    tip:"Faça o teste no mesmo ambiente e com a mesma técnica de puxada."
+  },
+
+  rapida:{
+    icon:"⚡",
+    title:"Mira rápida demais",
+    text:"Diminua a Geral e, caso necessário, a Ponto Vermelho. Procure um equilíbrio entre velocidade e controle.",
+    tip:"Uma sensibilidade menor pode facilitar movimentos mais precisos."
+  },
+
+  puxada:{
+    icon:"🔫",
+    title:"Puxada não acompanha",
+    text:"Comece ajustando a Geral. Se a puxada estiver boa fora da mira, mas ruim durante a mira, ajuste a Ponto Vermelho.",
+    tip:"A velocidade e o comprimento do movimento do dedo também fazem diferença."
+  },
+
+  reddot:{
+    icon:"🔴",
+    title:"Red Dot ruim",
+    text:"Altere somente a Ponto Vermelho em pequenos passos e teste novamente.",
+    tip:"Mantenha a Geral igual durante o teste para descobrir qual configuração fez diferença."
+  },
+
+  miras:{
+    icon:"🔭",
+    title:"Mira 2x/4x descontrolada",
+    text:"Ajuste individualmente a mira que está causando o problema. Evite modificar todas as configurações ao mesmo tempo.",
+    tip:"Teste primeiro a mira que você mais utiliza."
+  },
+
+  atualizacao:{
+    icon:"📱",
+    title:"Sensi mudou depois da atualização",
+    text:"Depois de uma atualização, a sensação do toque ou da mira pode parecer diferente. Teste novamente antes de substituir completamente sua configuração.",
+    tip:"Anote sua configuração anterior para conseguir comparar."
+  }
+
+};
+
+
+function renderFAQ(){
+
+  faqSystem = "";
+
+  const box =
+    document.getElementById(
+      "faqContent"
+    );
+
+  box.innerHTML = `
+
+    <div class="section-label">
+      ESCOLHA SEU SISTEMA
+    </div>
+
+    <div class="option-grid">
+
+      <button
+        class="option"
+        onclick="selectFAQSystem('Android')">
+
+        🤖 Android
+
+      </button>
+
+      <button
+        class="option"
+        onclick="selectFAQSystem('iOS')">
+
+         iOS
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+function selectFAQSystem(system){
+
+  faqSystem =
+    system;
+
+  renderFAQQuestions();
+
+}
+
+function renderFAQQuestions(){
+
+  const box =
+    document.getElementById(
+      "faqContent"
+    );
+
+  box.innerHTML = `
+
+    <button
+      class="back-btn"
+      onclick="renderFAQ()">
+
+      ← Trocar sistema
+
+    </button>
+
+    <div class="section-label">
+
+      SISTEMA:
+      ${faqSystem.toUpperCase()}
+
+    </div>
+
+    <div class="option-grid">
+
+      ${faqQuestions.map(
+        function(question){
+
+          return `
+
+            <button
+              class="option faq-question"
+              onclick="showFAQAnswer('${question.id}')">
+
+              <div class="faq-question-icon">
+
+                ${question.icon}
+
+              </div>
+
+              <div class="faq-question-text">
+
+                <strong>
+                  ${question.title}
+                </strong>
+
+                <span>
+                  ${question.sub}
+                </span>
+
+              </div>
+
+            </button>
+
+          `;
+
+        }
+      ).join("")}
+
+    </div>
+
+    <div id="faqAnswer"></div>
+
+  `;
+
+}
+
+function showFAQAnswer(id){
+
+  const database =
+    faqSystem === "Android"
+    ? faqAndroid
+    : faqIOS;
+
+  const answer =
+    database[id];
+
+  if(!answer){
+    return;
+  }
+
+  document.getElementById(
+    "faqAnswer"
+  ).innerHTML = `
+
+    <div class="faq-answer">
+
+      <h3>
+        ${answer.icon}
+        ${answer.title}
+      </h3>
+
+      <p>
+        ${answer.text}
+      </p>
+
+      <div class="faq-tip">
+
+        💡 ${answer.tip}
+
+      </div>
+
+      <div class="faq-note">
+
+        As recomendações são orientações gerais.
+        Teste pequenas alterações e mantenha anotada
+        sua configuração anterior.
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
 
 /* =========================================================
    INICIALIZAÇÃO
 ========================================================= */
 
 renderPlayers();
+
 renderCustomSystem();
+
 renderWeapons();
+
 renderCursorSystem();
+
 renderDpiBrands();
+
 renderOptimizationSystem();
+
 renderFavorites();
+
+renderFAQ();
 
 </script>
 
